@@ -1,0 +1,123 @@
+<!-- 连线样式 -->
+<style bmClassId="L3_LINK2" color="0x003D79" width="1">
+        <deshed>[5,5,5,5]</deshed>
+        <labelColor />
+        <labelFontSize />
+        <remark>虚线</remark>
+</style>
+<style bmClassId="L2_LINK" color="0x006000" width="1">
+        <deshed />
+        <labelColor />
+        <labelFontSize />
+        <remark>实线</remark>
+</style>
+
+
+<!-- 节点样式 -->
+<style bmClassId="PTP">
+        <icon>/resources/topo/trans/base/ddfport.png</icon>
+        <fontColor />
+        <fontSize />
+        <remark>PTP图标</remark>
+</style>
+
+
+
+
+
+
+<!-- 隧道 -->
+http://localhost:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_tunnel.jsp?
+code=PtnTunnel&&resId=ATTEMP_PTN_PATH-4028989b58f67c100158f7c93f89003b&resType=ATTEMP_PTN_PATH_CUID
+
+http://192.168.24.27:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_hb.jsp?
+code=tnmsPTNLte&resId=TRAPH-4028988d54e6cf790154e8445d04005a&resType=LTE&userId=doraemon&source=1
+
+
+<!--电路拓扑含有隧道信息-->
+
+http://localhost:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_traph.jsp?
+code=TRAPH&resId=ATTEMP_TRAPH-4028819056ba651a0156f7ff1a1003c5&resType=TRAPHCUID&userId=doraemon&source=1
+
+
+			ATTEMP_TRAPH-4028819056ba651a0156f7ff1a1003c5/荆州-江汉FE0001CNPTN
+			ATTEMP_TRAPH-4028989b58f67c100158f7c6830b0029/武汉关南-武汉常青30N3160/λ/P端口
+			ATTEMP_TRAPH-4028989b58fca5fb0158fca5fb5a0000/武汉关南-武汉常青30N3161/λ/P通道
+			ATTEMP_TRAPH-4028989b58fca5fb0158fcb948ab002e/武汉关南-武汉常青30N3162/P波分
+			ATTEMP_TRAPH-4028989b58fca5fb0158fcbdbff80045/武汉关南-武汉常青30N3163
+			ATTEMP_TRAPH-4028819058ddd71c015914afd03c028e/武汉关南-武汉常青30N3170
+
+
+
+
+
+<!-- 含有转折点 -->
+
+
+http://localhost:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_traph.jsp?
+code=TRAPH&resId=ATTEMP_TRAPH-4028819056ba651a0156f7ff1a1003c5&resType=TRAPHCUID
+
+
+
+
+
+
+
+
+http://localhost:8081/irms.service.topo.traph/topoHtml5Client/topoMainTraph.jsp?
+code=PtnTunnel&&resId=ATTEMP_PTN_PATH-4028989b58f67c100158f7558dd50021&resType=ATTEMP_PTN_PATH_CUID
+
+
+
+
+
+
+PTN
+ATTEMP_TRAPH-4028819056ba651a0156f7ff1a1003c5
+SDH
+ATTEMP_TRAPH-4028989b58f67c100158f7c6830b0029    端口
+ATTEMP_TRAPH-4028989b58fca5fb0158fca5fb5a0000    通道
+WDM
+ATTEMP_TRAPH-4028989b58fca5fb0158fcb948ab002e
+
+
+
+通道
+http://localhost:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_traph.jsp?
+code=TRAPH&resId=ATTEMP_TRAPH-4028989b58fca5fb0158fca5fb5a0000
+&resType=TRAPHCUID&userId=doraemon&source=1
+
+端口（无备份）
+http://localhost:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_traph.jsp?
+code=TRAPH&resId=ATTEMP_TRAPH-4028989b58f67c100158f7c6830b0029
+&resType=TRAPHCUID&userId=doraemon&source=1
+
+<!-- 站点路由图 -->
+http://localhost:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_site.jsp?
+code=siteRoute&resId=T_SERVICE_GROUP-402880725287407601528b555393004e
+&resType=ATTEMP_LTE&userId=doraemon&source=1
+
+<!-- 通道路由图 -->
+
+http://localhost:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_chan.jsp?
+code=transChanRoute&resId=TRANS_PATH-8a9aea4118f8fde6011907eefeb87184
+&resType=TRANS_PATN_ID
+
+
+topo_tnms_chan.jsp
+
+
+http://localhost:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_traphView.jsp?
+code=transChanRoute&resId=TRANS_PATH-8a9aea4118f8fde6011907eefeb87184&resType=TransPathId
+
+
+
+platform.topo包路径权限
+
+https://182.18.57.4/svn/NEXT/trunk/irms.platform/irms.platform.topo
+
+
+三层路由
+
+http://192.168.24.27:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_hb.jsp?
+code=tnmsPTNLte&resId=TRAPH-4028988d54e6cf790154e8445d04005a&resType=LTE&userId=doraemon&source=1

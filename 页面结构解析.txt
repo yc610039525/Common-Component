@@ -1,0 +1,14 @@
+web.xml===>index.jsp
+====>netGuards.jsp====>banner.jsp(bar===>session[tree])==>setTimeout[handler]
+==>初始化(ExplorerFramePanel.jsp)===>解析json===>激活第一页
+==>body.jsp/foot.jsp
+
+Sys_Menu.findMenuTreeByParentCuid
+
+T_SYS_P_MENU
+
+http://localhost/TNMS/jsp/framework/framework_dict.json
+
+http://localhost/TNMS/jsp/flow/PaddingGridPanel.jsp?code=service_dict_flow.FLOW_WORKING&timestamp=1493128323000
+
+
