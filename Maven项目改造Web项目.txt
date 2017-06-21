@@ -1,0 +1,21 @@
+org.eclipse.wst.common.project.facet.core.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<faceted-project>
+  <fixed facet="wst.jsdt.web"/>
+  <installed facet="java" version="1.6"/>
+  <installed facet="jst.web" version="3.0"/>
+  <installed facet="wst.jsdt.web" version="1.0"/>
+</faceted-project>
+
+org.eclipse.wst.common.component
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="irms.app.sfhb">
+				<wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+				<wb-resource deploy-path="/" source-path="/src/main/resources/META-INF/resources"/>
+        <property name="java-output-path" value="/irms.app.sfhb/target/classes"/>
+        <property name="context-root" value="/irms.app.sfhb"/>
+    </wb-module>
+</project-modules>
+
+-Xms1g -Xmx1g -Xmn64m -XX:PermSize=256m -XX:MaxPermSize=256m

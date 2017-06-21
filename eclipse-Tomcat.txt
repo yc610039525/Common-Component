@@ -1,0 +1,8 @@
+
+Window-Preferences
+	myeclipse-servers
+		Tomcat
+			home
+			D:\apache-tomcat-7.0.57
+			jdk
+			-Xms1024M -Xmx1024M -XX:PermSize=512M -XX:MaxPermSize=512M

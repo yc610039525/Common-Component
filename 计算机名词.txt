@@ -1,0 +1,4155 @@
+(2,7)码||(2,7) code; 全称“(2,7)行程长度受限码”。
+0 型文法||0-type grammar
+0型语言||type 0 language
+1 型文法||1-type grammar
+1/4英寸盒式磁带||quarter inch cartridge tape, QIC
+1型语言||type 1 language
+2 型文法||2-type grammar
+2000年问题||Year 2000 Problem, Y2K
+2型语言||type 2 language
+3 型文法||3-type grammar
+3C 模型||three Cs model
+3C模型||concept, content and context 3C; 3C指概念、内容和语境。
+3型语言||type 3 language
+3元可满足性||three-satisfiability
+ALGOL 60语言||ALGOrithmic Language, ALGOL 60
+ALGOL 68语言||ALGOL 68
+APL语言||A Programming Language, APL
+APT语言||Automatically Programmed Tools, APT
+ATM反向复用||ATM inverse multiplexing
+ATM交换机||asynchronous transfer mode switch, ATM switch
+ATM上的多协议||multiprotocol over ATM, MPOA
+ATM上的网际协议||internet protocol over ATM, IPOA
+ATM适配层||ATM adaption layer, AAL
+Ada语言||Ada
+Alpha语言||Alpha
+B 树||B tree
+B 样条曲面||B-spline surface
+B 样条曲线||B-spline curve
+B+ 树||B+ tree
+BASIC语言||Beginner's All-purpose Symbolic Instruction Code, BASIC
+BCPL语言||Bootstrap Combined Programming language, BCPL
+BC范式||BC normal form, BCFN
+BLISS语言||Basic Language for Implementation of System Software, BLISS
+B样条||B-spline
+C++语言||C++
+CHILL语言||CHILL
+COBOL语言||COmmon Business-Oriented language, COBOL
+CYK算法||CYK algorithm
+Common LISP语言||Common LISP
+C语言||C
+DS理论||Dempster-Shafer theory
+DTE轮廓指定符||DTE profile designator
+DTE身份||DTE identity
+Delphi语言||Delphi
+Eiffel语言||Eiffel
+FORTRAN 77语言||FORTRAN 77
+FORTRAN语言||FORTRAN, FORmula TRANslator
+Forth语言||Forth
+Fortran 90/95语言||Fortran 90/95; 从Fortran 90开始，规定只有F大写，其它字母小写。
+H无穷辨识||H ∞ identification
+IEEE 754浮点标准||IEEE 754 floating-point standard
+IP数据报||IP datagram
+ISDN网标识码||ISDN network identification code
+JOVIAL语言||Jules' Own Version of International Algorithmic language, JOVIAL
+JPEG[静止图像压缩]标准||Joint Photographic Experts Group, JPEG; JPEG专家组制定的标准。
+Java本地接口||Java native interface
+Java编译程序||Java compiler
+Java操作系统||Java OS
+Java基础类[库]||Java foundation class
+Java脚本||Java script
+Java解释程序||Java interpreter
+Java开发工具箱||Java development kit
+Java快速编译程序||Java flash compiler
+Java数据库连接||Java DataBase Connectivity, JDBC
+Java小应用程序||Java applet
+Java芯片||Java chip
+Java虚拟机||Java virtual machine, JVM
+Java应用||Java application
+Java语言||Java
+Java组件||Java bean
+KMP算法||KMP algorithm
+K稠密性||K-dense
+K有界网||K-bounded net
+LISP机||LISP machine
+LISP语言||LIS Processing, LISP
+LOGO语言||LOGO
+LR(0)文法||LR(0) grammar
+LR(k)文法||LR(k) grammar
+Lex语言||LEX, Lex
+Linux操作系统||Linux
+ML语言||Meta Language, ML
+MPEG[运动图像压缩]标准||Motion Picture Experts Group, MPEG; MPEG专家组制定的标准。
+MUMPS语言||Massachusetts general hospital Utility Multi-Programming System, MUMPS
+Modula 2 语言||MODULA Ⅱ, Modula 2, MODUlar LAnguage Ⅱ
+N-元||N-ary
+NELIAC语言||Navy Electronics Laboratory International Algorithmic Compiler, NELIAC
+NP困难问题||NP-hard problem
+NP完全问题||NP-complete problem
+N版本编程||N-version programming
+N稠密性||N-dense
+N模冗余||N-modular redundancy, NMR
+N体问题||N-body problem
+OPS 5 语言||Official Production System 5, OPS 5
+OS/2 操作系统||operating system/2, OS/2
+Occam语言||Occam
+PCI局部总线||peripheral component interconnection local bus
+PCMCIA卡||PCMCIA card
+PL/1 语言||Programming Language/1, PL/1
+PMC诊断模型||PMC model
+Pascal语言||Pascal
+Prolog语言||PROgramming in LOGic, PROLOG, Prolog
+P完全问题||P-complete problem
+SDL语言||Specification and Description Language, SDL
+SNOBOL语言||StriNg-Oriented symBOlic Language, SNOBOL
+Simula语言||Simula
+Smalltalk语言||Smalltalk
+S不变量[式]||S-invariant
+S完备化||S completion
+TCP/IP协议||transmission control protocol/internet protocol, TCP/IP
+TeX语言||TeX
+T不变量[式]||T-invariant
+T完备化||T-completion
+UNIX操作系统||UNIX; 美国AT&T公司1971年在PDP-11上运行的操作系统
+UNIX命令解释程序||UNIX Shell
+VLSI并行算法||VLSI parallel algorithm; “VLSI”意为“超大规模集成电路”。
+Web文件系统||Web file system
+X.509公钥构架||public key infrastructure x.509, PKIX
+YACC语言||Yet Another Compiler Compiler, YACC
+Z缓冲器算法||Z-buffer algorithm
+[按]名调用||call by name; 又称“换名”。
+[按]值调用||call by value; 又称“传值”。
+[插件]边缘连接器||edge connector
+[成]组地址||group address
+[成]组进位||group carry
+[传输]线畸变||line distortion
+[磁]盘驱动器||magnetic disk drive; 简称“盘驱”。
+[磁盘]记录块||fragmentation
+[磁盘]小车||carriage
+[存储]单元||cell
+[存储]体||bank; 由若干单元组成。
+[打印机]托架||carriage
+[代]码||code
+[分]情况语句||case statement
+[观察]允许角||acceptance angle
+[汉]字码表||code list of Hanzi
+[会议]召集人||convenor
+[会议]主持人||conductor
+[计算机]黑客||hacker
+[键]码||key
+[经]认可的运营机构||recognized operating agency, ROA
+[空]闲||idle
+[列]表||list
+[人为]干扰信号||jam signal
+[输]出度||output degree
+[输]入度||input degree
+[宿]主机||host machine
+[宿]主语言||host language
+[万维]网[地]址||Web address
+[万维]网页||Web page
+[相]邻层||adjacent layer
+[信号]源阻抗||source impedance
+[行首]缩进||indentation
+[阅]读任务||reading task
+[运行]日志||log
+[自]适应学习||adaptive learning
+[自]适应子波||adaptive wavelet
+[字符]串匹配||string matching
+k连通度||k-connectivity
+n 叉树||n-ary tree
+n立方体网||n-cube network
+n元语法||n-gram
+q维网格||q-dimensional lattice
+roff语言||roff; 一种正文格式语言。
+ＸＹ绘图机||X-Y plotter
+α-β剪枝||α-β pruning
+α测试||alpha test
+β测试||beta test
+λ演算||λ-calculus
+阿姆达尔定律||Amdahl's law
+阿姆斯特朗公理||Armstrong axioms
+埃尔布朗基||Herbrand base
+埃尔米特函数||Hermite function
+安全[性]||security
+安全标号||security label
+安全操作系统||secure operating system
+安全策略||security policy
+安全措施||security measure
+安全等级||security level
+安全电子交易||secure electronic transaction, SET
+安全功能评估||secure function evaluation
+安全过滤器||security filter
+安全检查||security inspection
+安全控制||security control
+安全类||security class
+安全路由器||secure router
+安全模型||security model
+安全内核||secure kernel
+安全认证授权||safety certification authority
+安全审计||security audit
+安全识别||secure identification
+安全事件||security event
+安全套接层||secure socket layer, SSL
+安全停机||safe shutdown
+安全网||safe net
+安全网关||secure gateway
+安全性||safeness
+安全许可||security clearance
+安全域||security domain
+安全运行模式||security operating mode
+安装||installation; mount
+安装处理控制||installation processing control
+安装和检验阶段||installation and check-out phase
+安装技术||mounting technique
+按内容存取存储器||content accessable memory
+按需知密||need-to-know
+按序||in-sequence
+按序检测||sequential detection
+按序提交||in-order commit
+按序执行||in-order execution
+凹多边形||concave polygon
+凹体||concave volume
+八叉树||octree
+八皇后问题||eight queens problem
+八进制||octal system
+八进制数字||octal digit
+八位[位]组||octet; 又称“八比特组”。
+巴克斯-诺尔形式||Backus-Naur form, BNF
+巴克斯范式||Backus normal form, BNF
+把关[定时]器||watchdog; 又称“监视定时器”。
+白板服务||whiteboard service
+白领犯罪||white-collar crime
+白体||Bai Ti
+白箱||white-box
+白箱测试||white box testing
+白消耗周期||wasted cycle
+白噪声发生器||white noise emitter
+拜占庭弹回||Byzantine resilience
+板||board
+板内时钟分配||on-card clock distribution
+板上电源分配||on-card power distribution
+板外时钟分配||off-card clock distribution
+版本||version
+版本管理||version management
+版本号||version number
+版本控制||version control
+版本升级||version upgrade
+伴随条件||side condition
+半导体存储器||semiconductor memory
+半加器||half adder
+半减器||half subtracter
+半联结||semijoin
+半色调||halftone
+半色调图像||halftone image
+半实物仿真||semi-physical simulation
+半双工传输||half-duplex transmission
+半透明||translucency
+半图厄系统||semi-thue system
+半线性集||semilinear set
+半影||penumbra
+办公过程||office process
+办公活动||office activity
+办公流程||office procedure
+办公信息系统||office information system, OIS
+办公自动化||office automation, OA
+办公自动化模型||office automation model
+帮助主体||help agent; 又称“帮手主体”。
+绑定||binding; 一个对象(或事物)与其某种属性建立起的某种联系。如:一个变量与其类型或值建立联系，
+包||package, packet
+包封||envelope
+包过滤||packet filtering
+包加密||packet encryption
+包交换||packet switching; 又称“[报文]分组交换”。
+包交换公用数据网||packet switched public data network, PSPDN; 又称“分组交换公用数据网”。
+包交换数据网||packet switched data network, PSDN; 又称“分组交换数据网”。
+包交换网||packet switching network; 又称“分组交换网”。
+包交换总线||packet switched bus
+包式终端||packet mode terminal; 又称“分组式终端”。
+包围盒||bounding box
+包围盒测试||bounding box test
+包装拆器||packet assembler/disassembler, PAD; 又称“分组装拆器”。
+薄膜||thin film
+薄膜磁盘||thin film disk, film disk
+薄膜磁头||thin film magnetic head
+薄膜电路||thin film circuit
+薄膜键盘||membrane keyboard
+薄膜晶体管[液晶]显示器||thin film transistor display
+保F映射||F-preserve mapping
+保P映射||P-preserve mapping
+保持依赖分解||dependency reserving decomposition
+保存区||save area
+保护||protection
+保护地||protected ground
+保护队列区||protected queue area
+保护方式||protected mode
+保留||reservation
+保留进位加法器||carry-save adder, CSA
+保留卷||reserved volume
+保留内存||reserved memory
+保留页选项||reserved page option
+保留站||reservation station
+保留字||reserved word
+保卫||safeguard
+保形插值||conforming interpolation
+堡垒主机||bastion host
+饱和磁记录||saturation magnetic recording
+报表||report
+报表生成程序||report generator
+报表生成语言||report generation language, RPG
+报表书写程序||report writer
+报酬分析||reward analysis
+报复性雇员||vindictive employee
+报警显示||alarm display
+报警信号||alarm signal
+报警站||beaconing station
+报文加密||message passwording
+报文鉴别||message authentication
+报文鉴别码||message authentication code, MAC
+报文交换||message switching
+报文摘译||message digest
+暴露||exposure
+背包问题||knapsack problem
+背景色||background color
+贝尔-拉帕杜拉模型||Bell-Lapadula model
+贝济埃曲面||Bezier surface
+贝济埃曲线||Bezier curve
+贝叶斯定理||Bayesian theorem
+贝叶斯分类器||Bayesian classifier
+贝叶斯分析||Bayes analysis
+贝叶斯决策方法||Bayesian decision method
+贝叶斯决策规则||Bayesian decision rule
+贝叶斯逻辑||Bayesian logic
+贝叶斯推理||Bayesian inference
+贝叶斯推理网络||Bayesian inference network
+倍密度软盘||double-density diskette
+备份||backup
+备份过程||backup procedure
+备份文件||backup file
+备份与恢复||backup and recovery
+备件||spare part
+备用||standby
+备用冗余||standby redundancy
+备用替代冗余||standby replacement redundancy
+备用系统||standby system
+被测变量||measured variable
+被调用者||callee
+被动查询||passive query
+被动威胁||passive threat
+被动站||passive station; 用于基本型规程中。
+本地地址管理||local address administration
+本地加电||local power on
+本地终端||local terminal
+本体论||ontology
+本影||umbra
+本原演绎||primitive deduction
+本质失效||inherent failure
+崩溃||crash
+泵作用引理||pumping lemma
+逼近||approximation
+比较-交换||compare-exchange
+比较并交换||compare and swap
+比较器||comparator
+比较器网络||comparator network
+比较语言学||comparative linguistics
+比例变换||scaling transformation; 又称“定比变换”。
+比例带||proportional band
+比例积分微分控制||proportional plus integral plus derivative control, PID control; 简称“PID控制”。
+比例控制||proportional control
+比值控制||ratio control
+笔画||stroke
+笔画编码||stroke coding
+笔画码||stroke code
+笔画显示||stroke display
+笔记本式计算机||notebook computer
+笔输入计算机||pen computer
+笔数||stroke count
+笔顺||stroke order
+闭包||closure
+闭合式||closed form
+闭合用户群||closed user group, CUG; 又称“封闭用户群”。
+闭环电波探测器||closed-loop radar
+闭环控制||close loop control
+必备服务||mandatory service
+避错||fault avoidance; 又称“故障避免”。
+边覆盖||edge cover
+边界||boundary
+边界表示||boundary representation
+边界错误||boundary error
+边界跟踪||boundary tracking
+边界检测||boundary detection
+边界建模||boundary modeling
+边界模型||boundary model
+边界扫描||boundary scan
+边界条件||boundary condition
+边界网关协议||border gateway protocol, BGP
+边界像素||boundary pixel
+边框||border
+边写边读||read while write, write while read
+边沿触发||edge trigging
+边缘||edge
+边缘操作||marginal operation
+边缘测试||marginal test
+边缘触发时钟||edge-triggered clocking
+边缘错觉||edge illusory
+边缘调整||justified margin
+边缘泛化||edge generalization
+边缘分割||edge segmentation
+边缘故障||edge fault, marginal fault
+边缘检测||edge detection
+边缘检验||marginal check
+边缘聚焦||edge focusing
+边缘连接||edge linking
+边缘拟合||edge fitting
+边缘匹配||edge matching
+边缘算子||edge operator
+边缘提取||edge extracting
+边缘图像||edge image
+边缘像素||edge pixel
+边缘增强||edge enhancement
+编程||programming; 又称“程序设计”。
+编程语言||programming language; 又称“程序设计语言”。
+编辑程序||editor; 又称“编辑器”。
+编解码器||codec
+编码||coding
+编码表示||coded representation
+编码方法||encoding method
+编码器||encoder
+编码效率||coding efficiency
+编码字符||coded character
+编码字符集||coded character set
+编译||compile
+编译程序||compiler; 又称“编译器”。
+编译程序的编译程序||compiler-compiler
+编译程序的生成程序||compiler generator
+编译程序规约语言||compiler specification language; 又称“申述性语言”。
+编址||addressing; 又称“定址”。
+扁平电缆||flat cable
+扁平封装||flat pack, flat package
+便笺式存储器||scratchpad memory; 又称“暂存器”。
+便携式计算机||portable computer
+变长编码||variable length coding, VLC
+变度||variance
+变更转储||change dump
+变化检测||change detection
+变换||transformation
+变换编码||transform coding
+变换处理||transformation processing
+变换分析||transform analysis
+变换规则||transformation rule
+变换旁查缓冲器||translation lookaside buffer, TLB; 又称“[地址]转换后援缓冲器”。
+变换系统||transformation system
+变换先行缓冲器||translation lookahead buffer
+变换语义||transformation semantics
+变换中心||transform center
+变焦||zooming
+变量化设计||variational design
+变流器||converter
+变频器||frequency converter
+变迁||transition
+变迁规则||transition rule
+变迁实施速率||transition firing rate
+变迁序列||transition sequence
+变迁子网||subnet of transition
+变形||morphing
+变异||mutation
+变址||index
+变址寄存器||index register, modifier register
+遍||pass; 又称“趟”。
+遍历||traverse
+标号||label
+标号化安全||labeled security
+标号可达树||labeled reachable tree
+标号佩特里网||labeled Petri net
+标记变量||token variable
+标记类型||token type
+标记流路||token flow path
+标量||scalar
+标量处理器||scalar processor
+标量计算机||scalar computer
+标量流水线||scalar pipeline
+标量数据流分析||scalar data flow analysis
+标签集||tally set
+标识||identification; marking
+标识变量||marking variable
+标识符||identifier
+标识鉴别||identity authentication
+标识权标||identity token
+标识确认||identity validation
+标识证明||proof of identity
+标志||tag
+标志序列||flag sequence
+标准程序法||standard program approach
+标准处理方式||standard processing mode
+标准单元||standard unit
+标准对象||standard object
+标准幅度带||master output tape
+标准扭斜带||master skew tape
+标准实施器||standard enforcer
+标准输出文件||standard output file
+标准输入文件||standard input file
+标准速度带||master speed tape
+标准通用置标语言||standard general markup language, SGML
+标准文件||standard file
+标准形式下推自动机||normal form PDA
+标准语言||standard language
+标准中断||standard interrupt
+表[格]驱动法||table-driven technique
+表[格]驱动模拟||table-driven simulation
+表层格||surface case
+表处理||list processing
+表处理语言||list processing language
+表调度||list scheduling
+表格||table
+表决器||voter
+表决系统||voting system
+表面||surface
+表面安装焊接||surface mount solder
+表面安装技术||surface mount technology, SMT
+表面安装器件||surface mount device, SMD
+表示||representation
+表示层||presentation layer
+表头||list head
+表约束||table constraint
+别名||alias
+别名分析||alias analysis
+饼形图||pie chart
+病毒||virus
+病毒签名||virus signature
+并||union
+并定理||union theorem
+并发[性]||concurrency
+并发变迁||concurrent transition
+并发操作系统||concurrent operating system
+并发程序设计||concurrent programming
+并发处理||concurrent processing
+并发读并发写||concurrent read concurrent write,CRCW
+并发公理||concurrency axiom
+并发故障检测||concurrent fault detection
+并发关系||concurrency relation
+并发进程||concurrent process
+并发控制||concurrency control
+并发控制机制||concurrent control mechanism
+并发控制系统||concurrent control system
+并发模拟||concurrent simulation; 又称“并发仿真”。
+并发信息系统||concurrent information system
+并联端接[传输]线||parallel terminated line
+并联匹配||parallel match
+并行[化]编译程序||parallelizing compiler
+并行编程语言||parallel programming language
+并行操作||parallel operation
+并行操作环境||parallel operation environment,POE
+并行查找存储器||parallel search memory
+并行程序设计||parallel programming
+并行处理||parallel processing
+并行处理机操作系统||parallel processor operating system
+并行传输||parallel transmission
+并行存储器||parallel memory
+并行度||degree of parallelism
+并行端口||parallel port
+并行多元联结||parallel multiway join; 又称“并行多元连接”。
+并行二元联结||parallel two-way join; 又称“并行二元连接”。
+并行感染||parallel infection
+并行工程||concurrent engineering
+并行化||parallelization
+并行计算||parallel computing
+并行计算机||parallel computer
+并行计算论题||parallel computation thesis
+并行加法器||parallel adder
+并行建模||parallel modeling
+并行联结||parallel join; 又称“并行连接”。
+并行模拟||parallel simulation; 又称“并行仿真”。
+并行排序算法||parallel sorting algorithm
+并行任务||parallel task
+并行任务派生||parallel task spawning
+并行实时处理||parallel real-time processing
+并行数据库||parallel database
+并行搜索||parallel search
+并行算法||parallel algorithm
+并行图论算法||parallel graph algorithm
+并行图形算法||parallel graphic algorithm
+并行推理机||parallel inference machine
+并行外排序||parallel external sorting
+并行性||parallelism
+并行虚拟机||parallel virtual machine
+并行选择算法||parallel selection algorithm
+并行指令队列||parallel instruction queue
+玻尔兹曼机||Boltzmann machine
+玻璃环氧板||glass epoxy board
+拨号终端||dial-up terminal
+波导||wave guide
+波峰焊||wave-soldering
+波斯特系统||Post system
+波特||baud
+波形||waveform
+波形流水线||wavepipeline
+博弈||game; 又称“对策”。
+博弈论||game theory; 又称“对策论”。
+博弈树||game tree
+博弈树搜索||game tree search
+博弈图||game graph
+伯德图||Bode diagram
+伯努利盘||Bernoulli disk
+补偿||compensation
+补偿事务[元]||compensating transaction
+补偿网络||compensating network
+补码||complement
+补码器||complementer
+补色||complementary color
+不变代码移出||invariant code motion
+不变式||invariant
+不等长编码||unfixed-length coding
+不归零１制||non-return-to-zero change on one, NRZ1; 又称“逢１变化不归零制”。
+不归零制||non-return-to-zero, NRZ
+不合逻辑||illogicality
+不间断电源||uninterruptible power supply, UPS
+不交付项||non-deliverable item
+不精确推理||inexact reasoning
+不精确中断||imprecise interrupt
+不可达目的地||unreachable destination
+不可抵赖||non-repudiation
+不可分页动态区||non-pageable dynamic area
+不可靠进程||unreliable process
+不可逆加密||irreversible encryption
+不可判定问题||undecidable problem
+不可重复读||non-repeatable read
+不确定推理||uncertain reasoning
+不确定性推理||uncertain inference
+不确定证据||uncertain evidence
+不确定知识||uncertain knowledge
+不确认的无连接方式传输||unacknowledged connectionless-mode transmission
+不透明度||opacity
+不完全排错||imperfect debugging
+不完全数据||incomplete data
+不完全信息||incomplete information
+不完全性||incompleteness
+不完全性理论||incompleteness theory
+不一致性||inconsistency
+不重性||nonce
+布尔表达式||Boolean expression
+布尔查找||Boolean search; 又称“布尔搜索”。
+布尔代数||Boolean algebra
+布尔过程||Boolean process
+布尔运算||Boolean operation
+布局||layout, placement
+布局策略||placement strategy
+布局规则||layout rule
+布局接地规则||layout ground rule
+布思乘法器||Booth multiplier
+布思算法||Booth's algorithm
+布线||routing
+布线程序||router
+布线规则||wiring rule
+步||step
+步进||stepping
+步进电机||step motor
+步进控制||step-by-step control
+步可达性||reachability by step
+步序列||step sequence
+部分沉浸式虚拟现实||partial immersive VR
+部分函数依赖||partial functional dependence
+部分加电||partial power on
+部分正确性||partial correctness
+部件编码||component coding
+部件拆分||component disassembly
+部件码||component code
+部件使用频度||utility frequency of component
+部件组字频度||compositive frequency of component
+部首||indexing component
+擦除[磁]头||erase head; 又称“抹头”。
+裁剪||clipping; 又称“剪取”。
+裁剪曲面||trimmed surface
+财务主管||chief financial officer, CFO
+采样||sampling
+采样插件||sampling plug-in
+采样方式||sample mode
+采样分布||sampling distribution
+采样控制||sampling control
+采样频率||sampling frequency
+采样器||sampler
+采样速率||sampling rate
+采样误差||sampling error
+采样系统||sampling system
+采样噪声||sampling noise
+采样周期||sampling period
+彩色||color; 简称“色”。
+彩色打印机||color printer
+彩色图像||color image
+彩色图形适配器||color/graphics adapter, CGA
+彩色图形阵列[适配器]||multicolor graphics array, MCGA
+彩色显示||color display
+彩色显示器||color display
+参考||reference
+参考电源||reference power supply; 又称“基准电源”。
+参考监控||reference monitor
+参考码||reference code; 又称“基准码”。
+参考帧||reference frame
+参数[化]曲面||parametric surface
+参数[化]曲线||parametric curve
+参数测试||parameter testing
+参数传递||parameter passing
+参数估计||parameter estimation
+参数故障||parameter fault
+参数化设计||parametric design
+参数几何||parametric geometry
+参数空间||parametric space
+参数曲面拟合||parametric surface fitting
+参与者||participant
+参照完整性||referential integrity
+残错率||residual error rate
+残留数据||residual data
+藏文||Tibetan
+操纵杆||joy stick
+操作||operation
+操作包||operation packet
+操作表||operation table
+操作测试||operational testing; 又称“运行测试”。
+操作过程||operation process
+操作开关||joyswitch
+操作控制||operational control
+操作码||operation code
+操作命令||operating command
+操作数||operand
+操作系统||operating system, OS
+操作系统病毒||operating system virus
+操作系统处理器||operating system processor
+操作系统功能||operating system function
+操作系统构件||operating system component
+操作系统管理程序||operating system supervisor
+操作系统监控程序||operating system monitor
+操作语义||operational semantics
+操作员命令||operator command
+操作员手册||operator manual
+槽||slot
+槽号||slot number
+槽排序||slot sorting
+槽群||slot group
+草稿质量||draft quality
+策略||strategy
+策略管理机构||policy management authority, PMA
+侧抑制||lateral inhibition
+测量||measurement; 又称“度量”。
+测量范围||measuring range
+测试[码]模式||test pattern
+测试||test
+测试板||test board
+测试报告||test report
+测试程序||test program
+测试存取端口||test access port
+测试点||test point
+测试覆盖[率]||test coverage
+测试规约||test specification
+测试过程||test procedure
+测试环路||test loop; 又称“测试回路”。
+测试计划||test plan
+测试阶段||test phase
+测试可重复性||test repeatability
+测试例程||test routine
+测试码生成程序||test generator
+测试驱动程序||test driver
+测试驱动器||test driver
+测试任务||test task
+测试日志||test log
+测试设备||test equipment
+测试生成||test generation
+测试时间||testing time
+测试数据||test data
+测试数据生成程序||test data generator
+测试顺序||test sequence
+测试台||test desk, test bench
+测试探针||test probe
+测试套具||test suite
+测试文本||test text
+测试响应||test response
+测试仪||tester
+测试用例||test case
+测试用例生成程序||test case generator
+测试有效性||test validity
+测试语言||test language
+测试运行||test run
+测试症候||test syndrome
+测试指示器||test indicator; 又称“测试指示符”。
+测试综合||test synthesis
+测试谕示||test oracle
+层||layer
+层次||hierarchy
+层次存储系统||hierarchical memory system; 又称“分级存储系统”。
+层次分解||hierarchical decomposition
+层次分析处理||analytic hierarchy process, AHP
+层次结构||hierarchical structure
+层次结构图||hierarchical chart
+层次模型||hierarchical model
+层次式文件系统||hierarchical file system
+层次数据库||hierarchical database
+层次数据模型||hierarchical data model
+层次序列键码||hierarchical sequence key
+层叠样式表||cascading style sheet, CSS
+层析成像||tomography; 又称“层析术”。
+层压板||laminate
+插补器||interpolator; 又称“插补程序”。
+插槽||slot
+插件导轨||card guide
+插件架||card rack
+插接兼容计算机||plug-compatible computer
+插孔||jack
+插孔板||jack panel
+插入||plug-in
+插入排序||insertion sort
+插入异常||insertion anomaly
+插针||pin
+插针压力||pin force
+插值||interpolation
+插值法||interpolation method
+插座||socket
+叉积||cross product
+查讫符号||checking off symbol
+查色表||color look-up table, CLUT
+查询优化||query optimization
+查询语言||query language, QL
+查验||ping
+差||difference
+差错||error
+差错表||error list
+差错范围||error range
+差错恢复||error recovery
+差错控制编码||error control coding
+差错潜伏期||error latency
+差错校验||error checking and correction, ECC
+差错校验系统||error checking and correcting system
+差错指示电路||error indication circuit
+差动信号驱动器||differential signal driver
+差分电压信号||differential voltage signal
+差分方式||differential mode
+差分脉码调制||differential pulse code modulation, DPCM
+差分密码分析||differential cryptanalysis
+差分双绞线||differential twisted pair
+差压控制器||differential pressure controller
+拆分||split
+拆线||disconnecting
+产品安全||product security
+产品测试||product test
+产品规格说明||product specification; 又称“产品规约”。
+产品库||product library
+产品认证||product certification
+产品数据管理||product data management, PDM
+产生式规则||production rule
+产生式系统||production system
+产生式语言知识||production language knowledge
+场||field
+场地故障||site failure
+场地自治||site autonomy
+场频||field frequency
+常规密码体制||conventional cryptosystem
+常规信息系统||conventional information system
+常见问题||frequently asked questions, FAQ
+常量||constant
+常量说明||constant declaration
+常识||commonsense
+常识推理||commonsense reasoning
+常数传播||constant propagation
+常数合并||constant folding
+常用词||high frequency word
+常驻操作系统||resident operating system
+常驻磁盘操作系统||resident disk operating system
+常驻控制程序||resident control program
+长距离依存关系||long distance dependent relation
+长期相关性||long-range dependence
+长事务管理||long transaction management
+长线||long line
+唱碟||compact disc digital audio, CD-DA
+超标量||superscalar
+超标量结构||superscalar architecture
+超长文本||supertext; 又称“超长正文”。
+超长指令字||very long instruction word, VLIW
+超驰控制||override control
+超导存储器||superconducting memory
+超低位速率编码||very low bit-rate coding
+超高速集成电路||very high speed integrated circuit, VHSIC
+超高速集成电路硬件描述语言||VHSIC hardware description language
+超归结||hyper-resolution
+超级编译程序||supercompiler; 又称“超级编译器”。
+超级操作||super operation; X.25中，序列号的模数为32768的操作。
+超级服务器||superserver
+超级计算||supercomputing
+超级视频图形适配器||super VGA, SVGA
+超级小型计算机||super-minicomputer
+超级影碟||super video compact disc, super VCD
+超类||super class
+超立方体||hypercube
+超链接||hyperlink
+超流水线||superpipeline
+超流水线结构||superpipelined architecture
+超媒体||hypermedia
+超前补偿||lead compensation
+超扇区||supersector
+超声波传感器||ultrasonic sensor
+超时||time-out
+超时控制||time-out control
+超视频||hypervideo
+超图数据结构||hypergraphic-based data structure
+超文本||hypertext
+超文本传送协议||hypertext transfer protocol, HTTP
+超文本置标语言||hypertext markup language, HTML
+超演绎||hyperdeduction
+超预解式||hyperresolvent
+抄件||courtesy copy
+朝鲜文||Korean
+撤除||stripping
+撤销还原||undo
+撤消||drop
+撤消原语||destroy primitive
+沉浸式虚拟现实||immersive VR
+陈述性知识||declarative knowledge
+衬底||substrate
+城域网||metropolitan area network, MAN
+成本效益分析||cost-benefit analysis
+成分语义学||compositional semantics
+成熟度||maturity
+成像||imaging
+成员||member
+成员问题||membership problem
+成字部件||character formation component
+成组编码记录||group coded recording, GCR
+成组传送||block transfer
+成组传送速率||burst rate
+成组分页||block paging
+乘法器||multiplier
+乘积密码||product cipher
+乘积曲面||product surface
+乘商寄存器||multiplier-quotient register
+程序||program
+程序保护||program protection
+程序变异||program mutation
+程序存储计算机||stored-program computer
+程序代数||program algebra
+程序调度程序||program scheduler
+程序段||program segment
+程序段表||program segment table
+程序对换||program swapping
+程序分页功能||program paging function
+程序高手||hacker
+程序格式||program format
+程序隔离||program isolation
+程序规约||program specification
+程序划分||program partitioning
+程序寄存器||program register
+程序计数器||program counter
+程序界限监控||program limit monitoring
+程序局部性||program locality
+程序控制||programmed control
+程序库||program library
+程序块||program block
+程序扩展||program extension
+程序理解||program understanding
+程序逻辑单元||program logical unit
+程序敏感故障||program-sensitive fault
+程序确认||program validation
+程序设计||program design
+程序设计方法学||programming methodology
+程序设计环境||programming environment
+程序设计技术||programming techniques
+程序设计逻辑||programming logic
+程序设计语言||program design language, PDL, programming language
+程序设计支持环境||programming support environment
+程序生成||program generation
+程序生成器||program generator; 又称“程序生成程序”。
+程序探测||program instrumentation
+程序体系结构||program architecture
+程序修改||program modification
+程序验证||program verification
+程序验证器||program verifier
+程序优先级||program priority
+程序员作业||programmer job
+程序暂停||program halt
+程序正确性||program correctness
+程序正确性证明||proof of program correctness
+程序支持库||program support library
+程序质量||program quality
+程序重定位||program re[]
+程序重试||program retry
+程序转换||program conversion
+程序转换方法||program transformation method
+程序装入操作||program loading operation
+程序装入程序||program loader
+程序状态||program state
+程序综合||program synthesis
+承诺||commitment
+持久性||persistence
+池||pool
+尺寸驱动||dimension driven
+尺度传感器||dimension transducer
+尺度空间||scale space
+冲突||conflict
+冲突调解||conflict reconcile
+冲突集||conflict set
+冲突鉴别||conflict discriminate
+冲突结构||conflict structure
+冲突向量||collision vector
+冲突消解||conflict resolution
+冲撞||contact
+虫孔寻径||wormhole routing; 又称“虫蚀寻径”。
+抽象||abstraction
+抽象层次||level of abstraction
+抽象窗口工具箱||abstract window toolkit, AWT
+抽象方法||abstract method
+抽象机||abstract machine
+抽象数据类型||abstract data type, ADT
+抽象语言族||abstract family of languages
+丑恶报文||nastygram
+初级视觉||early vision, primary vision
+初级输出||primary output
+初级输入||primary input
+初启程序||initiator
+初启序列||initializing sequence
+初始标识||initial marking
+初始程序装入||initial program load, IPL
+初始化||initialization
+初始模型||initial model
+初始微码装入||initial microcode load, IML
+初始序列||initiation sequence
+初始装入||initial load
+初始状态||initial state
+初值||initialization value
+出错处理||error handling
+出错处理例程||error routine
+出错登记程序||error logger
+出错率||error rate; 又称“误码率”。
+出错文件||error file
+出错中断||error interrupt
+出错中断处理||error interrupt processing
+出点||out-point
+出口||exit; 又称“退出”。
+出事件||outgoing event
+出现网||occurrence net
+出现序列||occurrence sequence
+除法||division
+除法回路||divide loop
+除法器||divider
+储存库||repository
+触点||contact
+触点插拔力||contact engaging and separating force
+触点间距||contact spacing
+触发器||flip-flop, trigger
+触摸屏||touch screen
+处理单元存储器||processing element memory,PEM
+处理机对||processor pair
+处理机利用[率]||processor utilization
+处理机状态字||processor status word, PSW
+处理器||processor, processing unit; 又称“处理机”，“处理单元”。
+处理器调度||processor scheduling
+处理器分配||processor al[]
+处理器管理||processor management
+处理器一致性模型||processor consistency model
+穿线二叉树||tread binary tree
+穿越序列||crossing sequence
+传播||propagation
+传播差错||propagation error
+传播误差||propagated error
+传承字||traditional Hanzi, traditional Chinese character
+传导冷却||conduction cooling
+传递闭包||transitive closure
+传递函数||transfer function
+传递函数依赖||transitive functional dependence
+传递简约||transitive reduction
+传递相关性||transitive dependency
+传递性||transitivity
+传感器||transducer
+传热||heat transfer
+传声器||microphone
+传输||transmission
+传输错误||error of transmission
+传输控制协议||transmission control protocol, TCP
+传输媒体||transmission medium
+传输损耗||transmission loss
+传输通路延迟||transmission path delay
+传输线||transmission line
+传输延迟||propagation delay
+传统语法||traditional grammar
+串||string
+串并[行]转换||serial-parallel conversion
+串并转换器||serial-parallel converter
+串归约机||string reduction machine
+串化器||serializer; 又称“并串行转换器”。
+串级控制||cascade control
+串联端接||series termination
+串联端接线||series terminated line
+串联匹配||series match
+串联阻尼[传输]线||series damped line
+串联阻尼||series damped
+串联阻尼电阻[器]||series damping resistor
+串扰||cross talk
+串扰幅度||cross talk amplitude
+串行传输||serial transmission
+串行打印机||serial printer
+串行调度||serial scheduling
+串行端口||serial port
+串行计算机||sequential computer
+串行加法||serial addition
+串行加法器||serial adder
+串行排序||serial sort
+串行任务||serial task
+串行鼠标[器]||serial mouse
+串行线路网际协议||serial line internet protocol, SLIP
+窗口||window
+窗口大小||window size
+窗口函数||window function
+窗口式虚拟现实||through-the-window VR
+创建日期||creation date
+创建原语||create primitive
+创作语言||authoring language
+锤头||hammer
+垂直处理||vertical processing
+垂直磁记录||perpendicular magnetic recording, vertical magnetic recording
+垂直分片||vertical fragmentation
+唇同步||lip-sync, lip-synchronism
+纯网||pure net
+纯正可归约性||honest reducibility
+绰号||nickname
+磁变阻头||magnetoresistive head
+磁表面记录||magnetic surface recording
+磁存储器||magnetic memory
+磁带||magnetic tape
+磁带标号||magnetic tape label
+磁带传送机构||magnetic tape transport mechanism
+磁带格式||magnetic tape format
+磁带后援系统||magnetic tape back-up system
+磁带控制器||magnetic tape controller
+磁带库||tape library
+磁带奇偶检验||magnetic tape parity
+磁带驱动器||magnetic tape drive
+磁带驱动系统||magnetic tape driving system
+磁带头标||beginning-of-tape marker
+磁带尾标||end-of-tape marker
+磁道||magnetic track
+磁道格式||track format
+磁道跟踪伺服系统||track following servo system
+磁道宽度||track width
+磁道中心距||track center-to-center spacing
+磁鼓||magnetic drum
+磁光存储器||magnetic-optical memory
+磁光碟||magnetic-optical disc
+磁记录介质||magnetic recording medium
+磁卡[片]||magnetic card
+磁卡[片]机||magnetic card machine
+磁膜||magnetic film
+磁盘||magnetic disk, disk; 简称“盘” 。
+磁盘操作系统||disk operating system, DOS
+磁盘高速缓存||disk cache
+磁盘划伤||disk crash
+磁盘镜像||disk mirroring
+磁盘控制器||magnetic disk controller
+磁盘冗余阵列||redundant arrays of inexpensive disks, RAID
+磁盘适配器||magnetic disk adapter
+磁盘双工||disk duplexing
+磁盘阵列||disk array
+磁泡||magnetic bubble
+磁条||magnetic stripe
+磁条阅读机||magnetic stripe reader
+磁头||magnetic head, head
+磁头定位机构||head positioning mechanism
+磁头读写槽||head slot; 软盘的。
+磁头缝隙||head gap
+磁头加载机构||head loading mechanism
+磁头加载区||head loading zone
+磁头起落区||head landing zone
+磁头卸载区||head unloading zone
+磁心||magnetic core
+词||word
+词的使用度||word usage
+词典学||lexicography
+词法||morphology
+词法分析||morpheme analysis
+词法分析器||lexical analyzer
+词范畴||word category
+词分类流通频度||circulation frequency of the word classification
+词干||stem
+词汇||vocabulary
+词汇分析||lexical analysis
+词汇功能语法||lexical functional grammar
+词汇学||lexicology
+词汇语法||lexicon grammar
+词汇语义学||lexical semantics
+词类||parts of speech
+词流通频度||circulation frequency of word
+词码表||code list of words
+词频||word frequency
+词切分||word segmentation; 又称“分词”。
+词使用频度||utility frequency of word
+词素||lexeme
+词性||part of speech
+词性标注||part-of-speech tagging
+词语码||code for Chinese word and phrase
+词语切分||word segmentation
+词语文本||text including words and phrases
+词语信息[数据]库||lexical information database
+词源学||etymology
+词专家句法分析||word expert parsing
+次递归性||subrecursiveness
+次动作函数||next move function
+次站||secondary station; 用于HDLC规程中，与primary station相对应。
+从站||slave station; 用于基本型规程中,与master station相对应。
+丛||constellation
+粗糙集||rough set
+粗定位||coarse positioning
+粗粒度||coarse grain
+篡改信道信息||active wiretapping; 又称“伪造信道信息”。
+脆弱点||vulnerabilities
+存储板||memory board
+存储保护||memory protection
+存储带宽||memory bandwidth
+存储单元||memory cell
+存储覆盖||storage overlay
+存储覆盖区||storage overlay area
+存储干扰||storage interference
+存储管理||storage management, memory management
+存储管理部件||memory management unit, MMU
+存储管理策略||storage management strategy
+存储管理服务||storage management service
+存储过程||stored procedure
+存储矩阵||memory matrix
+存储空间||storage space
+存储媒体||storage media
+存储密度||memory density
+存储模块||memory module
+存储模块驱动器接口||storage module drive interface, SMD interface; 简称“SMD接口”。
+存储配置||storage configuration
+存储器||memory, storage
+存储器层次||memory hierarchy
+存储器冲突||memory conflict
+存储器存取冲突||storage access conflict
+存储器存取管理||storage access administration
+存储器存取模式||storage access scheme
+存储器带宽||bandwidth of memory
+存储器分配||storage al[]
+存储器分配程序||storage allocator
+存储器分配例程||storage al[] routine
+存储器交叉存取||memory across access
+存储器平均访问时间||average memory access time
+存储器数据寄存器||memory data register
+存储器停顿||memory stall
+存储器无冲突存取||memory conflict-free access
+存储器压缩||storage compaction
+存储器一致性||memory consistency
+存储器滞后写入||posted memory write; 经缓存后写入存储器的方式。
+存储器总线||rambus
+存储容量||memory capacity, storage capacity
+存储碎片||storage fragmentation
+存储体||memory bank
+存储体冲突||bank conflict
+存储系统||memory system
+存储芯片||memory chip
+存储元件||memory element
+存储再配置||storage reconfiguration
+存储栈||storage stack
+存储阵列||memory array
+存储周期||memory cycle
+存储转发||store-and-forward
+存储转发网||store-and-forward network
+存档网点||archive site; 指因特网上存储文件的FTP服务器。
+存根||stub
+存取臂||access arm
+存取表||access list; 又称“访问表”。
+存取冲突||access conflict; 又称“访问冲突”。
+存取队列||access queue
+存取方法||access method
+存取管理程序||access manager
+存取机构||access mechanism
+存取拒绝||access denial
+存取控制||access control; 又称“访问控制”。
+存取控制机制||access control mechanism
+存取类型||access type; 又称“访问类型”。
+存取时间||access time
+存取特权||access privilege; 又称“访问特权”。
+存取透明性||access transparency
+存取违例||access violation
+存在量词||existential quantifier
+错接||misconnect
+错乱密码||transposition cipher
+错误||error
+错误捕获例程||error trapping routine
+错误传播受限码||error propagation limiting code
+错误代码||error code; 又称“误码”。
+错误分析||error analysis
+错误封锁||error lock; 又称“出错封锁”。
+错误恢复过程||error recovery procedure
+错误检验码||error checking code
+错误控制||error control; 又称“差错控制”。
+错误控制码||error control code
+错误跨度||error span
+错误扩散||error extension
+错误类别||error category
+错误模式||error pattern
+错误模型||error model
+错误撒播||error seeding
+错误数据||error data
+错误条件||error condition
+错误预测||error prediction
+错误预测模型||error prediction model
+错误诊断||error diagnosis
+错误状态字||error status word
+打包安全||encapsulating security
+打印服务器||print server
+打印机||printer
+打印机机芯||printer engine
+打印头||print head
+打印质量||print quality
+大词表语音识别||large vocabulary speech recognition
+大地||earth ground; 又称“地球地”。
+大规模并行处理||massively parallel processing, MPP
+大规模并行计算机||massively parallel computer, MPC
+大规模并行人工智能||massive parallel artificial intelligence
+大屏幕显示器||large scale display
+大容量存储器||bulk memory
+大型计算机||large-scale computer
+大于搜索||great-than search
+大语种||majority language
+带||tape
+带标号复用||labeled multiplexing
+带标号信道||labeled channel
+带符号||tape symbol
+带环立方体网络||3-cube connected-cycle network
+带减少||tape reduction
+带扭斜||tape skew
+带碰撞避免的载波侦听多址访问网络||carrier sense multiple access with collision avoidance network, CSMA/CA network; 简称“CSMA/CA网”。
+带碰撞检测的载波侦听多址访问网络||carrier sense multiple access with collision detection network, CSMA/CD network; 简称“CSMA/CD网”。
+带头||tape head
+带压缩||tape compression
+带注释的图像交换||annotated image exchange
+带状电缆||ribbon cable
+带状线||strip line
+带字母表||tape alphabet
+代价函数||cost function
+代理||proxy, agent
+代理服务||proxy service
+代理服务器||proxy server
+代理证明机构||agency CA
+代码表||code table
+代码扩充||code extension
+代码审查||code inspection
+代码审计||code audit
+代码生成||code generation
+代码生成器||code generator; 又称“代码生成程序”。
+代码移动||code motion
+代码优化||code optimization
+代码转换器||code converter
+代码走查||code walk-through
+代入||substitution
+代入复合||composition of substitution
+代数规约||algebraic specification
+代数简化||algebraic simplification
+代数逻辑||algebraic logic
+代数数据类型||algebraic data type
+代数语言||algebraic language
+代数语义||algebraic semantics
+待命中断||armed interrupt
+待命状态||armed state
+待续数据标记||more data mark
+单[个]地址||individual address
+单板计算机||single-board computer
+单边网络||one-aside network
+单播||unicast
+单步操作||one-step operation
+单步法||one-step method
+单程序流多数据流||single program stream multiple data stream, SPMD
+单处理器||uniprocessor
+单纯词||simple word
+单纯形||simplex
+单地址计算机||single-address computer
+单点故障||single point of failure
+单点控制||single point of control
+单调曲率螺线||monotone curvature spiral
+单调推理||monotonic reasoning
+单端端接||single end termination
+单端方式||single ended mode
+单个错误||single error
+单工传输||simplex transmission
+单故障||single fault
+单回路调节||single loop regulation
+单回路控制||single loop control
+单回路数字控制器||single loop digital controller
+单击||click
+单级设备||single-level device
+单计算机系统||unicomputer system
+单缆宽带局域网||single-cable broadband LAN
+单列直插封装||single in-line package, SIP
+单列直插式内存组件||single in-line memory module, SIMM
+单目视觉||monocular vision
+单片存储器||monolithic memory
+单片计算机||single-chip computer, computer on a chip; 简称“单片机”。
+单片系统||system on a chip
+单入口点||single entry point
+单色图形适配器||monochrome graphics adapter, MGA
+单色显示||monochrome display
+单色显示适配器||monochrome display adapter, MDA
+单事件翻转||single event upset, SEU
+单事件锁定||single event latchup, SEL
+单事件效应||single event effect, SEE
+单数据速率||single data rate, SDR
+单位||unit
+单稳触发电路||monostable trigger circuit
+单系统映像||single system image, SSI
+单线程||single thread
+单向传播时间||one-way propagation time
+单向传输||unidirectional transmission
+单向工作||one-way only operation
+单向故障||unidirectional fault
+单向函数||one-way function
+单向密码||one-way cipher
+单向通信||one-way communication
+单向栈自动机||one-way stack automaton
+单校双检||single error correction-double error detection
+单选按钮||radio button
+单眼立体[测定方法]||one-eyed stereo
+单页纸||cut-sheet paper
+单一编址空间||single addressing space
+单一生成式||unit production
+单义||monosemy
+单用户操作系统||single-user operating system
+单用户计算机||single-user computer
+单元||unit
+单元编码||cell encoding
+单元测试||unit test
+单钥密码系统||one-key cryptosystem
+单指令[流]单数据流||single-instruction [stream] single-data stream, SISD
+单指令[流]多数据流||single-instruction [stream] multiple-data stream, SIMD
+单字节校正||single byte correction, SBC
+单总线||unibus
+淡出||fade-out
+淡入||fade-in
+弹出式选单||pop-up menu
+当前活动栈||current activity stack
+当前默认目录||current default directory
+当前目录||current directory
+当前日期||current date
+当前行指针||current line pointer
+当前页[面]寄存器||current page register
+当前优先级||current priority
+档案文件||archive file
+倒带||rewind
+倒焊||face-down bonding
+倒排索引||reverse index
+导出表||derived table
+导出规则||derived rule
+导出水平分片||derived horizontal fragmentation
+导航||navigation
+导入规约||imported specification; 又称“移入规约”。
+导数估计||derivative estimation
+道||track
+道间串扰||inter track crosstalk
+道密度||track density
+登录脚本||log-in script
+等长编码||fixed-length coding
+等待||wait
+等待避免||latency avoidance
+等待表||wait list
+等待队列||waiting queue
+等待隐藏||latency hiding
+等待状态||waiting state
+等价标识||equivalent marking
+等价标识变量||equivalent marking variable
+等价关系||equivalence relation
+等价问题||equivalence problem
+等价运算||equivalence operation
+等离子[体]显示||plasma display
+等联结||equijoin
+等式逻辑||equational logic
+等式系统||equation system
+等值线图||contour map
+等轴测投影||isometric projection
+低成本自动化||low cost automation, LCA
+低电平状态特性||low-state characteristic
+低电压差动信号||low-voltage differential signal, LVDS
+低电压晶体管晶体管逻辑||low voltage TTL, LVTTL
+低电压正电源射极耦合逻辑||low voltage positive ECL, LVPECL
+低级格式化||low level formatting
+低级互斥||low level exclusive
+低级语言||low level language
+低通滤波器||low pass filter
+笛卡儿积||Cartesian product
+抵赖||repudiation
+底板||back plane
+地方注册机构||local registration authority, LRA
+地理信息系统||geographic information system, GIS
+地上线||wire over ground
+地网||ground screen
+地震层析成像||seismic tomography
+地址||address
+地址变换||address translation
+地址代换||address substitution
+地址格式||address format
+地址管理||address administration
+地址寄存器||address register
+地址解析协议||address resolution protocol, ARP
+地址空间||address space
+地址掩码||address mask
+地址映射||address mapping
+地址预约||address subscription
+地址字段||address field
+地址总线||address bus
+第二代计算机||second generation computer
+第二代语言||second generation language, 2GL
+第二范式||second normal form, 2FN
+第二者虚拟现实||second-person VR
+第三代计算机||third generation computer
+第三代语言||third generation language, 3GL
+第三范式||third normal form, 3FN
+第三方||third party
+第四代计算机||fourth generation computer
+第四代语言||fourth generation language, 4GL
+第四范式||forth normal form, 4FN
+第五代计算机||fifth generation computer
+第五代语言||fifth generation language, 5GL
+第五范式||fifth normal form, 5FN
+第一代计算机||first generation computer
+第一代语言||first generation language, 1GL
+第一范式||first normal form, 1FN
+递归查询||recursive query
+递归定理||recursion theorem
+递归估计||recursive estimation
+递归函数||recursive function
+递归计算||recursive computation
+递归可枚举语言||recursively enumerable language
+递归块编码||recursive block coding
+递归例程||recursive routine
+递归算法||recursive algorithm
+递归向量指令||recursive vector instruction
+递归语言||recursive language
+递归转移网络||recursive transition network
+递阶控制||hierarchical control; 又称“分级控制”。
+递推关系||recurrence relation
+点[分]地址||dot address
+点对点连接||point-to-point connection
+点对点通信||point-to-point delivery
+点对点协议||point-to-point protocol, PPP
+点对多点通信||point-to-multipoint delivery
+点分十进制记法||dotted decimal notation
+点光源||spot light source
+点击设备||pointing device
+点集||point set
+点检索||point retrieval
+点可见性||visibility of a point
+点运算||point operation
+点阵打印机||dot matrix printer
+点阵精度||dot matrix size
+电报码||telegram code
+电擦除可编程只读存储器||electrically-erasable programmable ROM, EPROM
+电磁式打印头||electromagnetic print head
+电镀膜盘||plating film disk, electroplated film disk; 全称“电镀薄膜磁盘”。
+电荷耦合存储器||charge-coupled memory
+电流型逻辑||current mode logic, CML
+电流源||current source
+电路||circuit
+电路保护器||circuit protector
+电路传送模式||circuit transfer mode
+电路交换||circuit switching
+电路交换公用数据网||circuit switched public data network, CSPDN
+电路交换数据网||circuit switched data network, CSDN
+电路交换网||circuit switching network
+电路内测试||in-circuit test
+电平敏感扫描设计||level sensitive scan design
+电容式触摸屏||capacitive touch screen
+电视墙||video-wall
+电压电流曲线||voltage-current curve
+电压阶跃||voltage step
+电液伺服电机||electrohydraulic servo motor
+电源||power supply
+电源分配系统||power distribution system
+电源跟踪||power supply trace
+电源控制微码||power control microcode
+电源屏幕||power supply screen
+电源总线||power bus
+电致变色显示器||electrochromic display
+电致发光显示器||electroluminescent display
+电灼式印刷机||electric discharge printer
+电子表格||worksheet
+电子出版||electronic publishing
+电子出版系统||electronic publishing system, EPS
+电子耳||electronic ear
+电子服务||electronic service, E-service
+电子付款||electronic billing
+电子会议系统||electronic meeting system
+电子计算机||electronic computer; 俗称“电脑”。
+电子监视||electronic surveillance
+电子媒体||electronic media, E-media
+电子签名||electronic signature
+电子情报||electronic intelligence
+电子商务||electronic commerce, EC
+电子设计规则||electronic design rule, EDR
+电子设计自动化||electronic design automation, EDA
+电子渗入||electronic penetration
+电子市场||electronic market
+电子数据交换||electronic data interchange, EDI
+电子数据交换消息||EDI message, EDIM; 简称“EDI消息”。
+电子数据交换消息处理||EDI messaging, EDIMG; 简称“EDI消息处理”。
+电子图书馆||electronic library
+电子文本||e-text
+电子消息处理||electronic messaging
+电子银行业务||electronic banking; 又称“电子金融”。
+电子邮件||E-mail, e-mail; 又称“电子函件”。
+电子邮件别名||e-mail alias
+电子邮件地址||e-mail address; 又称“电子函件地址”。
+电子杂志||electronic journal, e-zine
+电子照相印刷机||electrophotographic printer
+电子资金转账系统||electronic funds transfer system, EFTS
+电阻负载||resistive load
+电阻排||resistor array
+电阻损耗||resistive loss
+电阻引线电感||inductance of the resistor lead
+雕塑曲面||sculptured surface
+调度||scheduling
+调度表||schedule table
+调度策略||scheduling policy, scheduling strategy
+调度程序||scheduler
+调度程序等待队列||scheduler waiting queue
+调度程序工作区||scheduler work area, SWA
+调度队列||scheduling queue
+调度方式||scheduling mode
+调度规则||scheduling rule
+调度监控计算机||scheduling monitor computer
+调度模块||scheduler module
+调度算法||scheduling algorithm
+调度问题||scheduling problem
+调度信息池||scheduling information pool
+调度资源||scheduling resource
+调度作业||schedule job
+调节||regulation
+调频[制]||frequency modulation, FM
+调色板||palette
+调试||debug; 又称“排错”，“除错”。
+调试程序||debugging program
+调试程序包||debugging package
+调试工具||debugging aids
+调试例程||debugging routine
+调试模型||debugging model
+调相[制]||phase modulation, PM
+调用||call
+调用者||caller
+调整||justification, instify
+调整用软盘||alignment diskette
+调整用硬盘||alignment disk
+调制传递函数||modulation transfer function
+调制解调器||modem
+蝶式排列||butterfly permutation
+蝶形[结构]||butterfly
+迭代||iteration
+迭代调度分配方法||iterative scheduling and al[] method
+迭代改进||iterate improvement
+迭代搜索||iterative search
+叠加||superposition
+叠片式磁头||laminated magnetic head
+叠印||overstrike
+顶点覆盖||vertex cover
+顶点混合||vertex blending
+顶级结点||top node
+定点计算机||fixed-point computer
+定点数||fixed-point number
+定点运算||fixed-point operation
+定界符||delimiter
+定理证明器||theorem prover
+定量图像分析||quantitative image analysis
+定期维护||schedule maintenance
+定时分析||timing analysis
+定时脉冲分配器||timing pulse distributor
+定时任务||timed task
+定时约束||timing constraint
+定时炸弹||time bomb
+定位||positioning
+定位器||locator
+定位时间||positioning time
+定位信道||positioned channel
+定位重复误差||position repetitive error
+定向搜索||beam search
+定性描述||qualitative description
+定性推理||qualitative reasoning
+定性物理||qualitative physics
+定义阶段||definition phase
+定义性[列]表||defined list
+定义性出现||definitional occurrence
+定义域||domain
+丢失中断处理程序||missing interrupt handler
+动词短语||verb phrase
+动词语义学||verb semantics
+动画||animation
+动态SQL语言||dynamic SQL
+动态绑定||dynamic binding
+动态保护||dynamic protection
+动态测试||dynamic testing
+动态处理||dynamic handling
+动态处理器分配||dynamic processor al[]
+动态存储分配||dynamic memory al[]
+动态存储管理||dynamic memory management
+动态存储器||dynamic memory
+动态错误||dynamic error
+动态地址转换||dynamic address translation
+动态调度||dynamic scheduling
+动态仿真||dynamic simulation
+动态分派虚拟表||dynamic dispatch virtual table, DDVT
+动态分配||dynamic al[]
+动态分析||dynamic analysis
+动态分析器||dynamic analyzer; 又称“动态生成程序”。
+动态规划[法]||dynamic programming
+动态汉字平均码长||dynamic average code length of Hanzi
+动态缓冲||dynamic buffering
+动态缓冲区||dynamic buffer
+动态缓冲区分配||dynamic buffer al[]
+动态记忆||dynamic memory
+动态键位分布系数||dynamic coefficient for key-element al[]
+动态控制||dynamic control
+动态链接库||dynamic link library, DLL
+动态流水线||dynamic pipeline
+动态冒险||dynamic hazard
+动态扭斜||dynamic skew
+动态冗余||dynamic redundancy
+动态世界规划||dynamic world planning
+动态刷新||dynamic refresh
+动态随机存储器||dynamic RAM, DRAM
+动态停机||dynamic stop
+动态网络||dynamic network
+动态误差||dynamic error
+动态显示||dynamic display, dynamic rendering
+动态相关性检查||dynamic coherence check
+动态优先级||dynamic priority
+动态优先级调度||dynamic priority scheduling
+动态优先级算法||dynamic priority algorithm
+动态重定位||dynamic re[]
+动态重构||dynamic restructuring
+动态重码率||rate of dynamic coincident code
+动态转移预测||dynamic branch prediction
+动态资源分配||dynamic resource al[]
+动态字词平均码长||dynamic average code length of words
+动态字词重码率||dynamic coincident code rate for words
+动压[式]浮动磁头||dynamical pressure flying head
+冻结标记||frozen token
+抖动||jitter, dithering
+独立程序||stand-alone program
+独立程序装入程序||independent program loader
+独立型故障||autonomous fault
+独立验证和确认||independent verification and validation
+独立于机器的操作系统||machine independent operating system
+读||read
+读出电路||sense circuit
+读出时间||read-out time
+读出线||sense line
+读访问||read access
+读放大器||sense amplifier
+读后写||write after read, WAR
+读均衡||read equalization
+读取||fetch
+读入原语||read primitive
+读数据线||read data line
+读锁||read lock
+读写[磁]头||read/write head
+读写孔||access hole; 软盘的。
+读写周期||read-write cycle
+读信号||read signal
+读选择线||read select line
+读噪声||read noise
+度||degree
+度量||measure
+度量空间||measurement space
+端点||endpoint
+端点编码||end point encoding
+端端加密||end-to-end encryption
+端端密钥||end-to-end key
+端对端传送||end-to-end transfer
+端记号||endmarker
+端接[传输]线||terminated line
+端接||termination
+端接电压||termination voltage
+端接电源||termination power
+端接电阻[器]||terminating resistor
+端接二极管||terminating diode
+端接器||terminator; 又称“终接器”。
+端系统||end system
+短路故障||shorted fault
+短期调度||short-term scheduling
+短线||short line
+短语||phrase
+短语结构规则||phrase structure rule
+短语结构歧义||ambiguity of phrase structure
+短语结构树||phrase structure tree
+短语结构语法||phrase structure grammar
+段||segment
+段表||segment table
+段表地址||segment table address
+段长度||segment size
+段地址||segment address
+段覆盖||segment overlay
+段号||segment number
+段式存储系统||segmented memory system
+段首大字||drop cap
+段映射||sector mapping
+断点开关||breakpoint switch
+断开||disconnection
+断路故障||broken fault
+断路器||circuit breaker, breaker
+断路位置||off position
+断言||assertion
+堆||heap
+堆排序||heap sort
+队列||queue
+队列表||queue list
+队列控制块||queue control block, QCB
+对比度操纵||contrast manipulation
+对比度扩展||contrast stretch
+对比灵敏度||contrast sensitivity
+对策||countermeasure
+对策仿真||gaming simulation
+对称[式]多处理机||symmetric multiprocessor, SMP
+对称[式]多处理器||symmetric multiprocessor, SMP
+对称[式]计算机||symmetric computer
+对称操作系统||symmetric operating system
+对称传输线||balanced line
+对称密码||symmetric cryptography
+对称密码系统||symmetric cryptosystem
+对等[层]实体||peer entities
+对地平衡||balanced to ground
+对话控制块||session control block, SCB
+对话模型||dialog model
+对话系统||dialog system
+对换||swapping
+对换表||swap table
+对换程序||swapper
+对换方式||swap mode
+对换分配单元||swap al[] unit
+对换集||swap set
+对换时间||swap time
+对换优先级||swapping priority
+对角化方法||diagonalization
+对角线测试||diagonal test
+对流||convection
+对偶产生器||pair generator
+对偶网||dual net
+对偶原理||duality principle
+对偶运算||dual operation
+对齐||justification, align
+对象||object
+对象标识符||object identifier, OID
+对象管理结构||object management architecture, OMA
+对象管理组||object management group, OMG
+对象建模技术||object modeling technique, OMT
+对象连接||object connection
+对象链接与嵌入||object link and embedding, OLE
+对象模型||object model
+对象请求代理||object request broker, ORB
+对象引用||object reference
+对象字典||object dictionary, OD
+对应点||corresponding point
+对准网络||alignment network
+多八位编码字符集||multioctet coded character set, MOCS
+多边形裁剪||polygon clipping
+多边形窗口||polygon window
+多边形分解||polygonal decomposition
+多边形面片||polygonal patch
+多边形取向||orientation of polygon
+多边形凸分解||polygon convex decomposition
+多变量控制器||multivariable controller
+多遍排序||multipass sort
+多标记树||multiple labeled tree
+多播||multicast
+多播主干网||multicast backbone, Mbone
+多策略协商||multistrategy negotiation
+多层模式||multilayered schema
+多层印制板||multilayer printed circuit board
+多程序[流]多数据[流]||multiple program multiple data
+多尺度分析||multiscale analysis
+多处理机操作系统||multiprocessor operating system
+多处理机系统||multiprocessor system
+多处理器||multiprocessor
+多处理器调度||scheduling of multiprocessor
+多处理器分配||multiprocessor al[]
+多带图灵机||multitape Turing machine
+多道程序||multiprogram
+多道程序分派||multiprogram dispatching
+多道程序设计||multiple programming
+多地址计算机||multiple-address computer, multiaddress computer
+多点||multipoint
+多点标记||polymarker; 又称“多点记号”。
+多点二进制文件传送||multipoint binary file transfer, MBFT
+多点会议||multipoint conference
+多点静止图像及注释||multipoint still image and annotation, MSIA
+多点控制器||multipoint control unit, MCU
+多点连接||multipoint connection
+多点路由[选择]信息||multipoint routing information
+多点通信||multipoint communication
+多点通信服务||multipoint communication service, MCS
+多端口存储器||multiport memory
+多对多联系||many to many relationship
+多对一联系||many to one relationship
+多分辨率||multiresolution
+多分辨率分析||multiresolution analysis, MRA
+多分辨率曲线||multiresolution curve
+多工序实体造型||multiprocess solid modeling
+多故障||multiple fault
+多关联处理机||multiassociative processor, MAP
+多光谱图像||multispectral image
+多合一［主板］计算机||all-in-one computer
+多回路调节||multiloop regulation
+多回路控制||multiloop control
+多级||multistage
+多级安全||multilevel security
+多级反馈队列||multilevel feedback queue
+多级高速缓存||multilevel cache
+多级模拟||multilevel simulation
+多级设备||multilevel device
+多级网络||multistage network
+多级优先级中断||multilevel priority interrupt
+多级中断||multilevel interrupt
+多计算机||multicomputer
+多计算机系统||multicomputer system
+多类逻辑||many-sorted logic
+多链路||multilink
+多路分配器||demultiplexer
+多路推理||multiline inference
+多路转换通道||multiplexor channel
+多媒体||multimedia
+多媒体编目数据库||multimedia cataloging database
+多媒体个人计算机||multimedia PC, MPC
+多媒体会议||multimedia conferencing
+多媒体技术||multimedia technology
+多媒体计算机||multimedia computer
+多媒体扩展||multimedia extension
+多媒体数据版本管理||multimedia data version management
+多媒体数据存储管理||multimedia data storage management
+多媒体数据检索||multimedia data retrieval
+多媒体数据库||multimedia database
+多媒体数据库管理系统||multimedia database management system
+多媒体数据类型||multimedia data type
+多媒体数据模型||multimedia data model
+多媒体通信||multimedia communication
+多媒体系统||mulitimedia system
+多媒体信息系统||multimedia information system
+多媒体业务||multimedia service
+多米诺效应||Domino effect
+多面体裁剪||polyhedron clipping
+多面体简化||polyhedron simplification
+多面体模型||polyhedral model
+多模式接口||multimodal interface
+多模型虚拟环境||multimodel virtual environment
+多区黑板||multipartitioned blackboard
+多任务||multitask
+多任务处理||multitasking
+多任务管理||multitask management
+多属性决策系统||multiattribute decision system
+多数决定门||majority gate
+多态编程语言||polymorphic programming language, PPL
+多态性||polymorphism
+多通道||multichannel
+多通道传输||multichannel transmission
+多头图灵机||multihead Turing machine
+多维存取||multidimensional access, MDA
+多维分析||multidimensional analysis
+多维数据结构||multidimensional data structure
+多维图灵机||multidimensional Turing machine
+多文种操作系统||multilingual operating system
+多文种信息处理||multilingual information processing
+多线程||multithread
+多线程处理||multithread processing
+多项式对数深度||polylog depth
+多项式对数时间||polylog time
+多项式可归约[的]||polynomial reducible
+多项式可转换[的]||polynomial transformable
+多项式空间||polynomial space
+多项式谱系||polynomial hierarchy
+多项式时间||polynomial time
+多项式时间归约||polynomial time reduction
+多项式有界[的]||polynomial-bounded
+多协议||multiprotocol
+多芯电缆||multiconductor cable
+多芯片模块||multichip module, MCM
+多一可归性||many-one reducibility
+多义||polysemy
+多义文法||ambiguous grammar
+多用户||multiuser
+多用户操作系统||multiple user operating system
+多用户控制||multiple user control
+多用户系统||multiuser system
+多用途因特网邮件扩充||multipurpose Internet mail extensions, MIME
+多优先级||multipriority
+多语种处理机||multilanguage processor
+多语种翻译||multilingual translation
+多语种信息处理系统||multilingual information processing system
+多元随机推理||multivariable stochastic reasoning
+多元统计推理||multivariable statistic reasoning
+多值逻辑||multiple value logic
+多值依赖||multivalued dependence
+多指令[流]单数据流||multiple-instruction [stream] single-data stream, MISD
+多指令[流]多数据流||multiple-instruction [stream] multiple-data ream, MIMD
+多指令发射||multiinstruction issue
+多终端监控程序||multiterminal monitor
+多重程序装入||multiple program loading
+多重处理||multiprocessing
+多重处理操作系统||multiprocessing operating system
+多重存取存储器||multiaccess memory
+多重关系||multirelation
+多重集||multiset
+多周期实现||multicycle implementation
+多主体||multiagent
+多主体处理环境||multiagent processing environment, MAPE
+多主体推理||multiagent reasoning
+多主体系统||multiagent system
+多字节图形字符集||multibyte graphic character set
+多总线||multibus
+多作业||multijob
+多作业处理||multiple-job processing
+额定电压||rated voltage
+额定负载||rated load
+额外磁道||extra track
+额外扇区||extra sector
+恶意逻辑||malicious logic
+恶意软件||malicious software
+儿童语言模型||model of child language
+二叉查找树||binary search tree
+二叉排序树||binary sort tree
+二叉判定图||binary decision diagram, BDD
+二叉树||binary tree
+二次型性能指标||quadratic performance index
+二点透视||two-point perspectiveness
+二分插入||binary insertion
+二分搜索||binary search
+二分图||bipartite graph
+二级高速缓存||second level cache
+二级密钥||secondary key; 又称“次密钥”。
+二阶参数连续||C2 continuity; 俗称“C2连续”。
+二阶几何连续||G2 continuity; 俗称“G2连续”。
+二阶逻辑||second order logic
+二进制||binary system
+二进制大对象||binary large object, BLOB
+二进制单元||binary cell
+二进制数字||binary digit
+二进制运算||binary operation
+二进制字符||binary character
+二路归并||binary merge
+二难推理||dilemma reasoning
+二元关系||binary relation
+二元语法||bigram
+二元预解式||binary resolvent
+二值图像||binary image
+发光二极管显示||light emitting diode display, LED display
+发光二极管印刷机||LED printer
+发散束卷积法||convolution method for divergent beams
+发射||emanation
+发射极点接||emitter dotting
+发射极下拉电阻||emitter pull down resistor
+发生权||concession
+法线流||normal flow
+翻译程序||translator, translating program; 又称“翻译器”。
+繁体字||unsimplified Hanzi, unsimplified Chinese character
+反编译程序||decompiler; 又称“反编译器”。
+反驳||refutation
+反差||contrast; 又称“衬比度”。
+反冲||undershoot
+反传网络||back-propagation network
+反读||reverse read, backward read
+反汇编程序||disassembler
+反馈边集合||feedback edge set
+反馈控制||feedback control
+反馈桥接故障||feedback bridging fault
+反例||negative example
+反码||radix-minus-one complement, complement on N-1
+反窃听装置||anti-eavesdrop device
+反射||reflection
+反射的面向对象编程||reflective object-oriented programming
+反射电压||reflected voltage
+反射定律||reflection law
+反射率||reflectance
+反射体||reflective body
+反射系数||reflection coefficient
+反投影算子||backprojection operator
+反向恢复||backward recovery
+反向计费接受||reverse charging acceptance
+反向局域网信道||reverse LAN channel, backward LAN channel
+反向推理||backward reasoning, backward chained reasoning
+反向信道||backward channel
+反依赖||antidependence
+反绎推理||abductive reasoning
+反应主体||reactive agent
+返回恢复||back recovery
+返回路径||return path
+范畴||category
+范畴分析||categorical analysis
+范畴语法||categorical grammar
+范例||case; 又称“案例”。
+范例表示||case representation
+范例检索||case retrieval
+范例检索网||case retrieval net
+范例结构||case structure
+范例库||case base
+范例修正||case revision
+范例验证||case validation
+范例依存相似性||case dependent similarity
+范例重存||case restore
+范例重用||case reuse
+范式||normal form
+范围||extent
+范围界限||range limit
+泛关系||universal relation
+泛光||flood light
+泛合一||universal unification
+泛化||generalization
+泛滥||flooding
+方法||method
+方法库||method base
+方位角磁记录||azimuth magnetic recording
+方向向量||direction vector
+方言||dialect
+方言学||dialectology
+防病毒||antivirus
+防病毒程序||antivirus program
+防火墙||firewall; 又称“网盾”。
+防窃听||anti-eavesdrop
+防信息泄漏||Tempest
+防信息泄漏测试接收机||Tempest test receiver
+防信息泄漏控制范围||Tempest control zone
+防疫程序||vaccine program
+仿射变换||affine transformation
+仿宋体||Fangsong Ti
+仿形控制器||tracer controller
+仿真||emulation, simulation
+仿真定性推理||simulation qualitative reasoning
+仿真计算机||simulation computer
+仿真器||emulator; 又称“仿真程序”。
+仿真终端||emulation terminal
+访问||access; 又称“存取”。
+访问范畴||access category; 又称“存取范畴”。
+访问共享||access sharing
+访问级别||access level; 又称“存取级别”。
+访问局部性||locality of reference; 又称“访问局守性”。
+访问矩阵||access matrix; 又称“存取矩阵”。
+访问控制字段||access control field
+访问权||access right; 又称“存取权”。
+访问授权||access authorization
+访问许可||access permission; 又称“存取许可”。
+访问周期||access cycle; 相继二次访问内存的间隔时间。
+放大||zoom in
+放弃序列||abort sequence; 又称“异常中止序列”。
+放射性核素||radionuclide
+放缩||scaling
+非饱和磁记录||non-saturation magnetic recording
+非必然性||uncertainty
+非常规编码||extraordinary coding
+非成字部件||character non-formation component
+非传统计算机||non-traditional computer
+非单调推理||non-monotonic reasoning
+非对称[式]多处理机||asymmetric multiprocessor
+非对称密码||asymmetric cryptography
+非对称密码系统||asymmetric cryptosystem
+非对称选择网||asymmetric choice net
+非过程语言||non-procedural language
+非击打式印刷机||non-impact printer
+非计算延迟||non-compute delay
+非交换连接||non-switched connection
+非接触式磁记录||non-contact magnetic recording
+非均匀存储器存取||non-uniform memory access, NUMA
+非均匀对象模型||heterogeneous object model
+非均匀有理 B 样条||non-uniform rational B-spline, NURBS
+非流形||non-manifold
+非流形造型||non-manifold modeling
+非门||NOT gate
+非秘密性||non-confidentiality
+非抹除栈自动机||non-erasing stack automaton
+非平凡函数依赖||non-trivial functional dependence
+非平衡树||unbalanced tree
+非屏蔽双绞线||unshield twisted pair, UTP
+非抢先调度||non-preemptive scheduling
+非抢先多任务处理||non-preemptive multitasking
+非请求分页||non-demand paging
+非确保操作||unassured operation
+非确定计算||non-deterministic computation
+非确定空间复杂性||non-deterministic space complexity
+非确定时间复杂性||non-deterministic time complexity
+非确定时间谱系||non-deterministic time hierarchy
+非确定型图灵机||non-deterministic Turing machine
+非确定型有穷自动机||non-deterministic finite automaton
+非确定性控制系统||non-deterministic control system
+非识别型DTE业务||non-identified DTE service
+非特||fit, failure in term; fit=10-9 失效数/元件数小时
+非限制文法||unrestricted grammar
+非线性||non-linear
+非线性编辑||non-linear editing
+非线性导航||non-linear navigation
+非线性控制系统||non-linear control system
+非线性量化||non-linear quantization
+非线性流水线||nonlinear pipeline
+非易失性存储器||non-volatile memory
+非预定维修||unscheduled maintenance
+非预定维修时间||unscheduled maintenance time
+非远程存储器存取||no remote memory access
+非终极符||non-terminal
+非主属性||non-prime attribute
+非自反性||irreflexivity
+非阻塞交叉开关||non-blocking crossbar
+飞行高度||flight height
+分包商||sub-contractor
+分辨率||resolution
+分别编译||separate compilation
+分布[式]处理||distributed processing
+分布[式]多媒体系统||distributed multimedia system,DMS
+分布[式]共享存储器||distributed shared memory,DSM
+分布[式]计算机||distributed computer
+分布[式]控制||distributed control
+分布[式]人工智能||distributed artificial intelligence, DAI
+分布[式]数据库||distributed database
+分布[式]数据库管理系统||distributed database management system, DDBMS
+分布[式]数据库系统||distributed database system
+分布[式]刷新||distributed refresh
+分布[式]问题求解||distributed problem solving
+分布参数控制系统||distributed parameter control system
+分布等待图||distributed wait-for graph, DWFG
+分布电容||distributed capacitance
+分布负载||distributed load
+分布模式||al[] schema; 又称“分配模式”。
+分布式表示管理||distributed presentation management
+分布式操作系统||distributed operating system
+分布式程序设计||distributed programming
+分布式存储器||distributed memory
+分布式定序算法||distributed ranking algorithm
+分布式队列双总线||distributed queue dual bus, DQDB
+分布式对象技术||distributed object technology, DOT
+分布式对象计算||distributed object computing, DOC
+分布式多媒体||distributed multimedia
+分布式公共对象模型||distributed common object model, DCOM
+分布式构件对象模型||distributed component object model, DCOM
+分布式计算环境||distributed computing environment, DCE
+分布式排序算法||distributed sorting algorithm
+分布式群体决策支持系统||distributed group decision support system
+分布式容错||distributed fault-tolerance
+分布式算法||distributed algorithm
+分布式网||distributed network
+分布式系统||distributed system
+分布式系统对象模式||distributed system object mode, DSOM
+分布式选择算法||distributed selection algorithm
+分布式应用||distributed application
+分布式语言翻译||distributed language translation
+分布透明性||distribution transparency
+分槽环网||slotted-ring network
+分层||layering
+分层检测||layer detection
+分叉||fork; 又称“派生”。
+分程序结构语言||block-structured language
+分词单位||word segmentation unit
+分段||segmentation, fragmentation
+分段和重装||segmentation and reassemble, SAR
+分段确定性的||piece-wise deterministic, PWD
+分发型业务||distribution service
+分发应用||distribution application
+分割||subdivision
+分隔安全||compartmented security
+分隔安全模式||compartmented security mode
+分级管理||hierarchical management
+分级网||hierarchical network; 又称“层次网”。
+分接头||tap
+分解||decomposition
+分解协调||composition decomposition
+分类||sort
+分类器||classifier
+分立电路||discrete circuit
+分立元件||discrete component
+分量||component
+分派||dispatch
+分派表||dispatch table
+分派程序||dispatcher
+分派优先级||dispatching priority
+分配||al[]
+分配单位||al[] unit
+分片模式||fragmentation schema
+分片透明||fragmentation transparency
+分区||partition
+分区表||partition table
+分区存取法||partition access method
+分区恒角速度||zoned constant angular velocity, ZCAV
+分散||decentralization
+分散格式||scatter format
+分散控制||decentralized control
+分散式处理||decentralized processing
+分散式数据处理||decentralized data processing
+分散装入||scatter loading
+分时||time sharing
+分时操作系统||time-sharing operating system
+分时处理||time-sharing processing
+分时等待方式||time-sharing waiting mode
+分时调度程序系统||time-sharing scheduler system
+分时调度规则||time-sharing scheduling rule
+分时动态分配程序||time-sharing dynamic allocator
+分时监控系统||time-sharing monitor system
+分时就绪方式||time-sharing ready mode
+分时控制任务||time-sharing control task
+分时驱动程序||time-sharing driver
+分时系统命令||time-sharing system command
+分时用户方式||time-sharing user mode
+分时优先级||time-sharing priority
+分时运行方式||time-sharing running mode
+分析攻击||analytical attack
+分析阶段||analysis phase
+分析模型||analytical model
+分析属性||analytic attribute
+分析学习||analytic learning
+分形||fractal
+分形编码||fractal encoding
+分形几何||fractal geometry
+分页||paging
+分页程序||pager
+分支||branch
+分支电缆||drop cable
+分支限界[法]||branch and bound
+分支限界搜索||branch-and-bound search
+分支线||stub
+分支指令||branch instruction
+分治[法]||divide and conquer
+分组层||packet layer; 相当于开放系统互连的网络层。
+分组长度||packet size
+分组传送模式||packet transfer mode
+分组密码||block cipher
+封闭安全环境||closed security environment
+封闭世界假设||closed world assumption
+封锁||lockout
+封锁粒度||lock granularity
+封装||packaging, encapsulation
+封装可靠性||package reliability
+峰位漂移||peak shift
+峰值检测||peak detection
+风险分析||risk analysis
+风险接受||risk acceptance
+风险评估||risk assessment
+风险容忍||risk tolerance
+风险指数||risk index
+冯·诺依曼[计算]机||von Neumann machine
+冯·诺依曼体系结构||von Neumann architecture
+冯方法||Phong method
+冯模型||Phong model
+否认||negative acknowledgement, NAK
+辐射||radiation
+辐射度方法||radiosity method
+幅度分割||amplitude segmentation
+幅度检测||amplitude detection
+幅值裕度||magnitude margin
+符号||symbol
+符号编码||symbolic coding
+符号操纵语言||symbol manipulation language
+符号分析||symbolic analysis
+符号间干扰||intersymbol interference
+符号逻辑||symbolic logic
+符号设备||symbolic device
+符号文件||symbolic file
+符号演算||symbolic calculus
+符号语言||symbolic language
+符号执行||symbolic execution
+符号智能||symbolic intelligence
+符合停机||match stop
+服务||service
+服务比特率||service bit rate
+服务程序||service program
+服务队列||service queue
+服务发起者||service initiator
+服务访问点||service access point, SAP; 又称“服务接入点”。
+服务监控程序||service monitor
+服务接受者||service acceptor
+服务例程||service routine
+服务器||server
+服务请求块||service request block
+服务请求中断||service request interrupt
+服务数据单元||service data unit, SDU
+服务原语||service primitive
+服务质量||quality of service, QoS
+浮点处理单元||floating-point processing unit, FPU
+浮点计算机||floating-point computer
+浮点数||floating-point number
+浮点运算||floating-point operation
+浮动磁头||float head, flying head
+浮动块||slider
+浮动装入程序||relocating loader
+辅[键]码||secondary key
+辅[助]副本||secondary copy
+辅助存储器||auxiliary memory
+辅助段||secondary segment
+辅助集||supplementary set
+辅助空间分配||secondary space al[]
+辅助平面||supplementary plane
+辅助任务||secondary task
+辅助索引||secondary index
+腐蚀||erosion
+腐蚀切割||etch cutting
+副本||copy, backup copy
+副控台||secondary console
+副作用||side effect
+覆盖||overlay
+覆盖标识||covering marking
+覆盖测试||coverage test
+赋逻辑[论]||enlogy
+赋值||assignment
+赋值语句||assignment statement
+复合[键]码||compound key
+复合标记||compound token
+复合标识||compound marking
+复合磁带||composite tape
+复合控制||compound control
+复合序列||composite sequence
+复位||reset
+复位脉冲||reset pulse
+复位序列||homing sequence
+复形||complex
+复用库互操作组织||reuse library interoperability group, RLIG
+复原请求||resume requirement
+复杂事务||complex transaction
+复杂适应性系统||complex adaptive system, CAS
+复杂数据类型||complex data type
+复杂特征集||set of complex features
+复杂性||complexity
+复杂性类||complexity class
+复杂指令集计算机||complex instruction set computer, CISC
+复制||copy; 又称“拷贝”。
+复制保护||copy protection
+复制传播||copy propagation
+复制型数据库||replicated database
+傅里叶描述子||Fourier descriptor
+付费电视||pay TV
+负逻辑转换||negative logic-transition, downware logic-transition
+负沿||negative edge
+负跃变||downward transition
+负载||load
+负载电阻||load resistance
+负载端||load end
+负载规则||loading rule
+负载冒险模型||workload hazard model
+负载线图||load-line diagram
+附加任务||append task
+附加维修||supplementary maintenance
+附加文档||attached document
+附属处理器||attached processor
+改进调频[制]||modified frequency modulation, MFM
+改善性维护||perfective maintenance
+改正性活动||corrective action
+概率||probability
+概率并行算法||probabilistic parallel algorithm
+概率测试||probabilistic testing
+概率传播||probability propagation
+概率分布||probability distribution
+概率分析||probability analysis
+概率函数||probability function
+概率弧||probabilistic arc
+概率加密||probability encryption
+概率逻辑||probabilistic logic
+概率密度||probability density
+概率密度函数||probability density function
+概率模型||probability model
+概率松弛法||probabilistic relaxation
+概率算法||probabilistic algorithm
+概率推理||probabilistic reasoning
+概率误差估计||probabilistic error estimation
+概率系统||probabilistic system
+概率校正||probability correlation
+概念词典||concept dictionary
+概念发现||concept discovery
+概念分类||concept classification
+概念分析||conceptual analysis
+概念获取||concept acquisition
+概念检索||conceptual retrieval
+概念结点||concept node
+概念库||conceptual base
+概念模式||conceptual schema
+概念模型||conceptual model
+概念图||conceptual graph
+概念相关||conceptual dependency; 又称“概念依赖”。
+概念学习||concept learning
+概念依存||concept dependency
+概念因素||conceptual factor
+概要设计||preliminary design
+盖写||overwrite
+干扰||jam, interference
+干涉技术||interference technique
+干线电缆||trunk cable
+干线连接单元||trunk connecting unit, TCU
+干线耦合单元||trunk coupling unit, TCU
+感应同步器||inductosyn
+感知||perception
+感知机||perceptron
+高保真||hi-fi
+高层调度||high-level scheduling
+高电平状态特性||high-state characteristic
+高度平衡树||height-balanced tree
+高端存储块||upper memory block, UMB
+高端存储区||upper memory area, UMA
+高光||high light
+高级佩特里网||high level Petri net
+高级数据链路控制[规程]||high level data link control [procedures], HDLC [procedures]; 简称“HDLC规程”。
+高级研究计划局网络||Advanced Research Project Agency network, ARPANET; 简称“阿帕网”。
+高级语言||high level language
+高阶逻辑||higher order logic
+高阶语言||high-order language, HOL
+高宽比||aspect ratio
+高密度软盘||high-density diskette
+高密度装配||high density assembly
+高密度组装||high density packaging
+高频[字词]先见||priority of high frequency [words]
+高清晰度电视||high definition television, HDTV
+高斯分布||Gaussian distribution
+高斯曲率逼近||Gaussian curvature approximation
+高速缓存||cache; 全称“高速缓冲存储器”。
+高速缓存冲突||cache conflict
+高速缓存共享||cache memory sharing
+高速缓存块||cacheline; 由若干连续排列的字节构成。
+高速缓存块替换||cache block replacement
+高速缓存缺失||cache miss
+高速缓存一致性||cache coherence
+高速缓存一致性协议||cache coherent protocol
+高速总线||high speed bus
+高通滤波||highpass filtering
+高维索引||high dimensional indexing
+高性能计算和通信||high performance computing and communication, HPCC
+高性能计算机||high performance computer
+高性能文件系统||high performance file system
+高优先级||high priority
+高优先级中断||high-priority interrupt
+哥德尔配数||Godel numbering
+戈登曲面||Gordon surface
+割点||cutpoint
+格||case
+格局||configuration
+格框架||case frame
+格雷巴赫范式||Greibach normal form
+格式化||formatting
+格式化容量||formatted capacity
+格式化实用程序||formatting utility
+格式化数据||formatted data
+格式结构||trellis
+格语法||case grammar
+格支配理论||case dominance theory
+隔离级||isolation level
+隔行||interlaced
+隔行扫描||interlaced scanning
+隔震器||shock isolator
+铬氧磁带||chromium-oxide tape
+个人标识号||personal identification number, PIN
+个人词语[数据]库||personal word and phrase database
+个人计算机||personal computer, PC
+个人计算机存储卡国际协会||Personal Computer Memory Card International Association, PCMCIA
+个人数字助理||personal digital assistant, PDA
+个人通信系统||personal communication system, PCS
+个体标识||individual marking
+个性标记||individual token
+根[文件]名||root name
+根||root
+根编译程序||root compiler
+根目录||root directory
+跟进||tailgate
+跟踪||trace
+跟踪路由[程序]||traceroute
+跟踪球||trackball
+跟踪误差||tracking error
+更改控制||change control
+更新||update
+更新报酬||renewal reward
+更新传播||update propagation
+更新过程||renewal process
+更新事务处理||update transactions
+更新异常||update anomaly
+工程数据库||engineering database, EDB
+工程图||engineering drawing
+工具箱||toolbox, toolkit
+工效学||ergonomics
+工业标准结构总线||ISA bus
+工业标准体系结构||industry standard architecture, ISA
+工业计算机||industrial computer
+工业控制计算机||industrial control computer
+工业自动化||industrial automation
+工艺图||artwork
+工作存储器||work storage
+工作存储区||working memory area
+工作队列||work queue
+工作队列目录||work queue directory
+工作集||working set
+工作集分派程序||working set dispatcher
+工作链路||active link
+工作流||workflow
+工作流制定服务||workflow enactment service
+工作时间片||work [time] slice
+工作温度||operating temperature
+工作文件||working file
+工作信道状态||active channel state
+工作页[面]||working page
+工作因子||work factor
+工作站||workstation
+工作站机群||cluster of workstations, COW
+工作站网络||network of workstations,NOW
+工作组计算||workgroup computing
+攻击||attack
+攻击程序||attacker
+功耗||power consumption, power dissipation
+功率密度||power density
+功能||function
+功能部件||functional unit
+功能测试||functional test
+功能存储器||functional memory
+功能分解||functional decomposition
+功能故障||functional fault
+功能规约||functional specification
+功能合一语法||functional unification grammar
+功能块||function block
+功能模型||functional model
+功能软盘||function diskette
+功能设计||functional design
+功能无关测试||function independent testing
+功能性||functionality
+功能性配置审计||functional configuration audit, FCA
+功能需求||functional requirements
+功能语法||functional grammar
+功能语言学||functional linguistics
+供方||supplier
+供应过程||supply process
+公告板服务||bulletin board service, BBS
+公告板系统||bulletin board system, BBS
+公共对象模型||common object model, COM
+公共对象请求代理体系结构||common object request broker architecture, CORBA
+公共服务区||common service area, CSA
+公共接地点||common ground point
+公共事件标志||common event flag
+公共数据模型||common data model
+公共网关接口||common gateway interface, CGI
+公共系统区||common system area
+公共应用服务要素||common application service element, CASE
+公共语言||common language
+公共桌面环境||common desktop environment
+公共资源||common resource
+公共子表达式删除||common subexpression elimination
+公共总线||common bus
+公理复杂性||axiomatic complexity
+公理语义||axiomatic semantics
+公平网||fair net
+公平性||fairness
+公用设施标记||utility marker
+公用数据网||public data network
+公钥||public key
+公钥构架||public key infrastructure, PKI
+公钥加密||public key encryption
+公钥密码||public key cryptography
+公正||notarization
+共模扼流程||common-mode choke
+共谋||collusion
+共生矩阵||co-occurrence matrix
+共享||share
+共享白板||shared whiteboard
+共享变量||shared variable
+共享操作系统||shared operating system
+共享磁盘的多处理器系统||shared disk multiprocessor system
+共享存储器||shared memory
+共享段||shared segment
+共享高速缓存||shared cache
+共享内存的多处理器系统||shared memory multiprocessor system
+共享软件||shareware
+共享锁||shared lock
+共享文件||shared file
+共享虚拟存储器||shared virtual memory, SVM
+共享虚拟区||shared virtual area
+共享页表||shared page table
+共享执行系统||shared executive system
+构词法||productive morphology
+构件||component
+构件编程||component programming
+构件存储库||component repository
+构件对象模型||component object model, COM
+构件库||component library
+构件块||building block
+构件描述语言||component description language, CDL
+构件软件工程||component software engineering
+构件语法||component grammar
+构造程序||builder; 又称“构造器”。
+构造函数||constructor
+构造几何||constructive geometry
+构造性证明||constructive proof
+孤儿消息||orphan message
+孤立词语音识别||isolate word speech recognition
+鼓式打印机||drum printer
+鼓式扫描仪||drum scanner
+骨架代码||skeleton code
+骨架化||skeletonization
+故事分析||story analysis
+故障||fault, failure, fail
+故障安全||fail-safe; 又称“故障无碍”。
+故障安全电路||fault secure circuit
+故障包容||fault containment
+故障保险||fail safe
+故障测试||fault testing
+故障插入||fault insertion
+故障查找||trouble shooting
+故障沉默||fail silent
+故障处理||fault handling
+故障辞典||fault dictionary
+故障等效||fault equivalence
+故障定位||fault []
+故障定位测试||fault [] testing
+故障定位问题||fault-[] problem
+故障冻结||fail-frost
+故障访问||failure access
+故障分析||fault analysis
+故障覆盖||fault-coverage
+故障覆盖率||fault-coverage rate
+故障隔离||fault isolation
+故障恢复||recovery from the failure
+故障记录||failure logging
+故障检测||fault detection
+故障禁闭||fault confinement
+故障矩阵||fault matrix
+故障控制||failure control
+故障类别||fault category
+故障模拟||fault simulation
+故障模型||fault model
+故障屏蔽||fault masking
+故障切换||fail-over
+故障弱化||fail-soft; fail-soft
+故障弱化逻辑||fail-soft logic
+故障弱化能力||fail-soft capability
+故障撒播||fault seeding
+故障时间||fault time
+故障收缩||fault collapsing
+故障树分析||fault tree analysis
+故障特征||fault signature
+故障停止失效||fail-stop failure
+故障诊断||fault diagnosis
+故障诊断程序||fault diagnostic program
+故障诊断例程||fault diagnostic routine
+故障诊断试验||fault diagnostic test
+故障支配||fault dominance
+故障注入||fault injection
+固定存储器||permanent memory
+固定短语||fixed phrase
+固定开路故障||stuck-open fault
+固定型故障||stuck-at fault
+固定性错误||solid error
+固定字长||fixed word length
+固件||firmware
+固态存储器||solid-state memory
+固态盘||solid state disc
+固有多义性||inherently ambiguity
+固有线电容||intrinsic line capacitance
+挂起||suspension
+挂起进程||suspend process
+挂起时间||suspension time
+挂起原语||suspended primitive
+挂起状态||suspend state; 又称“暂停状态”。
+关机||shut down
+关键部分优先||critical piece first
+关键成功因素||critical success factor
+关键程度||criticality
+关键词||keyword; 又称“关键字”。
+关键计算||critical computation
+关键路径||critical path
+关键帧||key frame
+关节点||articulation point
+关联||incident
+关联处理机||associative processor
+关联矩阵||incident matrix
+关联失效||relevant failure
+关系||relation
+关系代数||relational algebra
+关系逻辑||relational logic
+关系模式分解||decomposition of relation schema
+关系数据库||relational database
+关系数据模型||relational data model
+关系网||relation net
+关系系统||relation system
+关系演算||relational calculus
+观测器||observer
+观察学习||learning by observation
+管道||pipe
+管道通信机制||pipe communication mechanism
+管道同步||pipe synchronization
+管道文件||pipe file
+管理||management
+管理程序||supervisor, supervisory program
+管理程序调用||supervisor call
+管理程序调用中断||supervisor call interrupt
+管理过程||management process
+管理计算机||supervisory computer
+管理控制||management control
+管理例程||supervisory routine
+管理信息系统||management information system, MIS
+惯性矩||moment of inertia
+惯用型词典||expression dictionary
+光[电]耦合器||photo-coupler
+光[碟]轨||optical track
+光[碟]头||optical head
+光[学]标记阅读机||optical mark reader, OMR
+光[学]字符阅读机||optical character reader, OCR
+光笔||light pen
+光标||cursor
+光磁软盘||floptical disk
+光存储器||optical memory
+光带||optical tape
+光碟[读]头||optical pickup
+光碟||optical disc, disc, compact disc, CD; 曾称“光盘”。
+光碟库||optical disc library
+光碟驱动器||optical disc drive
+光碟伺服控制系统||optical disc servo control system
+光碟塔||optical disc tower
+光碟阵列||optical disc array
+光度学||photometry
+光隔离器||opto-isolator
+光轨间距||optical track pitch
+光机械鼠标[器]||optomechanical mouse
+光计算机||optical computer
+光记录||optical recording
+光记录介质||optical recording media
+光亮度||intensity
+光流||optic flow
+光流场||optic flow field
+光能||light energy
+光钮||light button
+光强||light intensity
+光鼠标[器]||optical mouse
+光顺||fairing
+光顺性||fairness
+光纤||optical fiber
+光纤分布式数据接口||fiber distributed data interface, FDDI
+光线跟踪||ray tracing; 又称“光线追踪”。
+光线投射||ray cast
+光学图像||optical image
+光栅扫描||raster scan
+光栅显示||raster display
+光照模型||illumination model
+广播||broadcast
+广播地址||broadcast address
+广度优先搜索||breadth-first search
+广义短语结构语法||general phrase structure grammar
+广义随机佩特里网||generalized stochastic Petri net
+广义相容运算||generalized compatible operation
+广义序列机||generalized sequential machine
+广域网||wide area network, WAN
+广域信息服务系统||wide area information server, WAIS
+规程||procedures
+规范化||normalization
+规范化语言||normalized language
+规范名||canonical name
+规格化||normalization
+规格化处理||normalizing processing
+规格化设备坐标||normalized device coordinate
+规划||planning
+规划库||planning library
+规划生成||planning generation
+规划失败||planning failure
+规划系统||planning system
+规模估计||sizing
+规约||specification; 又称“规格说明”。
+规约验证||specification verification
+规约语言||specification language
+规则||rule
+规则集||rule set
+规则库||rule base
+规则推理||rule-based reasoning
+规则子句||rule clause
+硅编译器||silicon compiler
+归并||merge
+归并插入||merge insertion
+归并排序||merge sort, order by merging
+归并扫描法||merged scanning method; 又称“合并扫描法” 。
+归档文件||archived file
+归结||resolution
+归结原理||resolution principle
+归结主体||resolution agent
+归零[道]||return to zero, RTZ [track]
+归零制||return-to-zero, RZ
+归纳断言||inductive assertion
+归纳断言法||inductive assertion method
+归纳泛化||inductive generalization
+归纳公理||induction axiom
+归纳逻辑||inductive logic
+归纳逻辑程序设计||inductive logic programming
+归纳命题||inductive proposition
+归纳推理||inductive reasoning, inductive inference
+归纳学习||inductive learning
+归纳综合方法||inductive synthesis method
+归约||reduce, reduction
+归约机||reduction machine
+龟标||turtle graphics; LOGO语言中的“画笔”。
+轨道控制||orbit control
+轨迹曲线||trajectory curve
+滚动条||scroll bar
+滚筒绘图机||drum plotter
+国家信息基础设施||national information infrastructure, NII
+过程||procedure
+过程程序设计||procedural programming
+过程分析||procedure analysis
+过程间数据流分析||interprocedural data flow analysis
+过程控制||process control
+过程控制软件||process control software
+过程逻辑||process logic
+过程模型||process model
+过程实现方法||procedural implementation method
+过程数据||procedure data
+过程数据高速公路协议||proway protocol
+过程同步||procedure synchronization
+过程性知识||procedural knowledge
+过程语言||procedural language
+过程语义||procedural semantics
+过程重构||process reengineering
+过冲||overshoot
+过渡曲面||transition surface
+过渡曲线||transition curve
+过渡效果||transition effect
+过孔||via hole
+过零检测器||zero crossing detector
+过期检查点||obsolete checkpoint
+过期数据||stale data
+哈佛结构||Harvard structure
+哈密顿回路||Hamilton circuit
+哈密顿回路问题||Hamilton circuit problem
+哈密顿路径||Hamilton path
+海量存储器||mass storage
+函数[式]语言||functional language
+函数||function
+函数程序设计||functional programming
+函数调用||function call
+函数依赖||functional dependence
+函数依赖闭包||functional dependence closure
+函数依赖分解律||decomposition rule of functional dependencies
+函数依赖合并律||union rule of functional dependencies
+函数依赖伪传递律||pseudotransitive rule of functional dependencies
+焊盘||bonding pad
+汉卡||Hanzi card, Chinese character card
+汉明距离||Hamming distance
+汉明码||Hamming code
+汉语||Chinese
+汉语词语编码||Chinese word and phrase coding
+汉语词语处理机||Chinese word processor
+汉语词语库||Chinese word and phrase library
+汉语分析||Chinese analysis
+汉语计算机辅助教学系统||Chinese computer-aided instruction system
+汉语理解||Chinese language understanding
+汉语拼音[方案]||Pinyin, scheme of the Chinese phonetic alphabet
+汉语人机界面||man-machine interface for Chinese
+汉语生成||Chinese generation
+汉语信息处理||Chinese information processing
+汉语语音分析||Chinese speech analysis; 又称“汉语言语分析”。
+汉语语音合成||Chinese speech synthesis; 又称“汉语言语合成”。
+汉语语音理解系统||Chinese speech understanding system; 又称“汉语言语理解系统”。
+汉语语音识别||Chinese speech recognition; 又称“汉语言语识别”。
+汉语语音输入||Chinese speech input; 又称“汉语言语输入”。
+汉语语音数字信号处理||Chinese speech digital signal processing; 又称“汉语言语数字信号处理”。
+汉语语音信息处理||Chinese speech information processing; 又称“汉语言语信息处理”。
+汉语语音信息库||Chinese speech information library; 又称“汉语言语信息库”。
+汉语自动分词||automatic segmentation of Chinese word
+汉语自动切分||automatic Chinese word segmentation
+汉字||Hanzi, Chinese character
+汉字编码||Hanzi coding, Chinese character coding
+汉字编码方案||Hanzi coding scheme, Chinese character coding scheme
+汉字编码技术||Hanzi coding technique
+汉字编码计算机辅助设计||computer-aided design for Hanzi coding
+汉字编码输入方法||Hanzi coding input method, Chinese character coding input method
+汉字编码输入方法评测||evaluation of Hanzi coding input method
+汉字编码输入评测软件||evaluation software for Hanzi coding input
+汉字编码字符集||Hanzi coded character set, Chinese character coded character set
+汉字部件||Hanzi component, Chinese character component
+汉字打印机||Hanzi printer, Chinese character printer
+汉字公用程序||Hanzi utility program, Chinese character utility program
+汉字激光印刷机||Hanzi laser printer, Chinese character laser printer
+汉字集||Hanzi set, Chinese character set
+汉字检字法||Hanzi indexing system, Chinese character indexing system
+汉字键盘||Hanzi keyboard
+汉字键盘输入方法||Hanzi keyboard input method, Chinese character keyboard input method
+汉字交换码||Hanzi code for interchange, Chinese character code for interchange
+汉字结构||Hanzi structure, Chinese character structure
+汉字控制功能码||Hanzi control function code, Chinese character control function code
+汉字扩展内码规范||Hanzi expanded internal code specification
+汉字流通频度||circulation frequency of Hanzi, circulation frequency of Chinese character
+汉字内码||Hanzi internal code, Chinese character internal code
+汉字喷墨印刷机||Hanzi ink jet printer, Chinese character ink jet printer
+汉字区位码||Hanzi section-position code
+汉字热敏印刷机||Hanzi thermal printer, Chinese character thermal printer
+汉字生成器||Hanzi generator
+汉字识别||Hanzi recognition, Chinese character recognition
+汉字识别系统||Hanzi recognition system, Chinese character recognition system
+汉字使用频度||utility frequency of Hanzi, utility frequency of Chinese character
+汉字手持终端||Hanzi handheld terminal, Chinese character handheld terminal
+汉字输出||Hanzi output, Chinese character output
+汉字输入||Hanzi input, Chinese character input
+汉字输入程序||Hanzi input program
+汉字输入键盘||Hanzi input keyboard, Chinese character input keyboard
+汉字输入码||Hanzi inputing code, Chinese character inputing code
+汉字属性||Hanzi attribute, attribute of Chinese character
+汉字属性字典||Hanzi attribute dictionary, Chinese character attribute dictionary
+汉字特征||Hanzi features, Chinese character features
+汉字显示终端||Hanzi display terminal, Chinese character display terminal
+汉字信息处理||Hanzi information processing, Chinese character information processing
+汉字信息处理技术||Hanzi information processing technology
+汉字信息交换码||Hanzi code for information interchange, Chinese character code for information interchange
+汉字信息特征编码||information feature coding of Chinese character
+汉字信息压缩技术||Hanzi information condensed technology, Chinese character condensed technology
+汉字样本||Hanzi specimen, Chinese character specimen
+汉字样本库||Hanzi specimen bank, Chinese character specimen bank
+汉字针式打印机||Hanzi wire impact printer, Chinese character wire impact printer
+汉字终端||Hanzi terminal, Chinese character terminal
+汉字字形库||Hanzi font library, Chinese character font library
+汉字字形码||Hanzi font code, Chinese character font code
+核磁共振||nuclear magnetic resonance
+核基安全||kernelized security
+核心映像库||core image library
+合成部件||compound component, synthetic component
+合成词||compound word
+合成环境||synthetic environment
+合成器||synthesizer
+合成世界||synthetic world
+合成视频||synthetic video
+合成数字音频||synthetic digital audio
+合法性撤消||revocation; 又称“合法性取消”。
+合格性测试||qualification testing
+合取查询||conjunctive query
+合取范式||conjunctive normal form
+合式公式||well-formed formula
+合同||contract
+合同网||contract net
+合一||unification
+合一部件||unification unit
+合一子||unifier
+合作主体||collaborative agent
+盒式磁带||cartridge magnetic tape
+盒式磁盘||cartridge disk
+赫夫曼编码||Huffman encoding
+黑板||blackboard
+黑板策略||blackboard strategy
+黑板记忆组织||blackboard memory organization
+黑板结构||blackboard structure
+黑板模型||blackboard model
+黑板体系结构||blackboard architecture
+黑板系统||blackboard system
+黑板协调||blackboard coordination
+黑板协商||blackboard negotiation
+黑底屏||black matrix screen
+黑洞||black hole
+黑色||black; 非保密设备的颜色标记。
+黑体||Hei Ti
+黑箱||black-box
+黑箱测试||black box testing
+黑信号||black signal
+横跨边||cross edge
+横排||horizontal composition
+横向||landscape
+横向检验||horizontal check
+横向冗余检验||horizontal redundancy check
+横向扫描||transverse scan
+恒定比特率||constant bit rate, CBR
+恒定比特率业务||constant bit rate service
+恒角速度||constant angular velocity, CAV
+恒线速度||constant linear velocity, CLV
+哄骗||spoof
+宏病毒||macro virus
+宏处理程序||macro processor
+宏观计量经济模型||macroeconometric model
+宏观经济模型||macroeconomic model
+宏结点||macro node
+宏块||macro block
+宏理论||macro-theory
+宏流水线算法||macropipelining algorithm
+宏任务化||macrotasking
+宏语言||macro language
+宏指令||macro instruction, macros
+红黑工程||red/black engineering
+红色||red; 保密设备的颜色标记。
+红信号||red signal
+厚层压板||thick laminated plate
+厚度计||thickness meter
+厚膜||thick film
+厚膜电路||thick film circuit
+候选[键]码||candidate key
+候选解||candidate solution
+后[置]条件||postcondition
+后备软盘||back-up diskette
+后处理||post processing
+后端网||back-end network
+后集||post-set
+后继标识||successor marking
+后继丛||follower constellation
+后继站||successor
+后加安全||add-on security
+后进先出||last-in first-out, LIFO
+后精简指令集计算机||post-RISC
+后门||backdoor
+后台||background
+后台操作方式||background mode
+后台初启程序||background initiator
+后台调度程序||background scheduler
+后台分区||background partition
+后台分页||background paging
+后台监控程序||background monitor
+后台区||background region
+后台任务||background task
+后台作业||background job
+后同步码||postamble
+后像||after-image
+后向串扰||backward cross talk
+后向显式拥塞通知||backward explicit congestion notification, BECN
+后援存储器||backup storage; 通常用于外部存储器。
+后援电池||back-up battery
+后援高速缓存||backup cache
+后援系统||back-up system; 又称“后备系统”。
+后缀||postfix
+呼叫||calling, call
+呼叫改发||call deflection
+呼叫接通分组||call connected packet
+呼叫进行信号||call progress signal
+呼叫控制||call control
+呼叫控制规程||call control procedures
+呼叫重定向||call redirection
+弧标||arc label
+互操作性||interoperability
+互斥变迁||exclusive transition
+互斥使用方式||exclusive usage mode
+互工作||interworking; 又称“互通”。
+互换||interchange
+互换电路||interchange circuit
+互换性||interchangeability
+互联网[络]||interconnection network, internet; 又称“互连网[络]”。
+互联网安全||internet security
+互相怀疑||mutual suspicion
+互信息||mutual-information
+互指||coreference
+花园路径句子||garden path sentence
+华莱士树||Wallace tree
+画家算法||painter's algorithm
+画中画||picture in picture, PIP
+划分-交换排序||partition-exchange sort
+划分||partitioning
+划分算法||partitioning algorithm
+话题小组||topic group; 又称“课题小组”。
+话音||voice
+话音邮件||voice mail
+话语||discourse
+话语分析||utterance analysis
+话语模型||discourse model
+话语生成||discourse generation
+坏扇区法||bad sectoring
+环等待时间||ring latency
+环回点||loopback point
+环境光||ambient light
+环境控制表||environment control table
+环境湿度||ambient humidity
+环境温度||ambient temperature
+环境映射||environment mapping
+环形盒式磁带||endless loop cartridge tape
+环站||ring station
+环状网||ring network
+缓冲||buffering
+缓冲池||buffer pool
+缓冲存储器||buffer memory; 简称“缓存”。
+缓冲寄存器||buffer storage
+缓冲器||buffer
+缓冲区分配||buffer al[]
+缓冲区管理||buffer management
+缓冲区预分配||buffer preal[]
+换出||swap-out
+换进||swap-in
+换名缓冲器||rename buffer
+换行||line feed
+换页||form feed
+唤醒||wake-up
+唤醒等待||wake-up waiting
+唤醒原语||wake-up primitive
+唤醒字符||wake-up character
+幻影||phantom
+灰度||gray scale
+灰度变换||gray-scale transformation
+灰度级||gray level
+灰度图像||gray level image
+灰度阈值||gray threshold
+恢复||recovery
+恢复块||recovery block
+恢复能力||recovery capability
+恢复删除||undeletion
+回边||back edge
+回拨||dial-back
+回波||echo
+回车||carriage return
+回答模式||answer schema
+回弹力||resilience
+回复||reply
+回归测试||regression test
+回叫||call-back
+回路||cycle
+回扫时间||flyback time
+回收程序||reclaimer
+回送||echo
+回送测试||loopback test
+回送方式||echoplex
+回送关闭||echo off
+回送检验||echo check, loopback checking
+回送检验系统||loopback checking system
+回送开放||echo on
+回溯[法]||backtracking
+回退||rollback
+会话||conversation
+会话层||session layer
+会话密钥||session key
+会话式分时||conversational time-sharing
+会话型业务||conversational service
+会面时间||face time
+会议连接||conference connection
+汇编||assemble
+汇编程序||assembler; 又称“汇编器”。
+汇编语言||assembly language
+汇点||sink
+汇流条||bus bar
+绘图||plot
+绘图机||plotter
+绘制||rendering
+混合[型]关联处理机||hybrid associative processor
+混合||hybrid, blending
+混合编码||hybrid coding
+混合动态系统||hybrid dynamic system, HDS
+混合集成电路||hybrid integrated circuit, HIC
+混合计算机||hybrid computer; 又称“数字模拟计算机”。
+混合结构||hybrid structure
+混合模拟||hybrid simulation
+混合系统||hybrid system
+混合主体||hybrid agent
+混乱性||confusion
+混洗||shuffle
+混洗交换||shuffle-exchange
+混洗交换网络||shuffle-exchange network
+混音器||audio mixer
+混沌||chaos
+混沌动力学||chaotic dynamics
+活变迁||live transition
+活动||activity
+活动地板||false floor, free access floor; elevated floor, raised floor
+活动分区||active partition
+活动进程||active process
+活动驱动器||active driver
+活动文件||active file
+活动页||active page
+活动主体||active agent
+活动状态||active state
+活化边表||active edge list
+活锁||livelock
+活性||liveness
+伙伴系统||buddy system
+获取||acquisition
+获取过程||acquisition process
+或非门||NOR gate
+或门||OR gate
+霍恩子句||Horn clause
+霍尔逻辑||Hoare logic
+霍夫变换||Hough transformation
+霍普菲尔德神经网络||Hopfield neural network
+击打式打印机||impact printer; 简称“打印机”。
+击打噪声||hit noise
+击键时间当量||typing time equivalent
+击键验证||keystroke verification
+基本操作||basic operation; X.25中，序列号的模数为8的操作。
+基本词||primary word
+基本多文种平面||basic multilingual plane, BMP
+基本集||primary set
+基本块||basic block
+基本密钥||basic key
+基本平台||basic platform
+基本输入输出系统||basic I/O system, BIOS
+基本网系统||elementary net system
+基本型链路控制[规程]||basic mode link control [procedures]; 简称“基本规程”。
+基本优先级||base priority
+基表||base table
+基础部件||basic component
+基础设施||infrastructure
+基础网||infranet
+基带传输||baseband transmission
+基带局[域]网||baseband LAN
+基函数||basis function
+基数排序||radix sorting
+基网||underlying net
+基线||baseline
+基页||base page
+基于博弈论协商||game theory-based negotiation
+基于代价的查询优化||cost-based query optimization
+基于范例的推理||case-based reasoning, CBR
+基于构件的软件工程||component-based software engineering, CBSE
+基于构件的软件开发||component-based software development, CBSD
+基于规划的协商||plan-based negotiation
+基于规则的程序||rule-based program
+基于规则的系统||rule-based system
+基于规则的演绎系统||rule-based deduction system
+基于规则的专家系统||rule-based expert system
+基于规则语言||rule-based language
+基于合一语法||unification-based grammar
+基于解释[的]学习||explanation-based learning, EBL
+基于类型理论的方法||type theory-based method
+基于面的表示||face-based representation
+基于内容的检索||content-based retrieval
+基于内容的图像检索||content-based image retrieval
+基于实例[的]学习||instance-based learning
+基于特征的逆向工程||feature-based reverse engineering
+基于特征的设计||feature-based design
+基于特征的造型||feature-based modeling
+基于特征的制造||feature-based manufacturing
+基于物理的造型||physically-based modeling
+基于语法的查询优化||syntax-based query optimization
+基于语义的查询优化||semantics-based query optimization
+基于知识[的]推理||knowledge-based inference
+基于知识[的]推理系统||knowledge-based inference system
+基于知识的仿真系统||knowledge-based simulation system
+基于知识的机器翻译||knowledge-based machine translation
+基于知识的问答系统||knowledge-based question answering system
+基于知识的咨询系统||knowledge-based consultation system
+基于主体[的]软件工程||agent-based software engineering
+基于主体[的]系统||agent-based system
+基于资源的调度||resource-based scheduling
+基址寄存器||base register
+基准||reference; benchmark
+基准测试||benchmark test
+基准程序||benchmark program
+基准网络||baseline network
+基准线||guide line
+基子句||ground clause
+机电一体化||mechanotronics
+机顶盒||set-top box, STB
+机房||machine room
+机房管理||room management
+机房维护||room maintenance
+机密级||secret
+机器词典||machine dictionary
+机器发现||machine discovery
+机器翻译||machine translation, MT
+机器翻译评价||evaluation of machine translation
+机器检查中断||machine check interrupt
+机器浪费时间||machine-spoiled time
+机器码||machine code
+机器人||robot
+机器人工程||robot engineering
+机器人学||robotics
+机器视觉||machine vision
+机器学习||machine learning
+机器语言||machine language
+机器运行||machine run
+机器指令||machine instruction
+机器智能||machine intelligence
+机器周期||machine cycle
+机群||cluster; 又称“群集”。
+机箱||chassis, case, cabinet; 又称“机柜”。
+机械式翻译||mechanical translation
+机械手||manipulator
+机械鼠标[器]||mechanical mouse
+机械学习||rote learning
+机译最高研讨会||machine translation summit, MT summit
+机制||mechanism
+机助翻译||machine-aided translation
+机助人译||machine-aided human translation, MAHT
+畸变||distortion; 又称“失真”。
+积分控制||integral control
+积木世界||block world
+迹线||trajectory
+迹语言||trace language
+激光存储器||laser memory
+激光印刷机||laser printer
+激光影碟||laser vision, LV
+激光照排机||laser typesetter
+激活||enable, activate; 又称“使能”。
+激活函数||activation function
+激活机制||activate mechanism
+激活原语||activate primitive
+吉比特以太网||gigabit Ethernet
+吉布森混合法||Gibson mix
+极点||pole
+极限优先级||limit priority
+集成||integration
+集成电源||integrated power supply
+集成度||integration level
+集成数字控制||integrated numerical control, INC
+集成注入逻辑电路||integrated injection logic circuit, IILC
+集成自动化||integrated automation
+集肤效应||skin effect
+集合语言||set language
+集散控制||total distributed control
+集散控制系统||distributed control system, DCS
+集团口令||group password
+集线器||hub
+集中[式]处理||centralized processing
+集中[式]刷新||centralized refresh
+集中电容||lumped capacitance
+集中负载||lumped load
+集中控制||centralized control
+集中式缓冲池||centralized buffer pool
+集中式网||centralized network
+及时编译程序||Just In Time compiler, JIT compiler
+及时生产||just-in-time production, JIT
+即插即用||plug and play
+即插即用操作系统||plug and play operating system
+即插即用程序设计||plug and play programming
+即时解压缩||on-the-fly decompression
+即时压缩||on-the-fly compression
+级控||stage control
+级联||cascade connection
+几何变换||geometric transformation
+几何变形||geometry deformation
+几何连续性||geometric continuity
+几何平均||geometric mean
+几何校正||geometric correction
+几何造型||geometric modeling
+技术可行性||technical feasibility
+技术与办公协议||technical and office protocol, TOP
+技术主管||chief technology officer, CTO
+寄存器||register
+寄存器长度||register length
+寄存器着色||register coloring
+寄生电容||parasitic capacitance
+寄生振荡||parasitic oscillation
+计费||charging
+计量经济模型||econometric model
+计量语言学||quantitative linguistics
+计时分析程序||timing analyzer
+计时器||timer; 又称“定时器”。
+计时页||clocked page
+计数器||counter
+计数选择弧||counter-alternate arc
+计算||computation
+计算包封||computational envelope
+计算复杂度||computation complexity
+计算复杂性||computation complexity
+计算机||computer
+计算机安全||computer security
+计算机安全与保密||computer security and privacy
+计算机病毒||computer virus
+计算机病毒对抗||computer virus countermeasure
+计算机操作指导||computer operational guidance
+计算机层析成像||computerized tomography, CT
+计算机产业||computer industry
+计算机程序||computer program
+计算机程序开发计划||computer program development plan
+计算机程序配置标识||computer program configuration identification
+计算机程序确认||computer program validation
+计算机程序认证||computer program certification
+计算机程序验证||computer program verification
+计算机程序摘要||computer program abstract
+计算机程序注释||computer program annotation
+计算机代||computer generation
+计算机动画||computer animation
+计算机犯罪||computer crime
+计算机辅助测试||computer-aided test, CAT
+计算机辅助电子设计||computer-aided electronic design; 俗称“电子CAD”。
+计算机辅助翻译系统||computer-aided translation system
+计算机辅助分析||computer-aided analysis, CAA
+计算机辅助钢结构设计||computer-aided steelwork design; 俗称“钢结构CAD”。
+计算机辅助工程||computer-aided engineering, CAE
+计算机辅助工程设计||computer-aided engineering design; 俗称“工程CAD”。
+计算机辅助工艺规划||computer-aided process planning, CAPP
+计算机辅助后勤保障||computer-aided logistic support, CALS
+计算机辅助机械设计||computer-aided mechanical design; 俗称“机械CAD”。
+计算机辅助几何设计||computer-aided geometry design, CAGD
+计算机辅助建筑设计||computer-aided building design; 俗称“建筑CAD”。
+计算机辅助教学||computer-aided instruction, CAI
+计算机辅助流程工厂设计||computer-aided process plant design; 俗称“流程工厂CAD”。
+计算机辅助配管设计||computer-aided piping design; 俗称“配管CAD”。
+计算机辅助软件工程||computer-aided software engineering, CASE
+计算机辅助设计||computer-aided design, CAD
+计算机辅助设计与制造||CAD/CAM
+计算机辅助系统工程||computer-aided system engineering, CASE
+计算机辅助语法标注||computer-aided grammatical tagging
+计算机辅助制造||computer-aided manufacturing, CAM
+计算机工程||computer engineering
+计算机管理||computer management
+计算机化||computerization
+计算机化小交换机||computerized branch exchange ,CBX
+计算机集成制造||computer-integrated manufacturing, CIM
+计算机集成制造系统||computer integrated manufacturing system, CIMS
+计算机技术||computer technology
+计算机监控系统||supervisory computer control system
+计算机间谍||computer espionage
+计算机科学||computer science
+计算机可靠性||computer reliability
+计算机控制||computer control
+计算机类型||computer category; 又称“计算机型谱”。
+计算机理解||computer understanding
+计算机乱用||computer abuse
+计算机密码学||computer cryptology
+计算机软件||computer software
+计算机软件的法律保护||legal protection of computer software
+计算机实现||computer implementation
+计算机视觉||computer vision
+计算机数据||computer data
+计算机数控||computer numerical control, CNC
+计算机体系结构||computer architecture
+计算机图形学||computer graphics
+计算机网络||computer network
+计算机维护与管理||computer maintenance and management
+计算机系统||computer system
+计算机系统审计||computer system audit
+计算机下棋||computer chess
+计算机显示||computer display
+计算机性能||computer performance
+计算机性能评价||computer performance evaluation
+计算机艺术||computer art
+计算机疫苗||computer vaccine
+计算机应用||computer application
+计算机应用技术||computer application technology
+计算机硬件||computer hardware
+计算机语言||computer language
+计算机诈骗||computer fraud
+计算机支持协同工作||computer supported cooperative work, CSCW
+计算机制图||computer draft
+计算机资源||computer resource
+计算机字||computer word
+计算几何||computational geometry
+计算技术||computing technology
+计算零知识||computational zero-knowledge
+计算逻辑||computational logic
+计算器||calculator
+计算使用||computation use, c-use
+计算系统||computing system
+计算语言学||computational linguistics
+计算语义学||computational semantics
+计算语音学||computational phonetics
+计算智能||computational intelligence
+记法||notation
+记录||record
+记录方式||recording mode
+记录密度||recording density
+记录锁定||record lock
+记忆保持度||duration of remembering
+记忆表示||memory representation
+记忆组织包||memory organization packet, MOP
+记账策略||account policy
+记账码||accounting code
+继承||inheritance
+继承误差||inhibited error
+继电控制||bang-bang control
+夹具||fixture
+家态||home state
+家庭办公||telecommuting
+加标图||marked graph
+加博变换||Gabor transformation
+加法器||adder
+加急传送||urgent transfer
+加减器||adder-subtracter
+加亮||highlight
+加密||encryption, encipherment
+加密算法||cryptographic algorithm
+加密协议||cryptographic protocol
+加权S图||weighted S-graph
+加权T图||weighted T-graph
+加权同步距离||weighted synchronic distance
+加权图||weighted graph
+加速比||speed-up ratio
+加速测试||accelerated test
+加速定理||speed-up theorem
+加速键||accelerator key
+加速时间||acceleration time
+加锁||lock; padlocking
+加载和存储体系结构||load/store architecture
+假冒攻击||impersonation attack
+假色||pseudocolor
+假设||hypothesis
+假设验证||hypothesis verification
+假脱机[操作]||simultaneous peripheral operations on line, SPOOL; 又称“SPOOL操作”。
+假脱机操作员特权级别||spooling operator privilege class
+假脱机队列||spool queue
+假脱机管理||spool management
+假脱机文件||spool file
+假脱机文件标志||spool file tag
+假脱机文件级别||spool file class
+假脱机系统||spooling system
+假脱机作业||spool job
+假信号||glitch
+假言推理||modus ponens
+架装安装||rackmount
+架装结构||rack construction
+监督控制||supervisory control
+监督学习||supervised learning
+监控||monitoring
+监控程序||monitor, monitor program
+监控方式||monitor mode
+监控任务||monitor task
+监控台||control and monitor console
+监控与数据采集系统||supervisory control and data acquisition system, SCADAS
+监视器||monitor
+监视信元||monitoring cell
+监视状态||monitored state
+监听||snoop
+间发错误||intermittent error
+间隔计时器||interval timer
+间接地址||indirect address
+间隙||gap
+间隙定理||gap theorem
+间歇故障||intermittent fault
+兼容计算机||compatible computer
+兼容性||compatibility
+兼容字符||compatibility character
+检测||detection
+检查表||checklist
+检查程序||checker
+检查点||checkpoint
+检查点再启动||checkpoint restart
+检查和||checksum
+检错||error detection; 又称“差错检测” 。
+检错例程||error detecting routine
+检错码||error detection code, EDC; 又称“差错检测码” 。
+检错停机||check stop
+检索||retrieve
+检索树||trie tree
+检索型业务||retrieval service
+检验||check; 又称“检查”。
+检验板测试||checkboard test
+检验步骤||checking procedure
+检验程序||check program
+检验电路||checking circuit
+检验计算||checking computation; 又称“验算”。
+检验例程||check routine
+检验码||checking code
+检验器||checker
+检验位||check bit, check digit
+检验序列||checking sequence
+检验装置||verifying unit
+检验总线||check bus, check trunk
+拣取设备||pick device; 又称“拾取设备”。
+简便的目录访问协议||lightweight DAP, LDAP
+简单安全特性||simple security property
+简单多边形||simple polygon
+简单链表||simply linked list
+简单网[络]管[理]协议||simple network management protocol, SNMP
+简单网||simple net
+简单网关监视协议||simple gateway monitoring protocol, SGMP
+简单邮件传送协议||simple mail transfer protocol, SMTP
+简化字||simplified Hanzi, simplified Chinese character
+简洁性||conciseness
+简码||brief-code
+剪裁||tailoring
+剪裁过程||tailoring process
+剪切变换||shear transformation
+剪贴板||clipboard
+减法器||subtracter
+减速时间||deceleration time
+减震器||shock absorber
+鉴别||authentication
+鉴别交换||authentication exchange
+鉴别逻辑||logic of authentication
+鉴别数据||authentication data
+鉴别头||authentication header
+鉴别信息||authentication information
+鉴定||qualification
+鉴定需求||qualification requirement
+键||key
+键码||key code
+键帽||key cap
+键盘||keyboard
+键盘打印机||keyboard printer
+键位||key mapping
+键位表||key mapping table
+键位布局||keyboard layout
+键元||key-element
+键元串||key-element string
+键元集||key-element set
+渐变||morphing
+溅射膜盘||sputtered film disk; 全称“溅射薄膜磁盘”。
+建立时间||setup time
+建模||modeling; 又称“造形”。
+讲授学习||learning by being told
+降级||degradation
+降级恢复||degraded recovery
+降级运行||degraded running
+降维||dimension reduction
+交||intersection
+交叉编译||cross compiling
+交叉存储器||interleaved memory
+交叉存取||interleaving access
+交叉感染||cross infection
+交叉汇编程序||cross assembler
+交叉开关||crossbar
+交叉开关网||crossbar network
+交叉连接[单元]||cross connect
+交叉链接文件||cross-linked file
+交叉搜索||intersection search
+交叉耦合||cross coupling
+交叉耦合噪声||cross coupling noise
+交错路径||zigzag path
+交错因子||interleave factor
+交付||delivery; 又称“投递”。
+交互[式]系统||interactive system
+交互[作用]||interaction
+交互||interactive
+交互错误||interaction error
+交互方式||interactive mode
+交互故障||interaction fault
+交互技术||interactive technique
+交互设备||interactive device
+交互式SQL语言||interactive SQL
+交互式查找||interactive searching
+交互式处理||interactive processing
+交互式电视||ITV, interactive television
+交互式翻译系统||interactive translation system
+交互式分时||interactive time-sharing
+交互式论证||interactive argument
+交互式批处理||interactive batch processing
+交互式协议||interactive protocol
+交互式语言||interactive language
+交互式证明||interactive proof
+交互式证明协议||interactive proof protocol
+交互图形系统||interactive graphic system
+交互型业务||interactive service
+交互运作||interworking
+交互主体||interaction agent
+交换||exchange
+交换码||code for interchange
+交换排列||exchange permutation
+交换排序||exchange sort
+交换线路||switched line
+交换虚电路||switched virtual circuit, SVC
+交换虚拟网||switched virtual network
+交谈[服务]||talk
+脚本||script
+脚本知识表示||script knowledge representation
+角度位置传感器||angular position transducer
+角色模型||actor model
+教育点播||education on demand, EOD
+较低指令字部||lower instruction parcel
+揭露||disclosure
+接触电阻||contact resistance
+接触起停||contact start stop, CSS
+接触式磁记录||contact magnetic recording
+接触压力||contact force
+接地平面||grounding plane
+接地系统||grounding system
+接合||linkage
+接口||interface
+接口测试||interface testing
+接口定义语言||interface definition language, IDL
+接口分析||interface analysis
+接口规约||interface specification
+接口净荷||interface payload
+接口开销||interface overhead
+接口描述语言||interface description language, LDL
+接口速率||interface rate
+接口需求||interface requirements
+接口主体||interface agent
+接入||access
+接收端||receiving end
+接收门||receiving gate
+接收器||receiver
+接收证实||confirmation of receipt, COR
+接受者||recipient
+接受状态||accepting state
+接线||wiring
+阶层[类]状态管理程序||bracket state manager
+阶跃发生器||step generator
+阶跃函数||step function
+截除||cut
+截断二进制指数退避[算法]||truncated binary exponential backoff
+截断误差||truncation error
+截面||cross section
+截面曲线||cross section curve
+节点插值||knot interpolation
+节点删除||knot removal
+结点||node; 又称“节点”。
+结点关系度||relation degree of node
+结构||structure
+结构查询语言||structure query language, SQL; 简称“SQL语言”。
+结构冲突||structural hazard
+结构存储器||structural memory
+结构分页系统||structured paging system
+结构化保护||structured protection
+结构化编辑程序||structured editor; 又称“结构化编辑器”。
+结构化操作系统||structured operating system
+结构化程序||structured program
+结构化程序设计||structured programming
+结构化程序设计语言||structured programming language
+结构化方法||structured method
+结构化分析||structured analysis
+结构化分析与设计技术||structured analysis and design technique, SADT
+结构化规约||structured specification
+结构化设计||structured design
+结构理据||structure origin
+结构模式识别||structural pattern recognition
+结构式多处理机系统||structured multiprocessor system
+结构图||structure chart
+结构性||structuredness
+结构有界性||structural boundedness
+结构主义语言学||structuralism linguistics
+结温||junction temperature
+结至环境热阻||junction-to-ambient thermal resistance
+解除分配||deal[]
+解答抽取||answer extraction
+解码器||decoder
+解释||interpret
+解释程序||interpreter; 又称“解释器”。
+解树||solution tree
+解锁||unlock
+解图||solution graph
+解压缩||decompress
+解耦||decoupling
+界面||interface
+借线进入||piggyback entry
+介电常数||dielectric constant
+介电损耗||dielectric loss
+介质||media; 存储材料。
+介质隔离||dielectric isolation
+介质故障||media failure
+介质转换||media conversion
+金属[化]陶瓷模块||metallized ceramic module
+金属粉末磁带||alloy magnetic particle tape
+金属化孔||plated through hole
+金属氧化物半导体存储器||metal-oxide-semiconductor memory, MOS memory; 简称“MOS存储器”。
+金字塔结构||pyramid structure
+紧[密]耦合系统||tightly coupled system
+紧急断电||emergency-off
+紧急开头||emergency switch, panic button
+紧密一致性||tight consistency
+紧致测试||compact testing
+锦标赛算法||tournament algorithm
+进程||process
+进程变迁||process transition
+进程存储器开关表示||process-memory-switch representation, PMS representation; 简称“PMS表示”。
+进程调度||process scheduling
+进程定性推理||process qualitative reasoning
+进程间通信||interprocess communication, IPC
+进程迁移||process migration
+进程同步||process synchronization
+进程优先级||process priority
+进程状态||process state
+进化||evolution
+进化策略||evolution strategy
+进化程序||evolution program
+进化程序设计||evolution programming
+进化发展||evolutionary development
+进化机制||evolutionism
+进化计算||evolutionary computing
+进化检查||evolution checking
+进化优化||evolutionary optimization
+进位||carry
+进位传递加法器||carry-propagation adder, CPA
+进栈||push
+禁闭||confinement
+禁集||immune set
+禁用字符||forbidden character
+禁用组合||forbidden combination
+禁用组合检验||forbidden combination check
+禁止||disable, inhibition
+禁止表||forbidden list
+禁止电路||inhibit circuit
+禁止脉冲||inhibit pulse
+禁止输入||inhibiting input
+禁止信号||inhibit signal
+禁止中断||interrupt disable
+禁止状态||forbidden state
+近端耦合噪声||near-end coupled noise
+近邻||neighbor
+近似算法||approximation algorithm
+近似推理||approximate reasoning
+近线||near line
+浸焊||dip-soldering
+尽力投递||best-effort delivery
+晶体管晶体管逻辑||transistor-transistor logic, TTL
+晶体振荡器||crystal oscillator
+精定位||fine positioning
+精度||precision
+精化||refinement
+精化策略||refinement strategy
+精化准则||refinement criterion
+精简指令||reduced instruction
+精简指令集计算机||reduced instruction set computer, RISC
+经典逻辑||classical logic
+经济可行性||economic feasibility
+经济模型||economic model
+经济信息系统||economic information system, EIS
+经理信息系统||executive information system, EIS
+经理支持系统||executive support system, ESS
+经验法则||empirical law
+经验系统||empirical system
+景物||scene
+景物分析||scenic analysis
+静电绘图机||electrostatic plotter
+静电印刷机||electrostatic printer
+静启动||dead start
+静态绑定||static binding
+静态测试||static testing
+静态处理器分配||static processor al[]
+静态存储分配||static memory al[]
+静态存储器||static memory
+静态调度||static scheduling
+静态多功能流水线||static multifunctional pipeline
+静态分析||static analysis
+静态分析程序||static analyzer
+静态汉字平均码长||static average code length of Hanzi
+静态汉字重码率||static coincident code rate for Hanzi
+静态缓冲||static buffering
+静态缓冲区||static buffer
+静态缓冲区分配||static buffer al[]
+静态检验||static check
+静态键位分布系数||static coefficient for code element al[]
+静态流水线||static pipeline
+静态冒险||static hazard
+静态扭斜||static skew
+静态冗余||static redundancy
+静态数据区||static data area
+静态刷新||static refresh
+静态随机存储器||static RAM, SRAM
+静态网络||static network
+静态相关性检查||static coherence check
+静态知识||static knowledge
+静态重定位||static re[]
+静态字词平均码长||static average code length of words
+静态字词重码率||static coincident code rate for words
+静压[式]浮动磁头||static pressure flying head
+静止图像||still image
+镜面反射光||specular reflection light
+镜像||mirror
+径向伺服||radial servo
+竞争变迁||competitive transition
+竞争网络||competition network
+净荷||payload
+净化电源||power conditioner
+净室||cleanroom
+净室软件工程||cleanroom software engineering
+纠错||error correction
+纠错例程||error correcting routine
+纠错码||error correction code, ECC
+就绪||ready
+就绪状态||ready state
+菊花链||daisy chain
+局部变量||local variable
+局部存储[器]||local memory
+局部等待图||local wait-for graph, LWFG
+局部故障||local fault
+局部光照模型||local illumination model, local light model
+局部模式||local schema
+局部确定[性]公理||local-deterministic axiom
+局部失效||local failure
+局部死锁||local deadlock
+局部性||locality
+局部应用||local application
+局部坐标系||local coordinate system
+局域网[成]组地址||LAN group address
+局域网||local area network, LAN
+局域网单[个]地址||LAN individual address
+局域网多播||LAN multicast
+局域网多播地址||LAN multicast address
+局域网服务器||LAN server
+局域网管理程序||LAN manager
+局域网广播||LAN broadcast
+局域网广播地址||LAN broadcast address
+局域网交换机||LAN switch
+局域网网关||LAN gateway
+矩描述子||moment descriptor
+聚簇索引||clustered index
+聚光||spot light
+聚集||aggregation
+聚焦||focusing
+聚焦伺服||focus servo
+聚类||cluster
+聚类分析||cluster analysis
+聚酯色带||mylar ribbon
+拒绝||reject
+拒绝服务||denial of service
+巨磁变阻头||giant magnetioresistive head, GMR head
+巨型计算机||supercomputer; 又称“超级计算机”。
+距离向量||distance vector
+句柄||hand1e
+句法||syntax; 又称“语构”。
+句法范畴||syntax category
+句法分析||syntax analysis
+句法关系||syntactic relation
+句法规则||syntactic rule
+句法结构||syntactic structure
+句法理论||syntax theory
+句法模式识别||syntactic pattern recognition
+句法歧义||syntax ambiguity, syntactic ambiguity
+句法生成||syntax generation
+句法树||syntactic tree
+句法语义学||syntactic semantics
+句法制导编辑程序||syntax-directed editor; 又称“句法制导编辑器”。
+句型||sentential form, sentence pattern
+句子||sentence
+句子片段||sentence fragment
+句子歧义消除||sentence disambiguation
+卷||volume
+卷回传播||rollback propagation
+卷回恢复||rollback recovery
+卷积||convolution
+卷积核||convolution kernel
+卷积投影数据||convolved projection data
+决策||decision
+决策表||decision table
+决策规则||decision rule
+决策过程||decision procedure
+决策函数||decision function
+决策计划||decision plan
+决策矩阵||decision matrix
+决策空间||decision space
+决策控制||decision-making control
+决策论||decision theory
+决策模型||decision-making model
+决策树||decision tree
+决策树系统||decision tree system
+决策问题||decision problem
+决策支持系统||decision support system ,DSS
+决策支持中心||decision support center
+决策制定||decision making
+决策准则||decision criteria
+决定||resolution
+绝对地址||absolute address
+绝对分辨率||absolute resolution
+绝对机器代码||absolute machine code
+绝密级||top secret
+均衡器||equalizer
+均匀存储器访问||uniform memory access
+卡||card
+卡尔曼滤波||Kalman filtering
+卡洛变换||Karhunent-Loeve transformation
+卡片穿孔[机]||card punch
+卡片读入机||card reader
+卡普可归约性||Karp reducibility
+卡式磁带||cassette magnetic tape
+卡纸||paper jam
+开窗口||windowing
+开发方法学||development methodology
+开发规约||development specification
+开发过程||development process
+开发环境模型||development environment model
+开发进展||development progress
+开发生存周期||development life cycle
+开发者||developer
+开发者合同管理员||developer contract administrator
+开发周期||development cycle
+开放安全环境||open security environment
+开放的数据库连接||open database connectivity, ODBC
+开放式图形库||open GL
+开放体系结构框架||open architecture framework, OAF
+开放系统||open system
+开放系统互连||open system interconnection, OSI
+开关||switch
+开关电流||switched current
+开关时间||switching time
+开关枢纽||switching tie
+开关网格||switch lattice
+开关箱||switch box
+开关噪声||switching noise
+开环控制||open loop control
+开路故障||open fault
+开始-结束块||begin-end block
+开始符号||start symbol
+开销||overhead
+楷体||Kai Ti
+坎尼算子||Canny operator
+看打||typing by looking
+抗恶劣环境计算机||severe environment computer
+抗干扰||anti-interference
+抗震||antivibration
+科尔莫戈罗夫复杂性||Kolmogrov complexity
+科学计算可视化||visualization in scientific computing, VISC
+科学数据库||scientific database
+壳站点||shell site
+可安装设备驱动程序||installable device driver
+可安装输入输出过程||installable I/O procedure
+可安装文件系统||installable file system, IFS
+可安装性||installability
+可编程控制计算机||programmable control computer
+可编程逻辑控制器||programmable logic controller, PLC
+可编程逻辑器件||programmable logic device, PLD
+可编程逻辑阵列||programmable logic array, PLA
+可编程通信接口||programmable communication interface
+可编程阵列逻辑[电路]||programmable array logic, PAL
+可编程只读存储器||programmable ROM, PROM
+可变比特率||variable bit rate, VBR
+可变比特率业务||variable bit rate service
+可变分区||variable partition
+可变结构系统||variable-structured system
+可变字长||variable word length
+可擦[可]编程只读存储器||erasable PROM, EPROM
+可测试性||testability
+可测试性设计||design for testability
+可承受风险级||acceptable level of risk
+可持续信元速率||sustainable cell rate, SCR
+可穿戴计算机||wearable computer
+可串行性||serializability
+可存取性||accessibility
+可达标识||reachable marking
+可达标识集||set of reachable markings
+可达标识图||reachable marking graph
+可达森林||reachable forest
+可达树||reachability tree
+可达图||reachability graph
+可达性||reachability
+可达性关系||reachability relation
+可调度性||schedulability; 又称“易调度性”。
+可调整视频||scalable video
+可分页动态区||pageable dynamic area
+可分页分区||pageable partition
+可分页区域||pageable region
+可服务时间||serviceable time
+可服务性||serviceability
+可覆盖树||coverability tree
+可覆盖图||coverability graph
+可复用构件||reusable component
+可复用性||reusability
+可观测误差||observable error
+可观察性||observability
+可管理性||manageability; 又称“易管理性”。
+可归约性||reducibility
+可焊性||solderability
+可恢复性||recoverability
+可计算函数||computable function
+可检测性||detectability
+可见点||visible point
+可见多边形||visible polygon
+可见性||visibility
+可见性问题||visibility problem
+可靠性||reliability
+可靠性度量||reliability measurement
+可靠性分析||reliability analysis
+可靠性工程||reliability engineering
+可靠性模型||reliability model
+可靠性评价||reliability evaluation
+可靠性认证||reliability certification
+可靠性设计||reliability design
+可靠性数据||reliability data
+可靠性统计||reliability statistics
+可靠性预计||reliability prediction
+可靠性增长||reliability growth
+可控制性||controllability
+可扩充性||expandability; 又称“易扩充性”。
+可扩缩性||scalability; 又称“易扩缩性”。
+可扩缩一致性接口||scalable coherent interface, SCI; IEEE1596标准。
+可扩展的||extensible; 又称“易扩展的”。
+可扩展链接语言||extensible link language, XLL
+可扩展性||extensibility; 又称“易扩展性”。
+可扩展样式语言||extensible stylesheet language, XSL
+可扩展语言||extensible language
+可扩展置标语言||extensible markup language, XML
+可理解性||understandability
+可录光碟||compact disc-recordable, CD-R
+可满足性问题||satisfiability problem
+可能性理论||possibility theory
+可屏蔽中断||maskable interrupt
+可区别状态||distinguishable state
+可实现性||realizability
+可视Basic语言||Visual Basic, VB
+可视C++语言||Visual C++, VC++
+可视J++语言||Visual J++, VJ; 微软的Java。
+可视编程语言||visual programming language
+可视程序设计||visual programming
+可视化||visualization
+可视现象||visual phenomena
+可视语言||visual language
+可替换参数||replaceable parameter
+可维护性||maintainability; 又称“易维护性”。
+可信代理||trusted agent
+可信度函数||belief function
+可信计算||dependable computing
+可信计算基||trusted computing base
+可信计算机系统||trusted computer system
+可信进程||trusted process
+可信时间戳||trusted timestamp
+可信性||dependability
+可行解||feasible solution
+可行性||feasibility
+可行性研究||feasibility study
+可修改性||modifiability; 又称“易修改性”。
+可移植的操作系统||portable operating system
+可移植性||portability; 又称“易移植性”。
+可用性||availability, usability; 又称“易用性”。
+可用性模型||availability model
+可诊断性||diagnosability
+可执行程序||executable program
+可执行文件||executable file
+可重定位程序库模块||relocatable library module
+可重定位机器代码||relocatable machine code
+可重定位库||relocatable library
+可重复向量||repetitive vector
+可重复性||repeatability
+可重构系统||reconfigurable system
+可重排网||rearrangeable network
+可重生标识||reproducible markings
+可重写光碟||CD-rewritable, CD-RW
+可转换签名||convertible signature
+可装入模块||loadable module
+克林闭包||Kleene closure
