@@ -23,6 +23,13 @@
 
 
 
+http://192.168.1.16:9054/irms.service.topo.traph/topoHtml5Client/topo_tnms_traph.jsp?code=TRAPH&resId=TRAPH-8a3817823317303901331783956b0246&resType=TRAPHCUID
+
+
+
+
+http://192.168.1.16:9054/irms.service.topo.traph/topoHtml5Client/topo_tnms_hb.jsp?
+code=tnmsPTNLte&resId=TRAPH-4028819056e3926c0156e53c3788009e    &resType=LTE&userId=doraemon&source=1
 
 
 
@@ -36,8 +43,8 @@ code=tnmsPTNLte&resId=TRAPH-4028988d54e6cf790154e8445d04005a&resType=LTE&userId=
 
 <!--电路拓扑含有隧道信息-->
 
-http://localhost:8081/irms.service.topo.traph/topoHtml5Client/topo_tnms_traph.jsp?
-code=TRAPH&resId=ATTEMP_TRAPH-4028819056ba651a0156f7ff1a1003c5&resType=TRAPHCUID&userId=doraemon&source=1
+http://192.168.1.16:9054/irms.service.topo.traph/topoHtml5Client/topo_tnms_traph.jsp?
+code=TRAPH&resId=TRAPH-8a381782249c7e5e01249df6d9bf4f03&resType=TRAPHCUID    &userId=doraemon&source=1
 
 
 			ATTEMP_TRAPH-4028819056ba651a0156f7ff1a1003c5/荆州-江汉FE0001CNPTN
