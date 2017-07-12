@@ -64,7 +64,7 @@ import com.boco.transnms.common.dto.base.GenericDO;
 import com.boco.transnms.server.dao.base.CachedDtoMessage;
 import com.boco.ws.client.traph.TnmsCircuitClient;
 import com.boco.ws.server.nmemos.bo.AttempXToEomsServiceBO;
-
+//黑龙江
 @SuppressWarnings({"unchecked", "static-access"})
 public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServiceBO {
 	
@@ -8071,7 +8071,15 @@ public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServi
 	 * @param userDistrictId
 	 */
 	public void saveUpSiteInfo(List<Map> upSiteInfoList,String userDistrictId){
+		
 		logger.info("保存上端站信息："+upSiteInfoList);
+		logger.info("用户所属区域："+userDistrictId);
+		if(StringUtils.isNotEmpty(userDistrictId)){
+			if(userDistrictId.length()>26){
+				userDistrictId =userDistrictId.substring(0, 26);
+			}
+		}
+		
 		if(upSiteInfoList != null && upSiteInfoList.size()>0){
 			List<String> traphIds = new ArrayList<String>();
 			for(Map map : upSiteInfoList){
@@ -8097,17 +8105,18 @@ public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServi
 				map.put("cuid",traphIds.get(0));
 				List<Map<String,Object>> traphInfos = this.IbatisResDAO.getSqlMapClientTemplate().queryForList(sqlMap+".queryAttempTraph",map);
 				Map<String,Object> traphInfo=traphInfos.get(0);
+				
 				String aSiteDistrict=IbatisDAOHelper.getStringValue(traphInfo, "RELATED_A_DISTRICT_SITE").substring(0,26);
 				String zSiteDistrict=IbatisDAOHelper.getStringValue(traphInfo, "RELATED_Z_DISTRICT_SITE").substring(0,26);
 				
-				
+				//获取已存在上端站信息
 				map.clear();
 				map.put("serviceCuid", traphIds.get(0));
 				List<Map<String,Object>> existUpSiteInfoList = this.IbatisResDAO.getSqlMapClientTemplate().queryForList(sqlMap+".queryExistUpSiteInfoList",map);
 				
-				List<Map<String, Object>> oldUpsiteInfo = this.getRelatedTpByTraph(traphIds.get(0));				
-				
-				
+				List<Map<String, Object>> upsiteInfoLastMod = this.getRelatedTpByTraph(traphIds.get(0));	
+				logger.info("oldUpsiteInfo:"+upsiteInfoLastMod);
+				//删除原有上端站信息
 				if(existUpSiteInfoList!=null && existUpSiteInfoList.size()>0){
 					List<String> existUpSiteInfoCuidList = new ArrayList<String>();
 					for(Map<String,Object> existUpSiteInfoMap : existUpSiteInfoList){
@@ -8121,10 +8130,10 @@ public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServi
 			    }
 				//upSiteInfoList  回传 //oldUpsiteInfo 返回前台上端站信息
 				if("多级设计".equals(taskLabelCn)){
-					if(upSiteInfoList.size()!=oldUpsiteInfo.size()){
-						throw new RuntimeException("返回上端站信息异常！");
+					if(upSiteInfoList.size()!=upsiteInfoLastMod.size()){
+						throw new RuntimeException("请填写完整上端站信息！");
 					}
-					//用户不可操作A端上端站信息  
+					//用户不可操作二干A端上端站信息  
 					if(!StringUtils.equals(userDistrictId, aSiteDistrict)){
 							for(int i=0;i<upSiteInfoList.size();i++){
 								Map<String,Object> newupSiteInfo=upSiteInfoList.get(i);
@@ -8132,7 +8141,7 @@ public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServi
 								if(StringUtils.equals("A", azMode)){
 									String newUpPtp1=IbatisDAOHelper.getStringValue(newupSiteInfo, "RELATED_UP_CUID");
 									String newUpPtp2=IbatisDAOHelper.getStringValue(newupSiteInfo, "RELATED_UP_CUID2");
-									Map<String,Object> oldupSiteInfo=oldUpsiteInfo.get(i);
+									Map<String,Object> oldupSiteInfo=upsiteInfoLastMod.get(i);
 									String oldUpPtp1=IbatisDAOHelper.getStringValue(oldupSiteInfo, "RELATED_UP_PTP_CUID");
 									String oldUpPtp2=IbatisDAOHelper.getStringValue(oldupSiteInfo, "RELATED_UP_PTP_CUID2");
 									if(!StringUtils.equals(newUpPtp1,oldUpPtp1)||!StringUtils.equals(newUpPtp2,oldUpPtp2)){
@@ -8141,7 +8150,7 @@ public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServi
 							}
 						}
 					}
-					//用户不可操作Z端上端站信息
+					//用户不可操作二干Z端上端站信息
 					if(!StringUtils.equals(userDistrictId, zSiteDistrict)){
 						for(int i=0;i<upSiteInfoList.size();i++){
 							Map<String,Object> newupSiteInfo=upSiteInfoList.get(i);
@@ -8149,7 +8158,7 @@ public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServi
 							if(StringUtils.equals("Z", azMode)){
 								String newUpPtp1=IbatisDAOHelper.getStringValue(newupSiteInfo, "RELATED_UP_CUID");
 								String newUpPtp2=IbatisDAOHelper.getStringValue(newupSiteInfo, "RELATED_UP_CUID2");
-								Map<String,Object> oldupSiteInfo=oldUpsiteInfo.get(i);
+								Map<String,Object> oldupSiteInfo=upsiteInfoLastMod.get(i);
 								String oldUpPtp1=IbatisDAOHelper.getStringValue(oldupSiteInfo, "RELATED_UP_PTP_CUID");
 								String oldUpPtp2=IbatisDAOHelper.getStringValue(oldupSiteInfo, "RELATED_UP_PTP_CUID2");
 								if(!StringUtils.equals(newUpPtp1,oldUpPtp1)||!StringUtils.equals(newUpPtp2,oldUpPtp2)){
@@ -8159,43 +8168,53 @@ public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServi
 						}
 					}
 				}
-				List<Map> needSaveInfoList = new ArrayList<Map>();
+				//处理填写不为空的数据
+				List<Map> skipEmptyUPDevInfos = new ArrayList<Map>();
 				for(Map upSiteInfoMap : upSiteInfoList){
+//					String upDevCuid = (String)upSiteInfoMap.get("RELATED_UP_CUID");//未取到设备
+					String tpDevCuid = (String)upSiteInfoMap.get("RELATED_TP_CUID");
 					String upPtpCuid = (String)upSiteInfoMap.get("RELATED_UP_CUID");
-					String relatedTpCuid = (String)upSiteInfoMap.get("RELATED_TP_CUID");
 					boolean flag = true;
-					for(Map newMap : needSaveInfoList){
-						String newUpPtpCuid = (String)newMap.get("RELATED_UP_CUID");
-						String newRelatedTpCuid = (String)newMap.get("RELATED_TP_CUID");
-						if(StringUtils.isNotEmpty(newUpPtpCuid)&&StringUtils.isNotEmpty(newRelatedTpCuid)){
-							if(newUpPtpCuid.equals(upPtpCuid)&&newRelatedTpCuid.equals(relatedTpCuid)){
-								flag = false;
-								break;
-							}
-						}else{
-							flag = false;
-							break;
-						}
+					if(StringUtils.isNotEmpty(upPtpCuid)){
+//					for(Map newMap : skipEmptyUPDevInfos){
+//						String newUpPtpCuid = (String)newMap.get("RELATED_UP_CUID");
+//						String newTpDevCuid = (String)newMap.get("RELATED_TP_CUID");
+//						String newUpPtpCuid = (String)upSiteInfoMap.get("RELATED_UP_CUID");
+							//判断主用上端站端口是否重复
+//							if(newUpPtpCuid.equals(upPtpCuid)&&newTpDevCuid.equals(tpDevCuid)){
+//								flag = false;
+//								break;
+//							}
+						
+//					}
+					}else{
+						flag = false;
 					}
 					if(flag){
-						needSaveInfoList.add(upSiteInfoMap);
+						skipEmptyUPDevInfos.add(upSiteInfoMap);
 					}
 				}
+				
+				
+				logger.info("开始进行上端站插入数据处理，处理数据为："+skipEmptyUPDevInfos);
 				List<Record> recordList = new ArrayList<Record>();
-				for(Map upSiteInfoMap : needSaveInfoList){
-					String traphId = (String)upSiteInfoMap.get("RELATED_SERVICE_CUID");
-					String upPtpCuid = (String)upSiteInfoMap.get("RELATED_UP_CUID");//选择主用
-					String upPtpCuid2 = (String)upSiteInfoMap.get("RELATED_UP_CUID2");//选择备用
+				
+				for(Map upSiteInfoMap : skipEmptyUPDevInfos){
+					String traphCuid = (String)upSiteInfoMap.get("RELATED_SERVICE_CUID");
+					String upPtpCuid = (String)upSiteInfoMap.get("RELATED_UP_CUID");//选择主用端口
+					String upPtpCuid2 = (String)upSiteInfoMap.get("RELATED_UP_CUID2");//选择备用端口
 					
-					String relatedTpCuid = (String)upSiteInfoMap.get("RELATED_TP_CUID");//路由关联网元CUID
+					String tpDevCuid = (String)upSiteInfoMap.get("RELATED_TP_CUID");//路由关联网元CUID
 //					String relatedTpCuid2 = (String)upSiteInfoMap.get("RELATED_TP_CUID2");//路由关联网元CUID
-					if(StringUtils.isNotEmpty(traphId)&&StringUtils.isNotEmpty(upPtpCuid)&&StringUtils.isNotEmpty(relatedTpCuid)){
+					logger.info("relatedTpCuid:"+tpDevCuid+",upPtpCuid："+upPtpCuid+",upPtpCuid2:"+upPtpCuid);
+					
+					if(StringUtils.isNotEmpty(traphCuid)&&StringUtils.isNotEmpty(upPtpCuid)&&StringUtils.isNotEmpty(tpDevCuid)){
 						Record record = new Record("T_ATTEMP_TRAPH_UP_PORT");
 						record.addColValue("CUID", CUIDHexGenerator.getInstance().generate("T_ATTEMP_TRAPH_UP_PORT"));
 						record.addColValue("RELATED_UP_PTP_CUID", upPtpCuid);
 						record.addColSqlValue("RELATED_UP_DEVICE_CUID", "SELECT RELATED_NE_CUID FROM PTP WHERE CUID = '"+upPtpCuid+"'");
-						record.addColValue("RELATED_TRAPH_CUID", traphId);
-						record.addColValue("RELATED_TP_CUID", relatedTpCuid);
+						record.addColValue("RELATED_TRAPH_CUID", traphCuid);
+						record.addColValue("RELATED_TP_CUID", tpDevCuid);
 						record.addColValue("GROUP_NO", "0");//主用
 						recordList.add(record);
 						//根据是否传入备用设备信息判断是否插入备用信息
@@ -8204,17 +8223,17 @@ public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServi
 							recordbak.addColValue("CUID", CUIDHexGenerator.getInstance().generate("T_ATTEMP_TRAPH_UP_PORT"));
 							recordbak.addColValue("RELATED_UP_PTP_CUID", upPtpCuid2);
 							recordbak.addColSqlValue("RELATED_UP_DEVICE_CUID", "SELECT RELATED_NE_CUID FROM PTP WHERE CUID = '"+upPtpCuid2+"'");
-							recordbak.addColValue("RELATED_TRAPH_CUID", traphId);
-							recordbak.addColValue("RELATED_TP_CUID", relatedTpCuid);
+							recordbak.addColValue("RELATED_TRAPH_CUID", traphCuid);
+							recordbak.addColValue("RELATED_TP_CUID", tpDevCuid);
 							recordbak.addColValue("GROUP_NO", "1");//备用
 							recordList.add(recordbak);
 						}
 					}
 				}
+				logger.info("开始进行上端站插入数据处理，处理数据条数："+recordList.size());
 				if(recordList!=null&&recordList.size()>0){
 					List insertInfo = this.IbatisResDAO.insertDynamicTableBatch(recordList);
 					logger.info("插入数据："+insertInfo.size()+"条");
-					
 				}
 			}
 		}
@@ -8329,8 +8348,7 @@ public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServi
 		Map mp = new HashMap();
 		mp.put("pathCuidList", pathCuidList);
 		//TODO 获取路由详细设计信息
-		List<Map<String,Object>> attempTraphRouteInfoList = 
-			this.IbatisResDAO.getSqlMapClientTemplate().queryForList(sqlMap+".queryAttempTraphRouteInfoList",mp);
+		List<Map<String,Object>> attempTraphRouteInfoList = this.IbatisResDAO.getSqlMapClientTemplate().queryForList(sqlMap+".queryAttempTraphRouteInfoList",mp);
 		
 		if(attempTraphRouteInfoList!=null&&attempTraphRouteInfoList.size()>0){
 			for(Map<String,Object> attempTraphRouteInfo : attempTraphRouteInfoList){
@@ -8454,7 +8472,6 @@ public class TraphMaintainBO extends BaseServiceBO implements IMaintainBO,IServi
 	    				aTpMap.put("RELATED_UP_PTP_CUID2", upPtpCuid2);
 	    				aTpMap.put("RELATED_UP_PTP_NAME2", upPtpName2);
 	    				aTpMap.put("AZMode", "Z");
-	    				
 	    				tpMapList.add(aTpMap);
     				}
     			}
