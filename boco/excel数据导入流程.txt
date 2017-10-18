@@ -2,32 +2,43 @@ FileImportAction
 
 MultipartHttpServletRequest --MultipartFile--getInputStream--new HSSFWorkbook(in)
 
-EltMainProcessService  主流程控制
+1.FileDefine EltMainProcessService.execute(..)  主流程控制
+|
 --判断文件格式
---使用模板导入--TemplateDefineHandler 返回文件定义内容
+|
+1.1--使用模板导入1.使用自定义 2.使用模板 --FileDefine TemplateDefineHandler.execute()返回文件定义内容                                             
 	--根据TempId获取某一类文件导入解析配置处理（解析位置，解析页，处理类等）[T_ELT_FILE_DEFINE]
+	封装到 FileDefine
+	|
+	--对列头解析 
+	1.使用数据库
+	or
+	2.使用类处理(IHeadDefineHandler)
+		sheet = wb.getSheetAt(Integer.valueOf(fileDefinemap.get("SHEET_NUM"))); 解析sheet页
+		row = sheet.getRow(Integer.valueOf(fileDefinemap.get("TITLE_ROW_NUM")));获取解析行
 
-	--对列头解析 1.使用数据库 2.使用类处理(IHeadDefineHandler)
+		--List<ColDefine> IFileDefineHandlerXX.execute()【文件定义处理,如：使用通用[Abstract]TemplateDefineHandler】
+			--IHeadDefineHandler【解析文件头】	
+			Sheet sheet = wb.getSheetAt(fd.getSheetNo());
+			Row row = sheet.getRow(fd.getTitleRowNum());
+			int endC = row.getLastCellNum();
+			int startC = row.getFirstCellNum();
+			Cell cell = row.getCell(i);
+			......
+			col.setFileColIndex(i);
+			col.setFileCol((String)value);
+			cols.add(col);
+			......
+			fd.setCols(cols);
 
-	sheet = wb.getSheetAt(Integer.valueOf(fileDefinemap.get("SHEET_NUM")));
-	row = sheet.getRow(Integer.valueOf(fileDefinemap.get("TITLE_ROW_NUM")));
+1.2--1.通用数据处理校验 2.  IFileDataHandler【文件数据校验写入临时库：如T_ELT_ATTEMP_TRAPH】
+|
+1.3--ITempDataHandler【数据处理：持久化到数据库】
+|
+1.4--ICalculateHandler【错误数据计算输出】
+|
+1.5--IFileErrorBO【错误数据导出】
+|
+1.6--记录日志
 
-	--IFileDefineHandler【文件定义处理,如：使用通用[Abstract]TemplateDefineHandler】
-		--IHeadDefineHandler【解析文件头】	
-		Sheet sheet = wb.getSheetAt(fd.getSheetNo());
-		Row row = sheet.getRow(fd.getTitleRowNum());
-		int endC = row.getLastCellNum();
-		int startC = row.getFirstCellNum();
-		Cell cell = row.getCell(i);
-	--IFileDataHandler【文件数据校验写入临时库：如T_ELT_ATTEMP_TRAPH】
-	--ITempDataHandler【数据处理：持久化到数据库】
-	--ICalculateHandler【错误数据计算输出】
-	--IFileErrorBO【错误数据导出】
-
- a_site_cuid           VARCHAR2(255 CHAR),
-  z_site_cuid           VARCHAR2(255 CHAR),
-a_device_cuid         VARCHAR2(255 CHAR),
-  z_device_cuid         VARCHAR2(255 CHAR),
-  a_ptp_cuid            VARCHAR2(255 CHAR),
-  z_ptp_cuid 
 	
