@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.boco</groupId>
+  <artifactId>irms.platform.flow</artifactId>
+  <versioning>
+    <versions>
+      <version>0.0.1-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20151203020618</lastUpdated>
+  </versioning>
+</metadata>

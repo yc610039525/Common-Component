@@ -1,0 +1,19 @@
+<dependency>
+	<groupId>com.boco</groupId>
+	<artifactId>irms.service.topo.dm</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<exclusions>
+		<exclusion>
+			<groupId>com.boco</groupId>
+			<artifactId>am-H</artifactId>
+		</exclusion>
+		<exclusion>
+			<groupId>com.boco</groupId>
+			<artifactId>equip-H</artifactId>
+		</exclusion>
+		<exclusion>
+			<groupId>com.boco</groupId>
+			<artifactId>dm-H</artifactId>
+		</exclusion>
+	</exclusions>
+</dependency>
