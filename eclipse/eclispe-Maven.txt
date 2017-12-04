@@ -1,0 +1,8 @@
+Window-Preferences
+	global setting
+		D:\apache-maven-3.1.1\conf\settings.xml
+	user-setting
+		user-setting
+		D:\apache-maven-3.1.1\conf\settings.xml
+		repository
+		D:\apache-maven-3.1.1\apache-maven-3.1.1\repository

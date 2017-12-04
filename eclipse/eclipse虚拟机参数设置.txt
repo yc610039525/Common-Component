@@ -1,0 +1,16 @@
+myeclipse设置工作空间编码  JDK编译版本
+
+
+Window-Preferences
+	myeclipse-servers
+		Tomcat
+			home
+			D:\apache-tomcat-7.0.57
+			jdk
+			-Xms1024M -Xmx1024M -XX:PermSize=512M -XX:MaxPermSize=512M
+
+
+-Xms1g -Xmx1g -Xmn64m -XX:PermSize=256m -XX:MaxPermSize=256m
+
+
+
