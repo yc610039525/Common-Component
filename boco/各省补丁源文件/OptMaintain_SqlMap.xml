@@ -1,0 +1,2897 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="OptMaintain">
+
+	<select id="findAttempOpticalWay" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT A.CUID,
+		       A.LABEL_CN,
+		       A.RELATED_SERVICE_CUID,
+		       A.OTHER_BUSSINESS_CUID,
+		       A.SITE_CUID_A,
+		       A.SITE_CUID_Z,
+		       (SELECT V.NAME
+		          FROM T_SYS_ENUM_VALUE V, T_SYS_ENUM_TYPE T
+		         WHERE V.RELATED_ENUM_TYPE_CUID = T.CUID
+		           AND T.CODE = 'OPTICAL_USE_TYPE'
+		           AND V.VALUE = A.APPLY_TYPE||'') AS APPLY_TYPE,
+		       (SELECT V.NAME
+		          FROM T_SYS_ENUM_VALUE V, T_SYS_ENUM_TYPE T
+		         WHERE V.RELATED_ENUM_TYPE_CUID = T.CUID
+		           AND T.CODE = 'OPTICAL_ROUTE_TYPE'
+		           AND V.VALUE = A.ROUTE_TYPE||'') AS ROUTE_TYPE,
+		       (SELECT V.NAME
+		          FROM T_SYS_ENUM_VALUE V, T_SYS_ENUM_TYPE T
+		         WHERE V.RELATED_ENUM_TYPE_CUID = T.CUID
+		           AND T.CODE = 'OPTICAL_LEVEL'
+		           AND V.VALUE = A.OPTICAL_LEVEL||'') AS OPTICAL_LEVEL,
+		       (SELECT V.NAME
+		          FROM T_SYS_ENUM_VALUE V, T_SYS_ENUM_TYPE T
+		         WHERE V.RELATED_ENUM_TYPE_CUID = T.CUID
+		           AND T.CODE = 'OPTICAL_EXT_TYPE'
+		           AND V.VALUE = A.EXT_TYPE||'') AS EXT_TYPE,
+		       A.RELATED_SYSTEM_CUID,
+		       (SELECT V.NAME
+		          FROM T_SYS_ENUM_VALUE V, T_SYS_ENUM_TYPE T
+		         WHERE V.RELATED_ENUM_TYPE_CUID = T.CUID
+		           AND T.CODE = 'OPTICAL_NUM'
+		           AND V.VALUE = A.OPTICAL_NUM||'') AS OPTICAL_NUM,
+		       A.NO,
+		       A.ROUTE_DESIGNER,
+		       A.RELATED_A_SWITCH_DEV,
+		       A.RELATED_Z_SWITCH_DEV
+		  FROM ATTEMP_OPTICAL_WAY A
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND A.CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isNotEmpty property="taskServiceCuidList">
+			AND A.CUID IN (SELECT L.RELATED_SERVICE_CUID
+			                 FROM T_TASK_TO_SERVICE L
+			                WHERE 1 = 1
+			                <iterate property="taskServiceCuidList" prepend=" AND L.CUID IN " open="(" conjunction="," close=")">
+								#taskServiceCuidList[]#
+							</iterate>
+			                  )
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   <isEmpty property="taskServiceCuidList">
+			   AND 1=2
+			</isEmpty>
+		</isEmpty>
+	</select>
+	<update id="updateOpticalWayScheduleState" parameterClass="java.util.HashMap">
+		UPDATE OPTICAL_WAY
+		   SET SCHEDULE_STATE = #scheduleState#
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</update>
+	
+	
+	<update id="updateOldOptical" parameterClass="java.util.HashMap">
+				UPDATE OPTICAL
+				   SET RELATED_OPTICAL_WAY_CUID =#cuid#
+				 WHERE CUID IN
+				       (SELECT OPTICAL_CUID
+				          FROM OPTICAL_TO_OPTICAL_WAY
+				         WHERE  1=1 
+				<isNotEmpty property="cuid">
+		            AND  OPTICAL_WAY_CUID =#cuid#
+				               )
+				</isNotEmpty>
+				<isEmpty property="cuid">
+				   AND 1=2 )
+				</isEmpty>
+	</update>
+	
+	<select id="validateOpticalWayState" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT O.CUID,
+		       O.LABEL_CN
+		  FROM OPTICAL_WAY O, ATTEMP_OPTICAL_WAY A
+		 WHERE A.RELATED_SERVICE_CUID = O.CUID
+		<isNotEmpty property="cuidList">
+		   AND O.CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</select>
+	<select id="findAttOptRoute" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT AOR.OBJECTID,
+		       AOR.CUID,
+		       AOR.CREATE_TIME,
+		       AOR.GT_VERSION,
+		       AOR.ISDELETE,
+		       AOR.LAST_MODIFY_TIME,
+		       AOR.OBJECT_TYPE_CODE,
+		       AOR.RELATED_SERVICE_CUID,
+		       AOR.ROUTE_DESCRIPTION,
+		       AOR.ROUTE_INDEX,
+		       AOR.WORK_STATE
+		  FROM ATTEMP_OPTICAL_ROUTE AOR
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND AOR.RELATED_SERVICE_CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</select>
+	<select id="findOptRoute" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT T.OBJECTID,
+		       T.CUID,
+		       T.CREATE_TIME,
+		       T.GT_VERSION,
+		       T.ISDELETE,
+		       T.LAST_MODIFY_TIME,
+		       T.OBJECT_TYPE_CODE,
+		       T.RELATED_SERVICE_CUID,
+		       T.ROUTE_DESCRIPTION,
+		       T.ROUTE_INDEX,
+		       T.WORK_STATE
+		  FROM OPTICAL_ROUTE T
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND T.RELATED_SERVICE_CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</select>
+	<delete id="deleteAttOptWay2Task" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM T_TASK_TO_SERVICE
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND RELATED_SERVICE_CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	<delete id="deleteAttOptWay2TaskLink" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM T_TASK_TO_SERVICE_LINK
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND RELATED_SERVICE_CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	<delete id="deleteAttOptRoute2Path" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM ATT_OPTICAL_ROUTE_TO_PATH
+		 WHERE 1=1
+		<isNotEmpty property="routeCuidList">
+		   AND OPTICAL_ROUTE_CUID IN
+			<iterate property="routeCuidList" open="(" conjunction="," close=")">
+				#routeCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="routeCuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	<delete id="deleteAttOptIndiPoints" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM ATT_OPT_RTE_TO_INDI_POINTS
+		 WHERE 1=1
+		<isNotEmpty property="routeCuidList">
+		   AND OPTICAL_ROUTE_CUID IN
+			<iterate property="routeCuidList" open="(" conjunction="," close=")">
+				#routeCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="routeCuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	<delete id="deleteAttOptWay2Traph" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM ATT_TRAPH_TO_OPTICAL_WAY
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND RELATED_OPTICAL_WAY_CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	<delete id="deleteAttOpt" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM ATTEMP_OPTICAL
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND RELATED_OPTICAL_WAY_CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	<delete id="deleteAttOptRoute" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM ATTEMP_OPTICAL_ROUTE
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND RELATED_SERVICE_CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	<delete id="deleteAttOptWay2Port" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM ATTEMP_OPTICAL_WAY_TO_PORT
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND OPTICAL_WAY_CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	<delete id="deleteAttOptWay" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM ATTEMP_OPTICAL_WAY
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	<delete id="deleteAttJumpFiber" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM ATTEMP_TRAPH_JUMP_FIBER
+		 WHERE 1=1
+		<isNotEmpty property="cuidList">
+		   AND RELATED_ATTEMP_TRAPH_CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	<insert id="copyAttOptRoute2Path" parameterClass="java.util.HashMap">
+		INSERT INTO ATT_OPTICAL_ROUTE_TO_PATH
+		  (OBJECTID,
+		   CUID,
+		   LABEL_CN,
+		   GT_VERSION,
+		   PATH_TYPE,
+		   PATH_CUID,
+		   OPTICAL_ROUTE_CUID,
+		   INDEX_ROUTE_SEG,
+		   INDEX_PATH_ROUTE,
+		   ISDELETE,
+		   CREATE_TIME,
+		   LAST_MODIFY_TIME)
+		  SELECT GET_OBJECT_ID('ATT_OPTICAL_ROUTE_TO_PATH') AS OBJECTID,
+		         REPLACE(CUID, 'OPTICAL_ROUTE_TO_PATH-', 'ATT_OPTICAL_ROUTE_TO_PATH-') AS CUID,
+		         LABEL_CN,
+		         GT_VERSION,
+		         PATH_TYPE,/* 光路停闭调整 不生成ATTEMP_OPTICAL */
+         		 PATH_CUID,/*  光路停闭调整 不生成ATTEMP_OPTICAL */
+		         REPLACE(OPTICAL_ROUTE_CUID, 'OPTICAL_ROUTE', 'ATTEMP_OPTICAL_ROUTE') AS OPTICAL_ROUTE_CUID,
+		         INDEX_ROUTE_SEG,
+		         INDEX_PATH_ROUTE,
+		         ISDELETE,
+		         CREATE_TIME,
+		         SYSDATE AS LAST_MODIFY_TIME
+		    FROM OPTICAL_ROUTE_TO_PATH WHERE 1=1
+			<isNotEmpty property="routeCuidList">
+			 AND OPTICAL_ROUTE_CUID IN
+				<iterate property="routeCuidList" open="(" conjunction="," close=")">
+					#routeCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="routeCuidList">
+			 AND 1=2
+			</isEmpty>
+	</insert>
+	<insert id="copyAttOptIndiPoints" parameterClass="java.util.HashMap">
+		INSERT INTO ATT_OPT_RTE_TO_INDI_POINTS
+		  (OBJECTID,
+		   CUID,
+		   GT_VERSION,
+		   OPTICAL_ROUTE_CUID,
+		   INDIRECT_POINT_TYPE,
+		   INDI_INDEX,
+		   INDIRECT_POINT_CUID,
+		   LABEL_CN,
+		   ISDELETE,
+		   CREATE_TIME,
+		   LAST_MODIFY_TIME)
+		  SELECT GET_OBJECT_ID('ATT_OPT_RTE_TO_INDI_POINTS') AS OBJECTID,
+		         REPLACE(CUID, 'OPTICAL_ROUTE_TO_INDI_POINTS-', 'ATT_OPT_RTE_TO_INDI_POINTS-') AS CUID,
+		         GT_VERSION,
+		         REPLACE(OPTICAL_ROUTE_CUID, 'OPTICAL_ROUTE', 'ATTEMP_OPTICAL_ROUTE') AS OPTICAL_ROUTE_CUID,
+		         INDIRECT_POINT_TYPE,
+		         INDI_INDEX,
+		         INDIRECT_POINT_CUID,
+		         LABEL_CN,
+		         ISDELETE,
+		         CREATE_TIME,
+		         SYSDATE AS LAST_MODIFY_TIME
+		    FROM OPTICAL_ROUTE_TO_INDI_POINTS  WHERE 1=1
+			<isNotEmpty property="routeCuidList">
+			 AND OPTICAL_ROUTE_CUID IN
+				<iterate property="routeCuidList" open="(" conjunction="," close=")">
+					#routeCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="routeCuidList">
+			 AND 1=2
+			</isEmpty>
+	</insert>
+	<insert id="copyAttOpt" parameterClass="java.util.HashMap">
+		INSERT INTO ATTEMP_OPTICAL
+		  (OBJECTID,
+		   CUID,
+		   GT_VERSION,
+		   ORIG_SITE_CUID,
+		   ORIG_EQP_CUID,
+		   TOPO_LINK_CUID,
+		   DEST_SITE_CUID,
+		   FIBER_TYPE,
+		   OWNERSHIP,
+		   LENGTH,
+		   PURPOSE,
+		   FIBER_DIR,
+		   DEST_EQP_CUID,
+		   IS_MANUAL,
+		   FIBER_STATE,
+		   OBJECT_TYPE_CODE,
+		   RELATED_OPTICAL_WAY_CUID,
+		   OPTIC_ROUTE,
+		   USER_NAME,
+		   FIBER_LEVEL,
+		   MAKE_FLAG,
+		   SUM_ATTENU_1310,
+		   SUM_ATTENU_1550,
+		   ORIG_FIBER_NO,
+		   DEST_FIBER_NO,
+		   ROUTE_DESCIPTION_A,
+		   ROUTE_DESCIPTION_Z,
+		   REMARK,
+		   IS_TEXT,
+		   FUNCTION_STATE,
+		   ROUTE_INDEX,
+		   LABEL_CN,
+		   ROUTE_DESCIPTION,
+		   DEST_POINT_CUID,
+		   ORIG_POINT_CUID,
+		   RELATED_ROUTE_CUID,
+		   ISDELETE,
+		   ORIG_SEG_CUID,
+		   DEST_SEG_CUID,
+		   DEST_ROOM_CUID,
+		   ORIG_ROOM_CUID,
+		   RELATED_OPTICAL_CUID,
+		   CREATE_TIME,
+		   LAST_MODIFY_TIME)
+		  SELECT GET_OBJECT_ID('ATTEMP_OPTICAL') AS OBJECTID,
+		         REPLACE(CUID, 'OPTICAL-', 'ATTEMP_OPTICAL-') AS CUID,
+		         GT_VERSION,
+		         ORIG_SITE_CUID,
+		         ORIG_EQP_CUID,
+		         TOPO_LINK_CUID,
+		         DEST_SITE_CUID,
+		         FIBER_TYPE,
+		         OWNERSHIP,
+		         LENGTH,
+		         PURPOSE,
+		         FIBER_DIR,
+		         DEST_EQP_CUID,
+		         IS_MANUAL,
+		         FIBER_STATE,
+		         OBJECT_TYPE_CODE,
+		         REPLACE(RELATED_OPTICAL_WAY_CUID, 'OPTICAL_WAY', 'ATTEMP_OPTICAL_WAY') AS RELATED_OPTICAL_WAY_CUID,
+		         OPTIC_ROUTE,
+		         USER_NAME,
+		         FIBER_LEVEL,
+		         MAKE_FLAG,
+		         SUM_ATTENU_1310,
+		         SUM_ATTENU_1550,
+		         ORIG_FIBER_NO,
+		         DEST_FIBER_NO,
+		         ROUTE_DESCIPTION_A,
+		         ROUTE_DESCIPTION_Z,
+		         REMARK,
+		         IS_TEXT,
+		         FUNCTION_STATE,
+		         ROUTE_INDEX,
+		         LABEL_CN,
+		         ROUTE_DESCIPTION,
+		         DEST_POINT_CUID,
+		         ORIG_POINT_CUID,
+		         REPLACE(RELATED_ROUTE_CUID, 'OPTICAL_ROUTE-', 'ATTEMP_OPTICAL_ROUTE-') AS RELATED_ROUTE_CUID,
+		         ISDELETE,
+		         ORIG_SEG_CUID,
+		         DEST_SEG_CUID,
+		         DEST_ROOM_CUID,
+		         ORIG_ROOM_CUID,
+		         CUID,
+		         CREATE_TIME,
+		         SYSDATE AS LAST_MODIFY_TIME
+		    FROM OPTICAL  WHERE 1=1
+		    <isNotEmpty property="routeCuidList">
+			 AND RELATED_ROUTE_CUID IN
+				<iterate property="routeCuidList" open="(" conjunction="," close=")">
+					#routeCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="routeCuidList">
+			 AND 1=2
+			</isEmpty>
+	</insert>
+	<insert id="copyAttOptRoute" parameterClass="java.util.HashMap">
+		INSERT INTO ATTEMP_OPTICAL_ROUTE
+		  (OBJECTID,
+		   CUID,
+		   GT_VERSION,
+		   OBJECT_TYPE_CODE,
+		   ROUTE_INDEX,
+		   WORK_STATE,
+		   RELATED_SERVICE_CUID,
+		   ROUTE_DESCRIPTION,
+		   ISDELETE,
+		   CREATE_TIME,
+		   LAST_MODIFY_TIME)
+		  SELECT GET_OBJECT_ID('ATTEMP_OPTICAL_ROUTE') AS OBJECTID,
+		         REPLACE(CUID, 'OPTICAL_ROUTE-', 'ATTEMP_OPTICAL_ROUTE-') AS CUID,
+		         GT_VERSION,
+		         OBJECT_TYPE_CODE,
+		         ROUTE_INDEX,
+		         WORK_STATE,
+		         REPLACE(RELATED_SERVICE_CUID, 'OPTICAL_WAY', 'ATTEMP_OPTICAL_WAY') AS RELATED_SERVICE_CUID,
+		         ROUTE_DESCRIPTION,
+		         ISDELETE,
+		         CREATE_TIME,
+		         SYSDATE AS LAST_MODIFY_TIME
+		    FROM OPTICAL_ROUTE  WHERE 1=1
+		    <isNotEmpty property="cuidList">
+			 AND RELATED_SERVICE_CUID IN
+				<iterate property="cuidList" open="(" conjunction="," close=")">
+					#cuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="cuidList">
+			 AND 1=2
+			</isEmpty>
+	</insert>
+	<insert id="copyAttOptWay2Port" parameterClass="java.util.HashMap">
+		INSERT INTO ATTEMP_OPTICAL_WAY_TO_PORT
+		  (OBJECTID,
+		   CUID,
+		   GT_VERSION,
+		   OPTICAL_WAY_CUID,
+		   PORT_AZ_TYPE,
+		   PORT_CUID,
+		   LABEL_CN,
+		   ISDELETE,
+		   INDEX_PORT,
+		   RELATED_NE_CUID,
+		   CREATE_TIME,
+		   LAST_MODIFY_TIME)
+		  SELECT GET_OBJECT_ID('ATTEMP_OPTICAL_WAY_TO_PORT') AS OBJECTID,
+		         REPLACE(CUID, 'OPTICAL_WAY_TO_PORT-', 'ATTEMP_OPTICAL_WAY_TO_PORT-') AS CUID,
+		         GT_VERSION,
+		         REPLACE(OPTICAL_WAY_CUID, 'OPTICAL_WAY', 'ATTEMP_OPTICAL_WAY') AS OPTICAL_WAY_CUID,
+		         PORT_AZ_TYPE,
+		         PORT_CUID,
+		         LABEL_CN,
+		         ISDELETE,
+		         INDEX_PORT,
+		         RELATED_NE_CUID,
+		         CREATE_TIME,
+		         SYSDATE AS LAST_MODIFY_TIME
+		    FROM OPTICAL_WAY_TO_PORT  WHERE 1=1
+			<isNotEmpty property="cuidList">
+			 AND OPTICAL_WAY_CUID IN
+				<iterate property="cuidList" open="(" conjunction="," close=")">
+					#cuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="cuidList">
+			 AND 1=2
+			</isEmpty>
+	</insert>
+	<insert id="copyAttOptWayRoute" parameterClass="java.util.HashMap">
+		INSERT INTO PATHINFO
+		  (
+		   CUID,
+		   RELATED_SERVICE_CUID,
+		   CONTENT
+		  )
+		  SELECT REPLACE(OPTICAL_WAY_CUID, 'OPTICAL_WAY', 'PATHINFO') AS OPTICAL_WAY_CUID,
+		         REPLACE(OPTICAL_WAY_CUID, 'OPTICAL_WAY', 'ATTEMP_OPTICAL_WAY') AS RELATED_SERVICE_CUID,
+		         PATHROUTE
+		    FROM OPTICAL_WAY  WHERE 1=1
+			<isNotEmpty property="cuidList">
+			 AND CUID IN
+				<iterate property="cuidList" open="(" conjunction="," close=")">
+					#cuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="cuidList">
+			 AND 1=2
+			</isEmpty>
+	</insert>
+	<insert id="copyAttOptWay" parameterClass="java.util.HashMap">
+		INSERT INTO ATTEMP_OPTICAL_WAY
+			  (RELATED_SERVICE_CUID,
+			   ACCESS_POINT_A,
+			   ACCESS_POINT_Z,
+			   ALIAS,
+			   APPLY_TYPE,
+			   ATTENUATE,
+			   BUSINESS_INFO,
+			   BUSINESS_NAME,
+			   CREATE_TIME,
+			   CUID,
+			   DEV_INFO_A,
+			   DEV_INFO_Z,
+			   DEV_NAME_A,
+			   DEV_NAME_Z,
+			   DISPATCH_NAME,
+			   END_ODF_A,
+			   END_ODF_Z,
+			   EXT_TYPE,
+			   GT_VERSION,
+			   INSTEAD_CUID,
+			   ISDELETE,
+			   IS_WHOLE_JUMP,
+			   IS_WHOLE_ROUTE,
+			   LABEL_CN,
+			   LAST_MODIFY_TIME,
+			   MAKE_FLAG,
+			   NE_PORT_CUID_A,
+			   NE_PORT_CUID_Z,
+			   NO,
+			   OBJECTID,
+			   OBJECT_TYPE_CODE,
+			   OPTICAL_LEVEL,
+			   OPTICAL_NUM,
+			   OPTICAL_WAY,
+			   OPTICAL_WAY_STATE,
+			   OPTICAL_WAY_TYPE,
+			   OTHER_BUSSINESS_CUID,
+			   PATHROUTE,
+			   RELATED_A_ODFPORT_NAME,
+			   RELATED_A_SWITCH_DEV,
+			   RELATED_A_SWITCH_ODF,
+			   RELATED_A_SWITCH_PORT,
+			   RELATED_A_SWITCH_SITE,
+			   RELATED_SHEET_ID,
+			   RELATED_SYSTEM_CUID,
+			   RELATED_Z_ODFPORT_NAME,
+			   RELATED_Z_SWITCH_DEV,
+			   RELATED_Z_SWITCH_ODF,
+			   RELATED_Z_SWITCH_PORT,
+			   RELATED_Z_SWITCH_SITE,
+			   REMARK,
+			   ROUTE_TYPE,
+			   SCHEDULE_STATE,
+			   SCHEDULE_TYPE,
+			   SERVICE_TIME,
+			   SITE_CUID_A,
+			   SITE_CUID_Z,
+			   ZJPOINTS,
+			   ZJPOINTS_CUID,
+			   RATE,
+			   CREATOR)
+			  SELECT W.CUID AS RELATED_SERVICE_CUID,
+			         W.ACCESS_POINT_A,
+			         W.ACCESS_POINT_Z,
+			         W.ALIAS,
+			         W.APPLY_TYPE,
+			         W.ATTENUATE,
+			         W.BUSINESS_INFO,
+			         W.BUSINESS_NAME,
+			         W.CREATE_TIME,
+			         REPLACE(W.CUID, 'OPTICAL_WAY-', 'ATTEMP_OPTICAL_WAY-') AS CUID,
+			         W.DEV_INFO_A,
+			         W.DEV_INFO_Z,
+			         W.DEV_NAME_A,
+			         W.DEV_NAME_Z,
+			         W.DISPATCH_NAME,
+			         W.END_ODF_A,
+			         W.END_ODF_Z,
+			         W.EXT_TYPE,
+			         W.GT_VERSION,
+			         W.INSTEAD_CUID,
+			         W.ISDELETE,
+			         '$isWholeJump$',                                                   
+			         '$isWholeRoute$',
+			         W.LABEL_CN,
+			         SYSDATE AS LAST_MODIFY_TIME,
+			         W.MAKE_FLAG,
+			         W.NE_PORT_CUID_A,
+			         W.NE_PORT_CUID_Z,
+			         W.NO,
+			         GET_OBJECT_ID('ATTEMP_OPTICAL_WAY') AS OBJECTID,
+			         W.OBJECT_TYPE_CODE,
+			         W.OPTICAL_LEVEL,
+			         W.OPTICAL_NUM,
+			         W.OPTICAL_WAY,
+			         W.OPTICAL_WAY_STATE,
+			         W.OPTICAL_WAY_TYPE,
+			         (SELECT T.OUTSIDE_KEY_ID
+			          FROM   T_ACT_ORDER_DETAIL T
+			          WHERE  T.RELATED_TRAPH_CUID=W.CUID 
+			          AND (T.STATE = 'RUN' OR T.STATE IS NULL OR T.STATE = '')) AS OTHER_BUSSINESS_CUID,
+			         W.PATHROUTE,
+			         W.RELATED_A_ODFPORT_NAME,
+			         W.RELATED_A_SWITCH_DEV,
+			         W.RELATED_A_SWITCH_ODF,
+			         W.RELATED_A_SWITCH_PORT,
+			         W.RELATED_A_SWITCH_SITE,
+			         '$relatedSheetId$',
+			         W.RELATED_SYSTEM_CUID,
+			         W.RELATED_Z_ODFPORT_NAME,
+			         W.RELATED_Z_SWITCH_DEV,
+			         W.RELATED_Z_SWITCH_ODF,
+			         W.RELATED_Z_SWITCH_PORT,
+			         W.RELATED_Z_SWITCH_SITE,
+			         W.REMARK,
+			         W.ROUTE_TYPE,
+			         '$scheduleState$',
+			         '$scheduleType$',
+			         W.SERVICE_TIME,
+			         W.SITE_CUID_A,
+			         W.SITE_CUID_Z,
+			         W.ZJPOINTS,
+			         W.ZJPOINTS_CUID,
+			         W.RATE,
+			         W.CREATOR
+			    FROM OPTICAL_WAY W 
+			    WHERE 1=1 
+		<isNotEmpty property="cuidList">
+		   AND W.CUID IN
+			<iterate property="cuidList" open="(" conjunction="," close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">
+		   AND 1=2
+		</isEmpty>
+	</insert>
+	<select id="getAttempOpticalWayByCuid" parameterClass="java.lang.String" resultClass="com.boco.core.ibatis.vo.ResultMap">
+			SELECT W.SITE_CUID_A,
+			       W.SITE_CUID_Z,
+			       W.LABEL_CN,
+			       W.NO,
+			       W.NE_PORT_CUID_A,
+			       W.NE_PORT_CUID_Z,
+			       W.ALIAS,
+			       W.OPTICAL_NUM,
+			       W.CUID,
+			       W.OBJECTID,
+			       W.EXT_TYPE,
+			       W.OPTICAL_LEVEL,
+			       NVL(NVL((SELECT MAX(CUID)
+			                 FROM SWITCH_ELEMENT
+			                WHERE LABEL_CN = W.RELATED_A_SWITCH_DEV),
+			               (SELECT MAX(CUID)
+			                  FROM TRANS_ELEMENT
+			                 WHERE LABEL_CN = W.RELATED_A_SWITCH_DEV)),
+			           (SELECT MAX(CUID)
+			              FROM T_LOGIC_DEVICE
+			             WHERE LABEL_CN = W.RELATED_A_SWITCH_DEV)) AS RELATED_A_SWITCH_DEV,           
+			       NVL(NVL((SELECT MAX(CUID)
+			                 FROM SWITCH_ELEMENT
+			                WHERE LABEL_CN = W.RELATED_Z_SWITCH_DEV),
+			               (SELECT MAX(CUID)
+			                  FROM TRANS_ELEMENT
+			                 WHERE LABEL_CN = W.RELATED_Z_SWITCH_DEV)),
+			           (SELECT MAX(CUID)
+			              FROM T_LOGIC_DEVICE
+			             WHERE LABEL_CN = W.RELATED_Z_SWITCH_DEV)) AS RELATED_Z_SWITCH_DEV,       
+			       NVL(NVL((SELECT MAX(CUID)
+			                 FROM SWITCH_PORT
+			                WHERE LABEL_CN = W.RELATED_A_SWITCH_PORT),
+			               (SELECT MAX(CUID)
+			                  FROM PTP
+			                 WHERE LABEL_CN = W.RELATED_A_SWITCH_PORT)),
+			           (SELECT MAX(CUID)
+			              FROM T_LOGIC_PORT
+			             WHERE LABEL_CN = W.RELATED_A_SWITCH_PORT)) AS RELATED_A_SWITCH_PORT,
+			       NVL(NVL((SELECT MAX(CUID)
+			                 FROM SWITCH_PORT
+			                WHERE LABEL_CN = W.RELATED_Z_SWITCH_PORT),
+			               (SELECT MAX(CUID)
+			                  FROM PTP
+			                 WHERE LABEL_CN = W.RELATED_Z_SWITCH_PORT)),
+			           (SELECT MAX(CUID)
+			              FROM T_LOGIC_PORT
+			             WHERE LABEL_CN = W.RELATED_Z_SWITCH_PORT)) AS RELATED_Z_SWITCH_PORT,
+			       W.BUSINESS_NAME,
+			       W.ROUTE_TYPE,
+			       W.APPLY_TYPE,
+			       W.SCHEDULE_TYPE,
+			       W.IS_WHOLE_ROUTE
+			  FROM ATTEMP_OPTICAL_WAY W
+				WHERE W.CUID = #CUID#
+	</select>
+	<select id="getAttempOpticalWay" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT W.SITE_CUID_A,
+		       W.SITE_CUID_Z,
+		       W.LABEL_CN,
+		       W.NO,
+		       W.NE_PORT_CUID_A,
+		       W.NE_PORT_CUID_Z,
+		       W.ALIAS,
+		       W.OPTICAL_NUM,
+		       W.CUID,
+		       W.OBJECTID,
+		       W.EXT_TYPE,
+		       W.OPTICAL_LEVEL,
+		       W.RELATED_A_SWITCH_DEV,
+		       W.RELATED_Z_SWITCH_DEV,
+		       W.ROUTE_TYPE,
+		       W.APPLY_TYPE,
+		       W.SCHEDULE_TYPE,
+		       W.IS_WHOLE_ROUTE
+		  FROM ATTEMP_OPTICAL_WAY W
+		  WHERE 1=1 
+		<isNotEmpty property="attempOpticalWayCuidList">
+			<iterate prepend=" AND CUID IN " property="attempOpticalWayCuidList" conjunction="," open="(" close=")">
+				#attempOpticalWayCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalWayCuidList">
+		   AND 1 = 2
+		</isEmpty>
+	</select>
+	<update id="updateAttempOpticalWay" parameterClass="java.util.HashMap">
+		UPDATE ATTEMP_OPTICAL_WAY SET CUID=CUID
+		<isNotEmpty property="LABEL_CN" prepend=",">
+			LABEL_CN = #LABEL_CN#
+		</isNotEmpty>
+		<isNotEmpty property="NO" prepend=",">
+			NO = #NO#
+		</isNotEmpty>
+		<isNotEmpty property="ALIAS" prepend=",">
+			ALIAS = #ALIAS#
+		</isNotEmpty>
+		<isNotEmpty property="OPTICAL_NUM" prepend=",">
+			OPTICAL_NUM = #OPTICAL_NUM#
+		</isNotEmpty>
+		<isNotEmpty property="EXT_TYPE" prepend=",">
+			EXT_TYPE = #EXT_TYPE#
+		</isNotEmpty>
+		<isNotEmpty property="APPLY_TYPE" prepend=",">
+			APPLY_TYPE = #APPLY_TYPE#
+		</isNotEmpty>
+		<isNotEmpty property="RELATED_Z_SWITCH_DEV" prepend=",">
+			RELATED_Z_SWITCH_DEV = #RELATED_Z_SWITCH_DEV#
+		</isNotEmpty>
+		<isNotEmpty property="ROUTE_TYPE" prepend=",">
+			ROUTE_TYPE = #ROUTE_TYPE#
+		</isNotEmpty>
+		<isNotEmpty property="RELATED_A_SWITCH_DEV" prepend=",">
+			RELATED_A_SWITCH_DEV = #RELATED_A_SWITCH_DEV#
+		</isNotEmpty>
+		<isNotEmpty property="NE_PORT_CUID_A" prepend=",">
+			NE_PORT_CUID_A = #NE_PORT_CUID_A#
+		</isNotEmpty>
+		<isNotEmpty property="NE_PORT_CUID_Z" prepend=",">
+			NE_PORT_CUID_Z = #NE_PORT_CUID_Z#
+		</isNotEmpty>
+		<isNotEmpty property="OPTICAL_LEVEL" prepend=",">
+			OPTICAL_LEVEL =#OPTICAL_LEVEL#
+		</isNotEmpty>
+		WHERE CUID = #CUID#
+	</update>
+	<select id="selectOpticalCuid"
+		parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT OW.CUID AS PATH_CUID, 
+		       (SELECT DISTINCT A.PORT_CUID FROM OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=1 AND INDEX_PORT =0) AS AF_PORT_CUID,
+		       (SELECT A.PORT_CUID FROM OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=1 AND INDEX_PORT =1) AS AS_PORT_CUID,
+		       (SELECT DISTINCT A.PORT_CUID FROM OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=2 AND INDEX_PORT =0) AS ZF_PORT_CUID,
+		       (SELECT A.PORT_CUID FROM OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=2 AND INDEX_PORT =1) AS ZS_PORT_CUID,
+		       OO.OPTICAL_CUID
+        FROM OPTICAL_WAY OW LEFT JOIN OPTICAL_TO_OPTICAL_WAY  OO 
+        ON OO.OPTICAL_WAY_CUID = OW.CUID
+		 WHERE 1=1
+		   AND OW.CUID IN
+		       (SELECT RELATED_SERVICE_CUID FROM ATTEMP_OPTICAL_WAY WHERE 1 = 1
+		<isNotEmpty property="attempOpticalCuidList">
+			<iterate prepend=" AND CUID IN " property="attempOpticalCuidList" conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">
+			AND 1 = 2
+		</isEmpty>
+		)
+	</select>
+	<select id="selectAttempOpticalCuid"
+		parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT OW.CUID AS ATTEMP_PATH_CUID,
+		        AO.CUID AS PATH_CUID,
+		       (SELECT DISTINCT A.PORT_CUID FROM ATTEMP_OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=1 AND INDEX_PORT =0) AS AF_PORT_CUID,
+		       (SELECT A.PORT_CUID FROM ATTEMP_OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=1 AND INDEX_PORT =1) AS AS_PORT_CUID,
+		       (SELECT DISTINCT A.PORT_CUID FROM ATTEMP_OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=2 AND INDEX_PORT =0) AS ZF_PORT_CUID,
+		       (SELECT A.PORT_CUID FROM ATTEMP_OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=2 AND INDEX_PORT =1) AS ZS_PORT_CUID,
+		       AO.ORIG_POINT_CUID,
+		       AO.DEST_POINT_CUID,
+		       OW.SCHEDULE_TYPE
+		  FROM ATTEMP_OPTICAL_WAY        OW LEFT JOIN
+		       OPTICAL            AO ON OW.CUID = AO.RELATED_OPTICAL_WAY_CUID
+		       
+		 WHERE 1=1 
+		<isNotEmpty property="attempOpticalCuidList">
+			<iterate prepend=" AND OW.CUID IN " property="attempOpticalCuidList" conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">
+			AND 1 = 2
+		</isEmpty>
+		UNION
+		SELECT OW.CUID AS ATTEMP_PATH_CUID,
+		       (SELECT O.CUID FROM OPTICAL O WHERE O.CUID = AO.RELATED_OPTICAL_WAY_CUID) AS PATH_CUID,
+		       (SELECT DISTINCT A.PORT_CUID FROM ATTEMP_OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=1 AND INDEX_PORT =0) AS AF_PORT_CUID,
+		       (SELECT A.PORT_CUID FROM ATTEMP_OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=1 AND INDEX_PORT =1) AS AS_PORT_CUID,
+		       (SELECT DISTINCT A.PORT_CUID FROM ATTEMP_OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=2 AND INDEX_PORT =0) AS ZF_PORT_CUID,
+		       (SELECT A.PORT_CUID FROM ATTEMP_OPTICAL_WAY_TO_PORT A WHERE OW.CUID=A.OPTICAL_WAY_CUID AND PORT_AZ_TYPE=2 AND INDEX_PORT =1) AS ZS_PORT_CUID,
+		       AO.ORIG_POINT_CUID,
+		       AO.DEST_POINT_CUID,
+		       OW.SCHEDULE_TYPE
+		  FROM ATTEMP_OPTICAL_WAY        OW LEFT JOIN
+		       ATTEMP_OPTICAL            AO ON OW.CUID = AO.RELATED_OPTICAL_WAY_CUID
+		 WHERE 1=1 
+		<isNotEmpty property="attempOpticalCuidList">
+			<iterate prepend=" AND OW.CUID IN " property="attempOpticalCuidList" conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">
+			AND 1 = 2
+		</isEmpty>
+	</select>
+	<!-- 更新OPTICAL的状态 -->
+	<update id="updateOpticaStatus" parameterClass="java.util.HashMap">
+		UPDATE OPTICAL
+		   SET FIBER_STATE = #state#
+		   WHERE 1=1
+		<isNotEmpty property="opticalList">
+			<iterate prepend=" AND CUID  IN " property="opticalList"
+				conjunction="," open="(" close=")">
+				#opticalList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="opticalList">AND 1 = 2</isEmpty>
+		
+	</update>
+	<!-- 更新OPTICAL的状态,根绝RELATED_OPTICAL_WAY_CUID,RELATED_ROUTE_CUID -->
+	<update id="updateOpticaStatusByOpt" parameterClass="java.util.HashMap">
+		UPDATE OPTICAL
+		   SET FIBER_STATE = #state#,
+		       RELATED_OPTICAL_WAY_CUID=NULL,
+		       RELATED_ROUTE_CUID=NULL
+		   WHERE 1=1
+		<isNotEmpty property="opticalList">
+			<iterate prepend=" AND CUID IN " property="opticalList"
+				conjunction="," open="(" close=")">
+				#opticalList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="opticalList">AND 1 = 2</isEmpty>
+		
+	</update>
+	<!-- 更新optical的related_optical_way_cuid,RELATED_ROUTE_CUID字段 -->
+	<update id="updateOpticaWayCuid" parameterClass="java.util.HashMap">
+		UPDATE OPTICAL
+		   SET RELATED_OPTICAL_WAY_CUID = REPLACE(#attempOptCuid#,'ATTEMP_OPTICAL','OPTICAL'),
+		       RELATED_ROUTE_CUID = REPLACE(RELATED_ROUTE_CUID,'ATTEMP_','')
+		   WHERE 1=1
+		<isNotEmpty property="pathCuid">
+			AND	CUID=#pathCuid#		
+		</isNotEmpty>
+		<isEmpty property="pathCuid">AND 1 = 2</isEmpty>
+	</update>
+	<!-- 更新Fiber的状态 -->
+	<update id="updateFiberStatus" parameterClass="java.util.HashMap">
+		UPDATE FIBER
+		   SET USAGE_STATE = #state#
+		       WHERE 1=1
+		<isNotEmpty property="opticalList">
+			<iterate prepend="AND RELATED_PATH_CUID IN " property="opticalList"
+				conjunction="," open="(" close=")">
+				#opticalList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="opticalList">AND 1 = 2</isEmpty>
+	</update>
+	
+	<!-- 更新Fiber的状态 -->
+	<update id="updatePtpStatus" parameterClass="java.util.HashMap">
+		UPDATE PTP
+		   SET PORT_STATE = #state#
+		   WHERE 1=1
+		<isNotEmpty property="portList">
+			<iterate prepend=" AND CUID  IN " property="portList"
+				conjunction="," open="(" close=")">
+				#portList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="portList">AND 1 = 2</isEmpty>
+	</update>
+	<delete id="deleteOpticalWay" parameterClass="java.util.HashMap">
+		DELETE FROM OPTICAL_WAY
+ 			WHERE 1=1
+		<isNotEmpty property="attempOpticalCuidList">
+			AND CUID IN (SELECT RELATED_SERVICE_CUID
+                  FROM ATTEMP_OPTICAL_WAY
+                 WHERE 1=1
+			<iterate prepend=" AND CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+			)
+		</isNotEmpty>
+		<isNotEmpty property="releaseOpticalList">
+			<iterate prepend=" AND CUID IN " property="releaseOpticalList"
+				conjunction="," open="(" close=")">
+				#releaseOpticalList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">
+			<isEmpty property="releaseOpticalList">
+				AND 1 = 2
+			</isEmpty>
+		</isEmpty>
+	</delete>
+	<delete id="deleteOpticalRoute" parameterClass="java.util.HashMap">
+		DELETE FROM OPTICAL_ROUTE
+ 			WHERE 1=1 
+		<isNotEmpty property="attempOpticalCuidList">
+			AND RELATED_SERVICE_CUID IN
+       		(SELECT CUID
+          	FROM OPTICAL_WAY
+         		WHERE CUID IN (SELECT RELATED_SERVICE_CUID
+                 FROM ATTEMP_OPTICAL_WAY
+                 WHERE 1=1
+			<iterate prepend=" AND CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+			))
+		</isNotEmpty>
+		<isNotEmpty property="releaseOpticalList">
+			<iterate prepend=" AND RELATED_SERVICE_CUID IN " property="releaseOpticalList"
+				conjunction="," open="(" close=")">
+				#releaseOpticalList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">
+			<isEmpty property="releaseOpticalList">
+				AND 1 = 2
+			</isEmpty>
+		</isEmpty>
+	</delete>
+	<delete id="deleteOpticalRouteToPath" parameterClass="java.util.HashMap">
+		DELETE FROM OPTICAL_ROUTE_TO_PATH WHERE OPTICAL_ROUTE_CUID IN(
+			SELECT CUID
+			  FROM OPTICAL_ROUTE
+			 WHERE 1=1 
+		<isNotEmpty property="attempOpticalCuidList">
+			AND RELATED_SERVICE_CUID IN
+			       (SELECT CUID
+			          FROM OPTICAL_WAY
+			         WHERE CUID IN (SELECT RELATED_SERVICE_CUID
+                     FROM ATTEMP_OPTICAL_WAY
+                 WHERE 1=1
+			<iterate prepend=" AND CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+			))
+		</isNotEmpty>
+		<isNotEmpty property="releaseOpticalList">
+			<iterate prepend=" AND RELATED_SERVICE_CUID IN " property="releaseOpticalList"
+				conjunction="," open="(" close=")">
+				#releaseOpticalList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">
+			<isEmpty property="releaseOpticalList">
+				AND 1 = 2
+			</isEmpty>
+		</isEmpty>
+		)
+	</delete>
+	<delete id="deleteOpticalRouteToIniPoints" parameterClass="java.util.HashMap">
+		DELETE FROM OPTICAL_ROUTE_TO_INDI_POINTS WHERE OPTICAL_ROUTE_CUID IN(
+			SELECT CUID
+			  FROM OPTICAL_ROUTE
+			 WHERE 1=1
+		<isNotEmpty property="attempOpticalCuidList">
+			AND RELATED_SERVICE_CUID IN
+				       (SELECT CUID
+				          FROM OPTICAL_WAY
+				         WHERE CUID IN (SELECT RELATED_SERVICE_CUID
+	                          FROM ATTEMP_OPTICAL_WAY
+	                 WHERE 1=1
+			<iterate prepend=" AND CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+			))
+		</isNotEmpty>
+		<isNotEmpty property="releaseOpticalList">
+			<iterate prepend=" AND RELATED_SERVICE_CUID IN " property="releaseOpticalList"
+				conjunction="," open="(" close=")">
+				#releaseOpticalList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">
+			<isEmpty property="releaseOpticalList">
+				AND 1 = 2
+			</isEmpty>
+		</isEmpty>
+		)
+	</delete>
+	<!-- 插入文本OPTICAL-->
+	<insert id="insertTextOptical" parameterClass="java.util.HashMap">
+			INSERT INTO OPTICAL
+			(OBJECTID,
+			GT_VERSION,
+			ORIG_SITE_CUID,
+			ORIG_EQP_CUID,
+			TOPO_LINK_CUID,
+			DEST_SITE_CUID,
+			FIBER_TYPE,
+			OWNERSHIP,
+			LENGTH,
+			PURPOSE,
+			FIBER_DIR,
+			DEST_EQP_CUID,
+			IS_MANUAL,
+			FIBER_STATE,
+			OBJECT_TYPE_CODE,
+			RELATED_OPTICAL_WAY_CUID,
+			OPTIC_ROUTE,
+			USER_NAME,
+			FIBER_LEVEL,
+			MAKE_FLAG,
+			SUM_ATTENU_1310,
+			SUM_ATTENU_1550,
+			ORIG_FIBER_NO,
+			DEST_FIBER_NO,
+			ROUTE_DESCIPTION_A,
+			ROUTE_DESCIPTION_Z,
+			REMARK,
+			ROUTE_INDEX,
+			LABEL_CN,
+			ROUTE_DESCIPTION,
+			DEST_POINT_CUID,
+			ORIG_POINT_CUID,
+			RELATED_ROUTE_CUID,
+			CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME,
+			IS_TEXT,
+			FUNCTION_STATE,
+			ORIG_SEG_CUID,
+			DEST_SEG_CUID,
+			ORIG_ROOM_CUID,
+			DEST_ROOM_CUID,
+			BUSINESS_INFO
+	)
+	SELECT GET_OBJECT_ID('OPTICAL') AS OBJECTID,
+	       AO.GT_VERSION,
+	       AO.ORIG_SITE_CUID,
+	       AO.ORIG_EQP_CUID,
+	       AO.TOPO_LINK_CUID,
+	       AO.DEST_SITE_CUID,
+	       AO.FIBER_TYPE,
+	       AO.OWNERSHIP,
+	       AO.LENGTH,
+	       AO.PURPOSE,
+	       AO.FIBER_DIR,
+	       AO.DEST_EQP_CUID,
+	       AO.IS_MANUAL,
+	       AO.FIBER_STATE,
+	       AO.OBJECT_TYPE_CODE,
+	       REPLACE(AO.RELATED_OPTICAL_WAY_CUID,'ATTEMP_OPTICAL','OPTICAL') AS RELATED_OPTICAL_WAY_CUID,
+	       AO.OPTIC_ROUTE,
+	       AO.USER_NAME,
+	       AO.FIBER_LEVEL,
+	       AO.MAKE_FLAG,
+	       AO.SUM_ATTENU_1310,
+	       AO.SUM_ATTENU_1550,
+	       AO.ORIG_FIBER_NO,
+	       AO.DEST_FIBER_NO,
+	       AO.ROUTE_DESCIPTION_A,
+	       AO.ROUTE_DESCIPTION_Z,
+	       AO.REMARK,
+	       AO.ROUTE_INDEX,
+	       AO.LABEL_CN,
+	       AO.ROUTE_DESCIPTION,
+	       AO.DEST_POINT_CUID,
+	       AO.ORIG_POINT_CUID,
+	       AO.RELATED_ROUTE_CUID,
+	       REPLACE(AO.CUID,'ATTEMP_OPTICAL','OPTICAL') AS CUID,
+	       AO.ISDELETE,
+	       AO.CREATE_TIME,
+	       AO.LAST_MODIFY_TIME,
+	       AO.IS_TEXT,
+	       AO.FUNCTION_STATE,
+	       AO.ORIG_SEG_CUID,
+	       AO.DEST_SEG_CUID,
+	       AO.ORIG_ROOM_CUID,
+	       AO.DEST_ROOM_CUID,
+	       AO.BUSINESS_INFO
+	  FROM ATTEMP_OPTICAL_WAY        OW,
+	       ATTEMP_OPTICAL_ROUTE      OPR,
+	       ATT_OPTICAL_ROUTE_TO_PATH OPP,
+	       ATTEMP_OPTICAL            AO
+	 WHERE OW.CUID = OPR.RELATED_SERVICE_CUID
+	   AND OPP.OPTICAL_ROUTE_CUID = OPR.CUID
+	   AND AO.CUID = OPP.PATH_CUID
+	   AND OPP.PATH_CUID LIKE 'ATTEMP%'
+	   AND AO.RELATED_OPTICAL_CUID IS NULL
+		   <isNotEmpty property="attempOpticalCuidList">
+				<iterate prepend=" AND OW.CUID IN" property="attempOpticalCuidList" conjunction="," open="(" close=")">
+					#attempOpticalCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="attempOpticalCuidList">
+					AND 1=2
+			</isEmpty>
+	</insert>
+	
+	<!--回写时写入optical -->
+	<insert id="insertTextOpticalMaintain" parameterClass="java.util.HashMap">
+			INSERT INTO OPTICAL
+			(OBJECTID,
+			GT_VERSION,
+			ORIG_SITE_CUID,
+			ORIG_EQP_CUID,
+			TOPO_LINK_CUID,
+			DEST_SITE_CUID,
+			FIBER_TYPE,
+			OWNERSHIP,
+			LENGTH,
+			PURPOSE,
+			FIBER_DIR,
+			DEST_EQP_CUID,
+			IS_MANUAL,
+			FIBER_STATE,
+			OBJECT_TYPE_CODE,
+			RELATED_OPTICAL_WAY_CUID,
+			OPTIC_ROUTE,
+			USER_NAME,
+			FIBER_LEVEL,
+			MAKE_FLAG,
+			SUM_ATTENU_1310,
+			SUM_ATTENU_1550,
+			ORIG_FIBER_NO,
+			DEST_FIBER_NO,
+			ROUTE_DESCIPTION_A,
+			ROUTE_DESCIPTION_Z,
+			REMARK,
+			ROUTE_INDEX,
+			LABEL_CN,
+			ROUTE_DESCIPTION,
+			DEST_POINT_CUID,
+			ORIG_POINT_CUID,
+			RELATED_ROUTE_CUID,
+			CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME,
+			IS_TEXT,
+			FUNCTION_STATE,
+			ORIG_SEG_CUID,
+			DEST_SEG_CUID,
+			ORIG_ROOM_CUID,
+			DEST_ROOM_CUID,
+			BUSINESS_INFO
+	)
+	SELECT GET_OBJECT_ID('OPTICAL') AS OBJECTID,
+	       AO.GT_VERSION,
+	       AO.ORIG_SITE_CUID,
+	       AO.ORIG_EQP_CUID,
+	       AO.TOPO_LINK_CUID,
+	       AO.DEST_SITE_CUID,
+	       AO.FIBER_TYPE,
+	       AO.OWNERSHIP,
+	       AO.LENGTH,
+	       AO.PURPOSE,
+	       AO.FIBER_DIR,
+	       AO.DEST_EQP_CUID,
+	       AO.IS_MANUAL,
+	       AO.FIBER_STATE,
+	       AO.OBJECT_TYPE_CODE,
+	       REPLACE(AO.RELATED_OPTICAL_WAY_CUID,'ATTEMP_OPTICAL','OPTICAL') AS RELATED_OPTICAL_WAY_CUID,
+	       AO.OPTIC_ROUTE,
+	       AO.USER_NAME,
+	       AO.FIBER_LEVEL,
+	       AO.MAKE_FLAG,
+	       AO.SUM_ATTENU_1310,
+	       AO.SUM_ATTENU_1550,
+	       AO.ORIG_FIBER_NO,
+	       AO.DEST_FIBER_NO,
+	       AO.ROUTE_DESCIPTION_A,
+	       AO.ROUTE_DESCIPTION_Z,
+	       AO.REMARK,
+	       AO.ROUTE_INDEX,
+	       AO.LABEL_CN,
+	       AO.ROUTE_DESCIPTION,
+	       AO.DEST_POINT_CUID,
+	       AO.ORIG_POINT_CUID,
+	       REPLACE(AO.RELATED_ROUTE_CUID,'ATTEMP_OPTICAL_ROUTE','OPTICAL_ROUTE') AS RELATED_ROUTE_CUID,
+	       REPLACE(AO.CUID,'ATTEMP_OPTICAL','OPTICAL') AS CUID,
+	       AO.ISDELETE,
+	       AO.CREATE_TIME,
+	       AO.LAST_MODIFY_TIME,
+	       AO.IS_TEXT,
+	       AO.FUNCTION_STATE,
+	       AO.ORIG_SEG_CUID,
+	       AO.DEST_SEG_CUID,
+	       AO.ORIG_ROOM_CUID,
+	       AO.DEST_ROOM_CUID,
+	       AO.BUSINESS_INFO
+	  FROM ATTEMP_OPTICAL_WAY        OW,
+	       ATTEMP_OPTICAL_ROUTE      OPR,
+	       ATT_OPTICAL_ROUTE_TO_PATH OPP,
+	       ATTEMP_OPTICAL            AO
+	 WHERE OW.CUID = OPR.RELATED_SERVICE_CUID
+	   AND OPP.OPTICAL_ROUTE_CUID = OPR.CUID
+	   AND AO.CUID = OPP.PATH_CUID
+	   AND OPP.PATH_CUID LIKE 'ATTEMP%'
+	   AND AO.RELATED_OPTICAL_CUID IS NULL
+		   <isNotEmpty property="attempOpticalCuidList">
+				<iterate prepend=" AND OW.CUID IN" property="attempOpticalCuidList" conjunction="," open="(" close=")">
+					#attempOpticalCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="attempOpticalCuidList">
+					AND 1=2
+			</isEmpty>
+	</insert>
+	<!-- 插入OPTICAL_WAY-->
+	<insert id="insertOpticalWay" parameterClass="java.util.HashMap">
+			INSERT INTO OPTICAL_WAY
+			(OBJECTID,
+			GT_VERSION,
+			SITE_CUID_A,
+			BUSINESS_INFO,
+			OPTICAL_WAY_STATE,
+			OPTICAL_NUM,
+			SITE_CUID_Z,
+			INSTEAD_CUID,
+			OPTICAL_WAY_TYPE,
+			NE_PORT_CUID_A,
+			SERVICE_TIME,
+			NE_PORT_CUID_Z,
+			END_ODF_A,
+			END_ODF_Z,
+			IS_WHOLE_ROUTE,
+			PATHROUTE,
+			ZJPOINTS,
+			OBJECT_TYPE_CODE,
+			DEV_INFO_Z,
+			DEV_INFO_A,
+			RELATED_SYSTEM_CUID,
+			ATTENUATE,
+			RELATED_SERVICE_CUID,
+			OPTICAL_WAY,
+			NO,
+			LABEL_CN,
+			ALIAS,
+			REMARK,
+			CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME,
+			IS_WHOLE_JUMP,
+			EXT_TYPE,
+			DISPATCH_NAME,
+			SCHEDULE_STATE,
+			RELATED_A_SWITCH_DEV,
+			RELATED_A_SWITCH_PORT,
+			RELATED_A_SWITCH_SITE,
+			RELATED_Z_SWITCH_DEV,
+			RELATED_Z_SWITCH_PORT,
+			RELATED_Z_SWITCH_SITE,
+			BUSINESS_NAME,
+			RELATED_A_SWITCH_ODF,
+			RELATED_Z_SWITCH_ODF,
+			ACCESS_POINT_A,
+			ACCESS_POINT_Z,
+			ROUTE_TYPE,
+			DEV_NAME_A,
+			DEV_NAME_Z,
+			OTHER_BUSSINESS_CUID,
+			MAKE_FLAG,
+			RELATED_A_ODFPORT_NAME,
+			RELATED_Z_ODFPORT_NAME,
+			OPTICAL_LEVEL,
+			APPLY_TYPE,
+			SITE_DISTRICT_A,
+			SITE_DISTRICT_Z,
+			RATE,
+			CREATOR)
+			SELECT GET_OBJECT_ID('OPTICAL_WAY') AS OBJECTID,
+			GT_VERSION,
+			SITE_CUID_A,
+			BUSINESS_INFO,
+			OPTICAL_WAY_STATE,
+			OPTICAL_NUM,
+			SITE_CUID_Z,
+			INSTEAD_CUID,
+			OPTICAL_WAY_TYPE,
+			NE_PORT_CUID_A,
+			SERVICE_TIME,
+			NE_PORT_CUID_Z,
+			END_ODF_A,
+			END_ODF_Z,
+			1 AS IS_WHOLE_ROUTE,
+			PATHROUTE,
+			ZJPOINTS,
+			OBJECT_TYPE_CODE,
+			DEV_INFO_Z,
+			DEV_INFO_A,
+			RELATED_SYSTEM_CUID,
+			ATTENUATE,
+			RELATED_SERVICE_CUID,
+			OPTICAL_WAY,
+			NO,
+			LABEL_CN,
+			ALIAS,
+			REMARK,
+			REPLACE(CUID,'ATTEMP_OPTICAL','OPTICAL') AS CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME,
+			IS_WHOLE_JUMP,
+			EXT_TYPE,
+			(SELECT NVL(S.HEADING_NUM,S.SHEET_NO) FROM T_ACT_SHEET S WHERE S.CUID = RELATED_SHEET_ID) AS DISPATCH_NAME,
+			1 AS SCHEDULE_STATE,
+			RELATED_A_SWITCH_DEV,
+			RELATED_A_SWITCH_PORT,
+			RELATED_A_SWITCH_SITE,
+			RELATED_Z_SWITCH_DEV,
+			RELATED_Z_SWITCH_PORT,
+			RELATED_Z_SWITCH_SITE,
+			BUSINESS_NAME,
+			RELATED_A_SWITCH_ODF,
+			RELATED_Z_SWITCH_ODF,
+			ACCESS_POINT_A,
+			ACCESS_POINT_Z,
+			ROUTE_TYPE,
+			DEV_NAME_A,
+			DEV_NAME_Z,
+			OTHER_BUSSINESS_CUID,
+			MAKE_FLAG,
+			RELATED_A_ODFPORT_NAME,
+			RELATED_Z_ODFPORT_NAME,
+			OPTICAL_LEVEL,
+			APPLY_TYPE,
+			(SELECT S.RELATED_SPACE_CUID AS DISTRICT_CUID
+		          FROM SITE S
+		         WHERE S.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_A
+		        UNION ALL
+		        SELECT R.RELATED_SPACE_CUID AS DISTRICT_CUID
+		          FROM ROOM R
+		         WHERE R.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_A
+		        UNION ALL
+		        SELECT T.RELATED_DISTRICT_CUID AS DISTRICT_CUID
+		          FROM TRANS_ELEMENT T
+		         WHERE T.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_A
+		        UNION ALL
+		        SELECT A.DISTRICT_CUID AS DISTRICT_CUID
+		          FROM ACCESSPOINT A
+		         WHERE A.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_A
+		        UNION ALL
+		        SELECT F.RELATED_DISTRICT_CUID AS DISTRICT_CUID FROM FIBER_CAB F WHERE F.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_A
+		        UNION ALL
+		        SELECT F.RELATED_DISTRICT_CUID AS DISTRICT_CUID FROM FIBER_JOINT_BOX F WHERE F.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_A) AS SITE_DISTRICT_A,
+		        (SELECT S.RELATED_SPACE_CUID AS DISTRICT_CUID
+		          FROM SITE S
+		         WHERE S.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_Z
+		        UNION ALL
+		        SELECT R.RELATED_SPACE_CUID AS DISTRICT_CUID
+		          FROM ROOM R
+		         WHERE R.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_Z
+		        UNION ALL
+		        SELECT T.RELATED_DISTRICT_CUID AS DISTRICT_CUID
+		          FROM TRANS_ELEMENT T
+		         WHERE T.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_Z
+		        UNION ALL
+		        SELECT A.DISTRICT_CUID AS DISTRICT_CUID
+		          FROM ACCESSPOINT A
+		         WHERE A.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_Z
+		        UNION ALL
+		        SELECT F.RELATED_DISTRICT_CUID AS DISTRICT_CUID FROM FIBER_CAB F WHERE F.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_Z
+		        UNION ALL
+		        SELECT F.RELATED_DISTRICT_CUID AS DISTRICT_CUID FROM FIBER_JOINT_BOX F WHERE F.CUID = ATTEMP_OPTICAL_WAY.SITE_CUID_Z) AS SITE_DISTRICT_Z,
+		        RATE,
+		        CREATOR
+			FROM ATTEMP_OPTICAL_WAY
+			WHERE 1=1
+		   <isNotEmpty property="attempOpticalCuidList">
+				<iterate prepend=" AND CUID IN" property="attempOpticalCuidList" conjunction="," open="(" close=")">
+					#attempOpticalCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="attempOpticalCuidList">
+					AND 1=2
+			</isEmpty>
+	</insert>
+	<!-- 插入文本OPTICAL_ROUTE-->
+	<insert id="insertOpticalRoute" parameterClass="java.util.HashMap">
+			INSERT INTO OPTICAL_ROUTE(
+			OBJECTID,
+			GT_VERSION,
+			ROUTE_INDEX,
+			OBJECT_TYPE_CODE,
+			WORK_STATE,
+			RELATED_SERVICE_CUID,
+			ROUTE_DESCRIPTION,
+			CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME)
+			SELECT 
+			GET_OBJECT_ID('OPTICAL_ROUTE') AS OBJECTID,
+			GT_VERSION,
+			ROUTE_INDEX,
+			OBJECT_TYPE_CODE,
+			WORK_STATE,
+			REPLACE(RELATED_SERVICE_CUID,'ATTEMP_OPTICAL','OPTICAL') AS RELATED_SERVICE_CUID,
+			ROUTE_DESCRIPTION,
+			REPLACE(CUID,'ATTEMP_OPTICAL','OPTICAL') AS CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME
+			FROM ATTEMP_OPTICAL_ROUTE 
+			WHERE 1=1
+		   <isNotEmpty property="attempOpticalCuidList">
+				<iterate prepend=" AND RELATED_SERVICE_CUID IN" property="attempOpticalCuidList" conjunction="," open="(" close=")">
+					#attempOpticalCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="attempOpticalCuidList">
+					AND 1=2
+			</isEmpty>
+	</insert>
+	<!-- 插入文本OPTICAL_ROUTE_TO_PATH-->
+	<insert id="insertOpticalRouteToPath" parameterClass="java.util.HashMap">
+			INSERT INTO OPTICAL_ROUTE_TO_PATH(
+			OBJECTID,
+			GT_VERSION,
+			PATH_TYPE,
+			OPTICAL_ROUTE_CUID,
+			INDEX_PATH_ROUTE,
+			PATH_CUID,
+			INDEX_ROUTE_SEG,
+			LABEL_CN,
+			CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME
+			)
+			SELECT 
+	      GET_OBJECT_ID('OPTICAL_ROUTE_TO_PATH') AS OBJECTID,
+	      GT_VERSION,
+	      'OPTICAL',
+	      REPLACE(OPTICAL_ROUTE_CUID,'ATTEMP_OPTICAL','OPTICAL') AS OPTICAL_ROUTE_CUID,
+	      INDEX_PATH_ROUTE,
+	      DECODE(PATH_TYPE ,'ATTEMP_OPTICAL',NVL((SELECT A.RELATED_OPTICAL_CUID FROM ATTEMP_OPTICAL A WHERE A.CUID =P.PATH_CUID),REPLACE((SELECT A.CUID FROM ATTEMP_OPTICAL A WHERE A.CUID =P.PATH_CUID),'ATTEMP_OPTICAL','OPTICAL')),'OPTICAL',PATH_CUID) AS PATH_CUID,
+	      INDEX_ROUTE_SEG,
+	      LABEL_CN,
+	      REPLACE(CUID,'ATT_OPTICAL_ROUTE_TO_PATH','OPTICAL_ROUTE_TO_PATH') AS CUID,
+	      ISDELETE,
+	      CREATE_TIME,
+	      LAST_MODIFY_TIME
+	      FROM ATT_OPTICAL_ROUTE_TO_PATH P
+	      WHERE OPTICAL_ROUTE_CUID IN
+	       (SELECT CUID
+	          FROM ATTEMP_OPTICAL_ROUTE
+	         WHERE RELATED_SERVICE_CUID IN
+	               (SELECT CUID FROM ATTEMP_OPTICAL_WAY
+			WHERE 1=1
+		   <isNotEmpty property="attempOpticalCuidList">
+				<iterate prepend=" AND CUID IN" property="attempOpticalCuidList" conjunction="," open="(" close=")">
+					#attempOpticalCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="attempOpticalCuidList">
+					AND 1=2
+			</isEmpty>
+			))
+	</insert>
+	<!-- 插入文本OPTICAL_ROUTE_TO_INDI_POINTS-->
+	<insert id="insertOpticalRouteToIniPoints" parameterClass="java.util.HashMap">
+			INSERT INTO OPTICAL_ROUTE_TO_INDI_POINTS(
+			OBJECTID,
+			GT_VERSION,
+			OPTICAL_ROUTE_CUID,
+			INDIRECT_POINT_TYPE,
+			INDI_INDEX,
+			INDIRECT_POINT_CUID,
+			LABEL_CN,
+			CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME,
+			LIGHT_LEVEL)
+			SELECT 
+			GET_OBJECT_ID('OPTICAL_ROUTE_TO_INDI_POINTS') AS OBJECTID,
+			GT_VERSION,
+			REPLACE(OPTICAL_ROUTE_CUID,'ATTEMP_OPTICAL','OPTICAL') AS OPTICAL_ROUTE_CUID,
+			INDIRECT_POINT_TYPE,
+			INDI_INDEX,
+			INDIRECT_POINT_CUID,
+			LABEL_CN,
+			REPLACE(CUID,'ATT_OPT_RTE_TO_INDI_POINTS','OPTICAL_ROUTE_TO_INDI_POINTS') AS PATH_CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME,
+			LIGHT_LEVEL
+			FROM ATT_OPT_RTE_TO_INDI_POINTS
+ WHERE OPTICAL_ROUTE_CUID IN
+       (SELECT CUID
+          FROM ATTEMP_OPTICAL_ROUTE
+         WHERE 1=1
+		   <isNotEmpty property="attempOpticalCuidList">
+				<iterate prepend=" AND RELATED_SERVICE_CUID IN" property="attempOpticalCuidList" conjunction="," open="(" close=")">
+					#attempOpticalCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="attempOpticalCuidList">
+					AND 1=2
+			</isEmpty>
+			)
+	</insert>
+	
+	<!-- 插入OPTICAL_TO_OPTICAL_WAY-->
+	<insert id="insertOpticalToOpticalWay" parameterClass="java.util.HashMap">
+			INSERT INTO OPTICAL_TO_OPTICAL_WAY(
+			OBJECTID,
+			GT_VERSION,
+			OPTICAL_WAY_CUID,
+			OPTICAL_CUID,
+			LABEL_CN,
+			CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME)
+			SELECT 
+			GET_OBJECT_ID('OPTICAL_ROUTE_TO_INDI_POINTS') AS OBJECTID,
+			GT_VERSION,
+			REPLACE(OPTICAL_WAY_CUID,'ATTEMP_OPTICAL','OPTICAL') AS OPTICAL_WAY_CUID,
+			OPTICAL_CUID,
+			LABEL_CN,
+			CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME
+			FROM OPTICAL_TO_OPTICAL_WAY
+         WHERE 1=1
+		   <isNotEmpty property="attempOpticalCuidList">
+				<iterate prepend=" AND OPTICAL_WAY_CUID IN" property="attempOpticalCuidList" conjunction="," open="(" close=")">
+					#attempOpticalCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="attempOpticalCuidList">
+					AND 1=2
+			</isEmpty>
+	</insert>
+	
+	
+	<!-- 插入PATHINFO-->
+	<insert id="insertPathinfo" parameterClass="java.util.HashMap">
+			INSERT INTO PATHINFO(
+			CUID,
+			RELATED_SERVICE_CUID,
+			CONTENT,
+			SERVICE_TYPE)
+			SELECT 
+			'PATHINFO-' || SYS_GUID(),
+			REPLACE(RELATED_SERVICE_CUID,'ATTEMP_OPTICAL','OPTICAL') AS RELATED_SERVICE_CUID,
+			CONTENT,
+			SERVICE_TYPE
+			FROM PATHINFO
+         WHERE 1=1
+		   <isNotEmpty property="attempOpticalCuidList">
+				<iterate prepend=" AND RELATED_SERVICE_CUID IN" property="attempOpticalCuidList" conjunction="," open="(" close=")">
+					#attempOpticalCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="attempOpticalCuidList">
+					AND 1=2
+			</isEmpty>
+	</insert>
+	
+	<select id="getPathinfoList" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT RELATED_SERVICE_CUID,
+		       CONTENT
+		  FROM PATHINFO 
+		 WHERE  1=1
+		<isNotEmpty property="attempOptCuidList">
+			<iterate prepend=" AND RELATED_SERVICE_CUID IN " property="attempOptCuidList"
+				conjunction="," open="(" close=")">
+				#attempOptCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOptCuidList">
+		   AND 1 = 2
+		</isEmpty>
+	</select>
+	
+	<delete id="deleteAttOpticalWay" parameterClass="java.util.HashMap">
+		DELETE FROM ATTEMP_OPTICAL_WAY
+                 WHERE 1=1
+		<isNotEmpty property="attempOpticalCuidList">
+			<iterate prepend=" AND CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">AND 1 = 2</isEmpty>
+	</delete>
+	<delete id="deleteAttOpticalRoute" parameterClass="java.util.HashMap">
+		DELETE FROM ATTEMP_OPTICAL_ROUTE
+ 			WHERE 1=1
+		<isNotEmpty property="attempOpticalCuidList">
+			<iterate prepend=" AND RELATED_SERVICE_CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">AND 1 = 2</isEmpty>
+	</delete>
+	<delete id="deleteAttOpticalRouteToPath" parameterClass="java.util.HashMap">
+		DELETE FROM ATT_OPTICAL_ROUTE_TO_PATH WHERE OPTICAL_ROUTE_CUID IN(
+			SELECT CUID
+			  FROM ATTEMP_OPTICAL_ROUTE
+			 WHERE 1=1
+		<isNotEmpty property="attempOpticalCuidList">
+			<iterate prepend=" AND RELATED_SERVICE_CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">AND 1 = 2</isEmpty>
+		)
+	</delete>
+	<delete id="deleteAttOpticalRouteToIniPoints" parameterClass="java.util.HashMap">
+		DELETE FROM ATT_OPT_RTE_TO_INDI_POINTS WHERE OPTICAL_ROUTE_CUID IN(
+			SELECT CUID
+			  FROM ATTEMP_OPTICAL_ROUTE
+			 WHERE 1=1
+		<isNotEmpty property="attempOpticalCuidList">
+			<iterate prepend=" AND RELATED_SERVICE_CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">AND 1 = 2</isEmpty>
+		)
+	</delete>
+	<delete id="deleteAttOptical" parameterClass="java.util.HashMap">
+		DELETE  FROM ATTEMP_OPTICAL
+ 			WHERE CUID IN
+       (SELECT PATH_CUID
+          FROM ATT_OPTICAL_ROUTE_TO_PATH
+         WHERE OPTICAL_ROUTE_CUID IN
+               (SELECT CUID FROM ATTEMP_OPTICAL_ROUTE 
+			 WHERE 1=1
+		<isNotEmpty property="attempOpticalCuidList">
+			<iterate prepend=" AND RELATED_SERVICE_CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">AND 1 = 2</isEmpty>
+		))
+	</delete>
+	<insert id="insertTActOpticalWayLog" parameterClass="java.util.HashMap">
+		INSERT INTO T_ATTEMP_OPTICAL_WAY_LOG
+		(
+			CUID,
+			  RELATED_TASK_CUID,
+			  RELATED_SHEET_CUID,
+			  RELATED_SHEET_NAME,
+			  HEADING_NUM,
+			  SHEET_NO,
+			  RELATED_CREATE_USER ,
+			  DESIGN_USER,
+			  ACTION_CODE,
+			  REMARK,
+			  SITE_CUID_A,
+			  BUSINESS_INFO,
+			  OPTICAL_WAY_STATE,
+			  OPTICAL_NUM,
+			  SITE_CUID_Z,
+			  INSTEAD_CUID,
+			  OPTICAL_WAY_TYPE,
+			  NE_PORT_CUID_A,
+			  SERVICE_TIME,
+			  NE_PORT_CUID_Z,
+			  END_ODF_A,
+			  END_ODF_Z,
+			  IS_WHOLE_ROUTE,
+			  PATHROUTE,
+			  ZJPOINTS,
+			  DEV_INFO_Z,
+			  DEV_INFO_A,
+			  RELATED_SYSTEM_CUID,
+			  ATTENUATE,
+			  RELATED_ATTEMP_SERVICE_CUID  ,
+			  RELATED_SERVICE_CUID,
+			  LABEL_CN,
+			  ALIAS,              
+			  ISDELETE,
+			  CREATE_TIME,
+			  LAST_MODIFY_TIME,
+			  NO,
+			  OPTICAL_WAY,
+			  EXT_TYPE,
+			  DISPATCH_NAME,
+			  SCHEDULE_STATE,
+			  ACCESS_POINT_A,
+			  ACCESS_POINT_Z,
+			  IS_WHOLE_JUMP,
+			  BUSINESS_NAME,
+			  RELATED_A_SWITCH_DEV,
+			  RELATED_A_SWITCH_PORT,
+			  RELATED_A_SWITCH_SITE,
+			  RELATED_Z_SWITCH_DEV,
+			  RELATED_Z_SWITCH_PORT,
+			  RELATED_Z_SWITCH_SITE,
+			  RELATED_A_SWITCH_ODF,
+			  RELATED_Z_SWITCH_ODF,
+			  ROUTE_TYPE,
+			  DEV_NAME_A,
+			  DEV_NAME_Z,
+			  OTHER_BUSSINESS_CUID,
+			  MAKE_FLAG,
+			  RELATED_A_ODFPORT_NAME,
+			  RELATED_Z_ODFPORT_NAME,
+			  APPLY_TYPE,
+			  OPTICAL_LEVEL,
+			  SCHEDULE_TYPE,
+			  STATUS,
+			  ZJPOINTS_CUID,
+			  SITE_NAME_A,
+			  SITE_NAME_Z,
+			  SORT_NO,
+			  RATE,
+			  CREATOR   
+		)
+		SELECT * FROM (
+		SELECT 
+				'T_ATTEMP_OPTICAL_WAY_LOG-'|| SYS_GUID() AS CUID,
+		        S.RELATED_TASK_CUID,
+		        T.CUID AS RELATED_SHEET_CUID,
+		        T.LABEL_CN AS RELATED_SHEET_NAME,
+		        T.HEADING_NUM AS HEADING_NUM,
+		        T.SHEET_NO AS SHEET_NO,
+		        T.CREATOR AS RELATED_CREATE_USER ,
+		        T.CREATOR AS DESIGN_USER,
+		        '$ACTION_CODE$' AS ACTION_CODE,
+		        '$REMARK$' AS REMARK,
+		        W.SITE_CUID_A,
+		        W.BUSINESS_INFO,
+		        W.OPTICAL_WAY_STATE,
+		        W.OPTICAL_NUM,
+		        W.SITE_CUID_Z,
+		        W.INSTEAD_CUID,
+		        W.OPTICAL_WAY_TYPE,
+		        W.NE_PORT_CUID_A,
+		        SYSDATE AS SERVICE_TIME,
+		        W.NE_PORT_CUID_Z,
+		        W.END_ODF_A,
+		        W.END_ODF_Z,
+		        W.IS_WHOLE_ROUTE,
+		        (SELECT ROUTE_DESCRIPTION FROM ATTEMP_OPTICAL_ROUTE WHERE RELATED_SERVICE_CUID=W.CUID) AS PATHROUTE,
+		        W.ZJPOINTS,
+		        W.DEV_INFO_Z,
+		        W.DEV_INFO_A,
+		        W.RELATED_SYSTEM_CUID,
+		        W.ATTENUATE,
+		        W.CUID AS RELATED_ATTEMP_SERVICE_CUID  ,
+		        REPLACE(W.CUID, 'ATTEMP_OPTICAL_WAY', 'OPTICAL_WAY') AS RELATED_SERVICE_CUID,
+		        W.LABEL_CN,
+		        W.ALIAS,              
+		        W.ISDELETE,
+		        SYSDATE AS CREATE_TIME,
+		        SYSDATE AS LAST_MODIFY_TIME,
+		        W.NO,
+		        W.OPTICAL_WAY,
+		        W.EXT_TYPE,
+		        W.DISPATCH_NAME,
+		        W.SCHEDULE_STATE,
+		        W.ACCESS_POINT_A,
+		        W.ACCESS_POINT_Z,
+		        W.IS_WHOLE_JUMP,
+		        W.BUSINESS_NAME,
+		        W.RELATED_A_SWITCH_DEV,
+		        W.RELATED_A_SWITCH_PORT,
+		        W.RELATED_A_SWITCH_SITE,
+		        W.RELATED_Z_SWITCH_DEV,
+		        W.RELATED_Z_SWITCH_PORT,
+		        W.RELATED_Z_SWITCH_SITE,
+		        W.RELATED_A_SWITCH_ODF,
+		        W.RELATED_Z_SWITCH_ODF,
+		        W.ROUTE_TYPE,
+		        W.DEV_NAME_A,
+		        W.DEV_NAME_Z,
+		        W.OTHER_BUSSINESS_CUID,
+		        W.MAKE_FLAG,
+		        W.RELATED_A_ODFPORT_NAME,
+		        W.RELATED_Z_ODFPORT_NAME,
+		        W.APPLY_TYPE,
+		        W.OPTICAL_LEVEL,
+		        W.SCHEDULE_TYPE,
+		        DECODE(W.SCHEDULE_TYPE,1,'新增',2,'停闭','调整后') AS STATUS,
+		        W.ZJPOINTS_CUID,
+		        (SELECT S.LABEL_CN
+		          FROM SITE S
+		         WHERE S.CUID = W.SITE_CUID_A
+		        UNION ALL
+		        SELECT R.LABEL_CN
+		          FROM ROOM R
+		         WHERE R.CUID = W.SITE_CUID_A
+		        UNION ALL
+		        SELECT T.LABEL_CN
+		          FROM TRANS_ELEMENT T
+		         WHERE T.CUID = W.SITE_CUID_A
+		        UNION ALL
+		        SELECT A.LABEL_CN
+		          FROM ACCESSPOINT A
+		         WHERE A.CUID = W.SITE_CUID_A
+		        UNION ALL
+		        SELECT F.LABEL_CN FROM FIBER_CAB F WHERE F.CUID = W.SITE_CUID_A
+		        UNION ALL
+		        SELECT F.LABEL_CN FROM FIBER_JOINT_BOX F WHERE F.CUID = W.SITE_CUID_A) AS SITE_NAME_A,
+		        (SELECT S.LABEL_CN
+		          FROM SITE S
+		         WHERE S.CUID = W.SITE_CUID_Z
+		        UNION ALL
+		        SELECT R.LABEL_CN
+		          FROM ROOM R
+		         WHERE R.CUID = W.SITE_CUID_Z
+		        UNION ALL
+		        SELECT T.LABEL_CN
+		          FROM TRANS_ELEMENT T
+		         WHERE T.CUID = W.SITE_CUID_Z
+		        UNION ALL
+		        SELECT A.LABEL_CN
+		          FROM ACCESSPOINT A
+		         WHERE A.CUID = W.SITE_CUID_Z
+		        UNION ALL
+		        SELECT F.LABEL_CN FROM FIBER_CAB F WHERE F.CUID = W.SITE_CUID_Z
+		        UNION ALL
+		        SELECT F.LABEL_CN FROM FIBER_JOINT_BOX F WHERE F.CUID = W.SITE_CUID_Z) AS SITE_NAME_Z,
+		        S.SORT_NO,
+		        W.RATE,
+		        W.CREATOR
+		 FROM ATTEMP_OPTICAL_WAY W,T_TASK_TO_SERVICE S,T_ACT_SHEET T
+		 WHERE S.RELATED_SHEET_CUID = T.CUID
+		 		AND S.RELATED_SERVICE_CUID = W.CUID
+		 		AND S.RELATED_TASK_CUID = #taskId#
+		 <isNotEmpty property="attempOptCuidList">
+		 	<iterate property="attempOptCuidList" prepend="AND W.CUID IN " open="(" conjunction="," close=")">
+		 		#attempOptCuidList[]#
+		 	</iterate>
+		 </isNotEmpty>
+		 <isNotEmpty property="sheetId">
+		 	AND T.CUID = #sheetId#
+		 </isNotEmpty>
+		 UNION ALL
+		 SELECT 
+				'T_ATTEMP_OPTICAL_WAY_LOG'|| SYS_GUID() AS CUID,
+		        S.RELATED_TASK_CUID,
+		        T.CUID AS RELATED_SHEET_CUID,
+		        T.LABEL_CN AS RELATED_SHEET_NAME,
+		        T.HEADING_NUM AS HEADING_NUM,
+		        T.SHEET_NO AS SHEET_NO,
+		        T.CREATOR AS RELATED_CREATE_USER ,
+		        T.CREATOR AS DESIGN_USER,
+		        '$ACTION_CODE$' AS ACTION_CODE,
+		        '$REMARK$' AS REMARK,
+		        W.SITE_CUID_A,
+		        W.BUSINESS_INFO,
+		        W.OPTICAL_WAY_STATE,
+		        W.OPTICAL_NUM,
+		        W.SITE_CUID_Z,
+		        W.INSTEAD_CUID,
+		        W.OPTICAL_WAY_TYPE,
+		        W.NE_PORT_CUID_A,
+		        SYSDATE AS SERVICE_TIME,
+		        W.NE_PORT_CUID_Z,
+		        W.END_ODF_A,
+		        W.END_ODF_Z,
+		        W.IS_WHOLE_ROUTE,
+		        (SELECT ROUTE_DESCRIPTION FROM OPTICAL_ROUTE WHERE RELATED_SERVICE_CUID=W.CUID) AS PATHROUTE,
+		        W.ZJPOINTS,
+		        W.DEV_INFO_Z,
+		        W.DEV_INFO_A,
+		        W.RELATED_SYSTEM_CUID,
+		        W.ATTENUATE,
+		        AW.CUID AS RELATED_ATTEMP_SERVICE_CUID  ,
+		        AW.RELATED_SERVICE_CUID,
+		        W.LABEL_CN,
+		        W.ALIAS,              
+		        W.ISDELETE,
+		        SYSDATE AS CREATE_TIME,
+		        SYSDATE AS LAST_MODIFY_TIME,
+		        W.NO,
+		        W.OPTICAL_WAY,
+		        W.EXT_TYPE,
+		        W.DISPATCH_NAME,
+		        W.SCHEDULE_STATE,
+		        W.ACCESS_POINT_A,
+		        W.ACCESS_POINT_Z,
+		        W.IS_WHOLE_JUMP,
+		        W.BUSINESS_NAME,
+		        W.RELATED_A_SWITCH_DEV,
+		        W.RELATED_A_SWITCH_PORT,
+		        W.RELATED_A_SWITCH_SITE,
+		        W.RELATED_Z_SWITCH_DEV,
+		        W.RELATED_Z_SWITCH_PORT,
+		        W.RELATED_Z_SWITCH_SITE,
+		        W.RELATED_A_SWITCH_ODF,
+		        W.RELATED_Z_SWITCH_ODF,
+		        W.ROUTE_TYPE,
+		        W.DEV_NAME_A,
+		        W.DEV_NAME_Z,
+		        W.OTHER_BUSSINESS_CUID,
+		        W.MAKE_FLAG,
+		        W.RELATED_A_ODFPORT_NAME,
+		        W.RELATED_Z_ODFPORT_NAME,
+		        W.APPLY_TYPE,
+		        W.OPTICAL_LEVEL,
+		        AW.SCHEDULE_TYPE,
+            	'调整前' AS STATUS,
+		        W.ZJPOINTS_CUID,
+		        (SELECT S.LABEL_CN
+		          FROM SITE S
+		         WHERE S.CUID = W.SITE_CUID_A
+		        UNION ALL
+		        SELECT R.LABEL_CN
+		          FROM ROOM R
+		         WHERE R.CUID = W.SITE_CUID_A
+		        UNION ALL
+		        SELECT T.LABEL_CN
+		          FROM TRANS_ELEMENT T
+		         WHERE T.CUID = W.SITE_CUID_A
+		        UNION ALL
+		        SELECT A.LABEL_CN
+		          FROM ACCESSPOINT A
+		         WHERE A.CUID = W.SITE_CUID_A
+		        UNION ALL
+		        SELECT F.LABEL_CN FROM FIBER_CAB F WHERE F.CUID = W.SITE_CUID_A
+		         UNION ALL
+		        SELECT F.LABEL_CN FROM FIBER_JOINT_BOX F WHERE F.CUID = W.SITE_CUID_A) AS SITE_NAME_A,
+		        (SELECT S.LABEL_CN
+		          FROM SITE S
+		         WHERE S.CUID = W.SITE_CUID_Z
+		        UNION ALL
+		        SELECT R.LABEL_CN
+		          FROM ROOM R
+		         WHERE R.CUID = W.SITE_CUID_Z
+		        UNION ALL
+		        SELECT T.LABEL_CN
+		          FROM TRANS_ELEMENT T
+		         WHERE T.CUID = W.SITE_CUID_Z
+		        UNION ALL
+		        SELECT A.LABEL_CN
+		          FROM ACCESSPOINT A
+		         WHERE A.CUID = W.SITE_CUID_Z
+		        UNION ALL
+		        SELECT F.LABEL_CN FROM FIBER_CAB F WHERE F.CUID = W.SITE_CUID_Z
+		        UNION ALL
+		        SELECT F.LABEL_CN FROM FIBER_JOINT_BOX F WHERE F.CUID = W.SITE_CUID_Z) AS SITE_NAME_Z,
+		        S.SORT_NO,
+		        AW.RATE,
+		        AW.CREATOR
+		 FROM OPTICAL_WAY W,ATTEMP_OPTICAL_WAY AW,T_TASK_TO_SERVICE S,T_ACT_SHEET T
+		 WHERE S.RELATED_SHEET_CUID = T.CUID
+		 		AND S.RELATED_SERVICE_CUID = AW.CUID
+		 		AND AW.RELATED_SERVICE_CUID = W.CUID
+		 		AND AW.SCHEDULE_TYPE = 3
+		 		AND S.RELATED_TASK_CUID = #taskId#
+		 <isNotEmpty property="attempOptCuidList">
+		 	<iterate property="attempOptCuidList" prepend="AND AW.CUID IN " open="(" conjunction="," close=")">
+		 		#attempOptCuidList[]#
+		 	</iterate>
+		 </isNotEmpty>
+		 <isNotEmpty property="sheetId">
+		 	AND T.CUID = #sheetId#
+		 </isNotEmpty>
+		 )
+	</insert>
+	<select id="validateAttempOpticalData"
+		parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+			SELECT AOY.CUID                AS ATTEMP_OPTICAL_WAY_CUID,
+		       AOY.RELATED_SERVICE_CUID AS OPTICAL_WAY_CUID,
+		       AOY.EXT_TYPE            AS ATTEMP_OPTICAL_WAY_EXT_TYPE,
+		       AOY.IS_WHOLE_ROUTE,
+			   AOY.IS_WHOLE_JUMP ,
+		       AO.ORIG_POINT_CUID      AS ORIG_ODFPOINT_CUID,
+		       AO.DEST_POINT_CUID      AS DEST_ODFPOINT_CUID,
+		       AO.RELATED_OPTICAL_CUID AS OPTICAL_CUID,
+		       AO.CUID                 AS ATTEMP_OPTICAL_CUID,
+		       AOY.SCHEDULE_TYPE,
+		       AOY.LABEL_CN AS OPTICAL_WAY_NAME,
+		       AO.LABEL_CN  AS OPTICAL_NAME,
+		       AP.PORT_CUID,
+		       AP.PORT_AZ_TYPE,
+		       AP.INDEX_PORT,
+		       AOP.INDEX_PATH_ROUTE,
+		       AOP.INDEX_ROUTE_SEG,
+		       AOY.APPLY_TYPE,
+		       AOY.OPTICAL_NUM
+		  FROM ATTEMP_OPTICAL_WAY        AOY LEFT JOIN ATTEMP_OPTICAL_WAY_TO_PORT AP ON AP.OPTICAL_WAY_CUID=AOY.CUID,
+		       ATTEMP_OPTICAL_ROUTE      AOR,
+		       ATT_OPTICAL_ROUTE_TO_PATH AOP,
+		       ATTEMP_OPTICAL            AO
+		 WHERE AOY.CUID = AOR.RELATED_SERVICE_CUID
+		   AND AOR.CUID = AOP.OPTICAL_ROUTE_CUID
+		   AND AOP.PATH_CUID = AO.CUID
+		<isNotEmpty property="attempOpticalWayCuidList">
+			<iterate prepend=" AND AOY.CUID IN " property="attempOpticalWayCuidList" conjunction="," open="(" close=")">
+				#attempOpticalWayCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isNotEmpty property="taskId">
+			AND AOY.CUID IN (SELECT S.RELATED_SERVICE_CUID FROM T_TASK_TO_SERVICE S WHERE S.RELATED_TASK_CUID =#taskId#)
+		</isNotEmpty>
+		<isEmpty property="attempOpticalWayCuidList">
+			<isEmpty property="taskId">
+				AND 1 = 2
+			</isEmpty>
+		</isEmpty>
+		UNION ALL
+		SELECT AOY.CUID                AS ATTEMP_OPTICAL_WAY_CUID,
+		       AOY.RELATED_SERVICE_CUID AS OPTICAL_WAY_CUID,
+		       AOY.EXT_TYPE            AS ATTEMP_OPTICAL_WAY_EXT_TYPE,
+		       AOY.IS_WHOLE_ROUTE,
+			   AOY.IS_WHOLE_JUMP ,
+		       AO.ORIG_POINT_CUID      AS ORIG_ODFPOINT_CUID,
+		       AO.DEST_POINT_CUID      AS DEST_ODFPOINT_CUID,
+		       AO.CUID 				   AS OPTICAL_CUID,
+		       ''                      AS ATTEMP_OPTICAL_CUID,
+		       AOY.SCHEDULE_TYPE,
+		       AOY.LABEL_CN AS OPTICAL_WAY_NAME,
+		       AO.LABEL_CN  AS OPTICAL_NAME,
+		       AP.PORT_CUID,
+		       AP.PORT_AZ_TYPE,
+		       AP.INDEX_PORT,
+		       AOP.INDEX_PATH_ROUTE,
+		       AOP.INDEX_ROUTE_SEG,
+		       AOY.APPLY_TYPE,
+		       AOY.OPTICAL_NUM
+		  FROM ATTEMP_OPTICAL_WAY        AOY LEFT JOIN ATTEMP_OPTICAL_WAY_TO_PORT AP ON AP.OPTICAL_WAY_CUID=AOY.CUID,
+		       ATTEMP_OPTICAL_ROUTE      AOR,
+		       ATT_OPTICAL_ROUTE_TO_PATH AOP,
+		       OPTICAL            AO
+		 WHERE AOY.CUID = AOR.RELATED_SERVICE_CUID
+		   AND AOR.CUID = AOP.OPTICAL_ROUTE_CUID
+		   AND AOP.PATH_CUID = AO.CUID
+		<isNotEmpty property="attempOpticalWayCuidList">
+			<iterate prepend=" AND AOY.CUID IN " property="attempOpticalWayCuidList" conjunction="," open="(" close=")">
+				#attempOpticalWayCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isNotEmpty property="taskId">
+			AND AOY.CUID IN (SELECT S.RELATED_SERVICE_CUID FROM T_TASK_TO_SERVICE S WHERE S.RELATED_TASK_CUID =#taskId#)
+		</isNotEmpty>
+		<isEmpty property="attempOpticalWayCuidList">
+			<isEmpty property="taskId">
+				AND 1 = 2
+			</isEmpty>
+		</isEmpty>
+	   ORDER BY INDEX_ROUTE_SEG,INDEX_PATH_ROUTE
+	</select>
+	<select id="validateOpticalData"
+		parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+			SELECT  AOP.PATH_CUID AS OPTICAL_CUID,
+				   	O.LABEL_CN
+			  FROM OPTICAL_ROUTE      AOR,
+			       OPTICAL_ROUTE_TO_PATH AOP,
+			       OPTICAL_WAY O
+			 WHERE AOR.CUID = AOP.OPTICAL_ROUTE_CUID
+			 	AND O.CUID=AOR.RELATED_SERVICE_CUID
+		<isNotEmpty property="opticalWayCuidList">
+			<iterate prepend=" AND AOR.RELATED_SERVICE_CUID IN " property="opticalWayCuidList" conjunction="," open="(" close=")">
+				#opticalWayCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="opticalWayCuidList">
+			AND 1 = 2
+		</isEmpty>
+	</select>
+	<select id="validatePortExist"
+		parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+			
+		SELECT AO.LABEL_CN AS LABEL_CN,
+               AO.CUID AS OPTICAL_WAY_CUID ,
+               AOP.PORT_AZ_TYPE AS  PORTAZTYPE,
+               AO.SITE_CUID_A,
+               AO.SITE_CUID_Z
+        FROM  ATTEMP_OPTICAL_WAY  AO LEFT JOIN ATTEMP_OPTICAL_WAY_TO_PORT AOP ON AO.CUID=AOP.OPTICAL_WAY_CUID WHERE 1=1
+		<isNotEmpty property="attempOpticalWayCuidList">
+			<iterate prepend=" AND AO.CUID IN " property="attempOpticalWayCuidList" conjunction="," open="(" close=")">
+				#attempOpticalWayCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalWayCuidList">
+			AND 1 = 2
+		</isEmpty>
+		
+	</select>
+	<select id="validateOpticalUse"
+		parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+			SELECT AO.RELATED_OPTICAL_CUID AS CUID,
+			       AW.LABEL_CN ,'调度光路' AS TYPE
+			  FROM ATTEMP_OPTICAL AO, ATTEMP_OPTICAL_WAY AW
+			 WHERE AO.RELATED_OPTICAL_WAY_CUID = AW.CUID
+			 		AND AO.RELATED_OPTICAL_CUID IS NOT NULL
+		<isNotEmpty property="opticalCuidList">
+			<iterate prepend=" AND AO.RELATED_OPTICAL_CUID IN " property="opticalCuidList" conjunction="," open="(" close=")">
+				#opticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="opticalCuidList">
+			AND 1 = 2
+		</isEmpty>
+		UNION ALL
+		SELECT OP.PATH_CUID AS CUID, OW.LABEL_CN ,'光路' AS TYPE
+		  FROM OPTICAL_ROUTE_TO_PATH OP, OPTICAL_ROUTE O, OPTICAL_WAY OW
+		 WHERE OP.OPTICAL_ROUTE_CUID = O.CUID
+		   AND O.RELATED_SERVICE_CUID = OW.CUID
+		<isNotEmpty property="opticalCuidList">
+			<iterate prepend=" AND OP.PATH_CUID IN " property="opticalCuidList" conjunction="," open="(" close=")">
+				#opticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="opticalCuidList">
+			AND 1 = 2
+		</isEmpty>
+		UNION ALL
+		SELECT AP.PATH_CUID AS CUID, AW.LABEL_CN,'调度光路' AS TYPE
+	      FROM ATT_OPTICAL_ROUTE_TO_PATH AP,
+	           ATTEMP_OPTICAL_ROUTE      AR,
+	           ATTEMP_OPTICAL_WAY        AW
+	     WHERE AP.OPTICAL_ROUTE_CUID = AR.CUID
+	       AND AR.RELATED_SERVICE_CUID = AW.CUID 
+		<isNotEmpty property="opticalCuidList">
+			<iterate prepend=" AND AP.PATH_CUID IN " property="opticalCuidList" conjunction="," open="(" close=")">
+				#opticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="opticalCuidList">
+			AND 1 = 2
+		</isEmpty>
+	</select>
+	<select id="validateOdfData"
+		parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+			SELECT O.ORIG_POINT_CUID,O.DEST_POINT_CUID,O.CUID,(SELECT W.LABEL_CN FROM OPTICAL_WAY W WHERE W.CUID=O.RELATED_OPTICAL_WAY_CUID) AS WAY_NAME,O.LABEL_CN AS OPTICAL_NAME FROM OPTICAL O
+			 WHERE 1=1
+		<isNotEmpty property="odfCuidList">
+			<iterate prepend=" AND ORIG_POINT_CUID IN " property="odfCuidList" conjunction="," open="(" close=")">
+				#odfCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="odfCuidList">
+			AND 1 = 2
+		</isEmpty>
+		UNION
+		SELECT O.ORIG_POINT_CUID,O.DEST_POINT_CUID,O.CUID,(SELECT W.LABEL_CN FROM OPTICAL_WAY W WHERE W.CUID=O.RELATED_OPTICAL_WAY_CUID) AS WAY_NAME,O.LABEL_CN AS OPTICAL_NAME FROM OPTICAL O 
+			 WHERE 1=1
+		<isNotEmpty property="odfCuidList">
+			<iterate prepend=" AND O.DEST_POINT_CUID IN " property="odfCuidList" conjunction="," open="(" close=")">
+				#odfCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="odfCuidList">
+			AND 1 = 2
+		</isEmpty>
+	</select>
+	<delete id="deleteAttOptDgnTextPath" parameterClass="java.util.HashMap">
+		DELETE FROM T_ATTEMP_OPTICAL_DGN_TEXT_PATH
+		 WHERE EXISTS
+		 (SELECT 1
+		          FROM T_ATTEMP_OPTICAL_DGN_PATH
+		         WHERE CUID = T_ATTEMP_OPTICAL_DGN_PATH_CUID
+		  <isNotEmpty property="cuidList">
+		  	<iterate property="cuidList" prepend="AND ATTEMP_OPTICAL_CUID IN" open="(" conjunction="," close=")">
+		  		#cuidList[]#
+		  	</iterate>
+		  </isNotEmpty>
+		  <isEmpty property="cuidList">
+		  	 AND 1=2
+		  </isEmpty>         
+		  )
+	</delete>
+	<delete id="deleteAttOptDgnPath" parameterClass="java.util.HashMap">
+		DELETE FROM T_ATTEMP_OPTICAL_DGN_PATH WHERE 1 = 1
+		<isNotEmpty property="cuidList">
+		  	<iterate property="cuidList" prepend="AND ATTEMP_OPTICAL_CUID IN" open="(" conjunction="," close=")">
+		  		#cuidList[]#
+		  	</iterate>
+		  </isNotEmpty>
+		  <isEmpty property="cuidList">
+		  	 AND 1=2
+		  </isEmpty>
+	</delete>
+		
+	
+	<!-- 插入文本OPTICAL_ROUTE-->
+	<insert id="insertOpticalToPort" parameterClass="java.util.HashMap">
+			INSERT INTO OPTICAL_WAY_TO_PORT(
+			OBJECTID,
+			GT_VERSION,
+			OPTICAL_WAY_CUID,
+			PORT_CUID,
+			PORT_AZ_TYPE,
+			INDEX_PORT,
+			LABEL_CN,
+			CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME,
+			RELATED_NE_CUID)
+			SELECT 
+			GET_OBJECT_ID('OPTICAL_WAY_TO_PORT') AS OBJECTID,
+			GT_VERSION,
+			REPLACE(OPTICAL_WAY_CUID,'ATTEMP_OPTICAL','OPTICAL') AS OPTICAL_WAY_CUID,
+			PORT_CUID,
+			PORT_AZ_TYPE,
+			INDEX_PORT,
+			LABEL_CN,
+			REPLACE(CUID,'ATTEMP_OPTICAL','OPTICAL') AS CUID,
+			ISDELETE,
+			CREATE_TIME,
+			LAST_MODIFY_TIME,
+			RELATED_NE_CUID
+			FROM ATTEMP_OPTICAL_WAY_TO_PORT 
+			WHERE 1=1
+		   <isNotEmpty property="attempOpticalCuidList">
+				<iterate prepend=" AND OPTICAL_WAY_CUID IN" property="attempOpticalCuidList" conjunction="," open="(" close=")">
+					#attempOpticalCuidList[]#
+				</iterate>
+			</isNotEmpty>
+			<isEmpty property="attempOpticalCuidList">
+					AND 1=2
+			</isEmpty>
+	</insert>
+	
+	<delete id="deleteOpticalToPort" parameterClass="java.util.HashMap">
+		DELETE FROM OPTICAL_WAY_TO_PORT
+ 			WHERE 1=1 
+		<isNotEmpty property="attempOpticalCuidList">
+			AND OPTICAL_WAY_CUID IN
+       		(SELECT CUID
+          	FROM OPTICAL_WAY
+         		WHERE CUID IN (SELECT RELATED_SERVICE_CUID
+                 FROM ATTEMP_OPTICAL_WAY
+                 WHERE 1=1
+			<iterate prepend=" AND CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+			))
+		</isNotEmpty>
+		<isNotEmpty property="releaseOpticalList">
+			<iterate prepend=" AND OPTICAL_WAY_CUID IN " property="releaseOpticalList"
+				conjunction="," open="(" close=")">
+				#releaseOpticalList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">
+			<isEmpty property="releaseOpticalList">
+				AND 1 = 2
+			</isEmpty>
+		</isEmpty>
+		
+	</delete>
+	<delete id="deleteAttOpticalToPort" parameterClass="java.util.HashMap">
+		DELETE FROM ATTEMP_OPTICAL_WAY_TO_PORT
+                 WHERE 1=1
+		<isNotEmpty property="attempOpticalCuidList">
+			<iterate prepend=" AND OPTICAL_WAY_CUID IN " property="attempOpticalCuidList"
+				conjunction="," open="(" close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">AND 1 = 2</isEmpty>
+	</delete>
+	<select id="validatePtpWithOptical" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT AP.PORT_CUID,
+	       O.CUID,
+	       O.LABEL_CN AS WAY_NAME,
+	       (SELECT LABEL_CN FROM PTP P WHERE P.CUID = AP.PORT_CUID) AS LABEL_CN
+		  FROM ATTEMP_OPTICAL_WAY_TO_PORT AP, ATTEMP_OPTICAL_WAY O
+		 WHERE AP.OPTICAL_WAY_CUID = O.CUID
+		<isNotEmpty property="usePortList">
+		   AND AP.PORT_CUID IN
+			<iterate property="usePortList" open="(" conjunction="," close=")">
+				#usePortList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="usePortList">
+		   AND 1=2
+		</isEmpty>
+		UNION ALL
+			SELECT AP.PORT_CUID,
+	       O.CUID,
+	       O.LABEL_CN AS WAY_NAME,
+	       (SELECT LABEL_CN FROM PTP P WHERE P.CUID = AP.PORT_CUID) AS LABEL_CN
+		  FROM OPTICAL_WAY_TO_PORT AP, OPTICAL_WAY O
+		 WHERE AP.OPTICAL_WAY_CUID = O.CUID
+		 <isNotEmpty property="usePortList">
+		   AND AP.PORT_CUID IN
+			<iterate property="usePortList" open="(" conjunction="," close=")">
+				#usePortList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="usePortList">
+		   AND 1=2
+		</isEmpty>
+	</select>
+	<select id="selectJumpFiberByPort" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT ORIG_POINT_CUID,DEST_POINT_CUID,LABEL_CN,CUID FROM JUMP_FIBER
+		WHERE 1=1 
+		<isNotEmpty property="usePortList">
+		   AND ORIG_POINT_CUID IN
+			<iterate property="usePortList" open="(" conjunction="," close=")">
+				#usePortList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="usePortList">
+		   AND 1=2
+		</isEmpty>
+		UNION
+			SELECT ORIG_POINT_CUID,DEST_POINT_CUID,LABEL_CN,CUID FROM JUMP_FIBER
+			WHERE 1=1 
+		 <isNotEmpty property="usePortList">
+		   AND DEST_POINT_CUID IN
+			<iterate property="usePortList" open="(" conjunction="," close=")">
+				#usePortList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="usePortList">
+		   AND 1=2
+		</isEmpty>
+	</select>
+	<select id="selectRouteSeg" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT DISTINCT AR.RELATED_SERVICE_CUID,
+			   NVL(DECODE(AP.PATH_TYPE,'OPTICAL',(SELECT IS_TEXT FROM OPTICAL WHERE CUID=AP.PATH_CUID),'ATTEMP_OPTICAL',(SELECT IS_TEXT FROM ATTEMP_OPTICAL WHERE CUID=AP.PATH_CUID)),0) AS IS_TEXT,
+				AP.INDEX_ROUTE_SEG
+				FROM ATT_OPTICAL_ROUTE_TO_PATH AP,ATTEMP_OPTICAL_ROUTE AR WHERE AP.OPTICAL_ROUTE_CUID=AR.CUID 
+		<isNotEmpty property="attempOpticalWayCuidList">
+		   AND AR.RELATED_SERVICE_CUID IN
+			<iterate property="attempOpticalWayCuidList" open="(" conjunction="," close=")">
+				#attempOpticalWayCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalWayCuidList">
+		   AND 1=2
+		</isEmpty>
+		ORDER BY RELATED_SERVICE_CUID,INDEX_ROUTE_SEG
+	</select>
+	
+	<select id="getFromCode" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT O.FROMCODE AS FROMCODE FROM T_ACT_ORDER O ,T_ACT_SHEET S WHERE S.RELATED_ORDER_CUID=O.CUID
+		<isNotEmpty property="sheetCuid">
+		  AND S.CUID=#sheetCuid# 
+		</isNotEmpty>
+		<isEmpty property="sheetCuid">
+		   AND 1=2
+		</isEmpty>
+	</select>
+	<!-- 获取光路文本光纤 -->
+	<select id="getTextOpticalRoute"  parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT
+		O.CUID, 
+		O.LABEL_CN,
+		O.RELATED_OPTICAL_WAY_CUID,
+		(SELECT LABEL_CN FROM ATTEMP_OPTICAL_WAY W WHERE W.CUID = O.RELATED_OPTICAL_WAY_CUID) AS OPTICAL_WAY_NAME
+		FROM ATTEMP_OPTICAL O
+		WHERE O.CUID IN ( SELECT PATH_CUID FROM ATT_OPTICAL_ROUTE_TO_PATH WHERE OPTICAL_ROUTE_CUID IN (SELECT CUID FROM ATTEMP_OPTICAL_ROUTE WHERE RELATED_SERVICE_CUID IN (SELECT S.RELATED_SERVICE_CUID FROM T_TASK_TO_SERVICE S, T_ACT_TASK A WHERE S.RELATED_TASK_CUID = A.CUID AND A.CUID =#taskId#)))
+		     AND O.IS_TEXT=1
+	</select>
+	
+	<select id="queryDefaultConstructRole" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT T.CUID AS RELATED_TASK2SERVICE_CUID,
+		       (SELECT MAX(R.CUID)
+		          FROM T_SYS_P_ROLE R, T_SYS_P_ROLE_REL L
+		         WHERE R.CUID = L.RELATED_ROLE_ID
+		           AND L.RELATED_REL_ID = 'OPTICAL_TRAPH.opticalConstructTask'
+		           AND R.RELATED_DISTRICT_CUID = SUBSTR((select related_space_cuid from site where cuid = p.site_cuid_a),0,26)
+		           AND L.CODE = 'TNMS_FLOW') AS RELATED_A_ROLE_CUID,
+		       (SELECT MAX(R.CUID)
+		          FROM T_SYS_P_ROLE R, T_SYS_P_ROLE_REL L
+		         WHERE R.CUID = L.RELATED_ROLE_ID
+		           AND L.RELATED_REL_ID = 'OPTICAL_TRAPH.opticalConstructTask '
+		           AND R.RELATED_DISTRICT_CUID = SUBSTR((select related_space_cuid from site where cuid = p.site_cuid_z),0,26)
+		           AND L.CODE = 'TNMS_FLOW') AS RELATED_Z_ROLE_CUID
+		  FROM T_TASK_TO_SERVICE T, attemp_optical_way P
+		 WHERE P.CUID = T.RELATED_SERVICE_CUID
+		 <isNotEmpty property="key">
+			AND EXISTS (SELECT 1
+			       FROM T_ACT_TASK TK
+			      WHERE TK.RELATED_SHEET_CUID = T.RELATED_SHEET_CUID
+			        AND TK.CUID = #key#
+			     UNION ALL
+			     SELECT 1
+			       FROM T_ACT_SHEET ST
+			      WHERE ST.CUID = T.RELATED_SHEET_CUID
+			        AND ST.CUID = #key#)
+		 </isNotEmpty>
+		 <isNotEmpty property="attempTraphCuidList">
+		 	<iterate prepend=" AND P.CUID IN " property="attempTraphCuidList" conjunction="," open="(" close=")">
+		 		#attempTraphCuidList[]#
+		 	</iterate>
+		 </isNotEmpty>
+		 <isEmpty property="key">
+			 <isEmpty property="attempTraphCuidList">
+			 	AND 1=2
+			 </isEmpty>
+		 </isEmpty>
+	</select>
+	
+	<select id="validateExistsRoleInfoLink" parameterClass="java.util.HashMap" resultClass="java.lang.String">
+		SELECT T.CUID
+		  FROM T_TASK_TO_SERVICE T, attemp_optical_way P, T_TASK_TO_SERVICE_LINK TL
+		 WHERE P.CUID = T.RELATED_SERVICE_CUID
+		   AND T.CUID = TL.RELATED_TASK2SERVICE_CUID
+		   AND TL.ROLE_ID IS NOT NULL
+		 <isNotEmpty property="key">
+			AND EXISTS (SELECT 1
+			       FROM T_ACT_TASK TK
+			      WHERE TK.RELATED_SHEET_CUID = T.RELATED_SHEET_CUID
+			        AND TK.CUID = #key#
+			     UNION ALL
+			     SELECT 1
+			       FROM T_ACT_SHEET ST
+			      WHERE ST.CUID = T.RELATED_SHEET_CUID
+			        AND ST.CUID = #key#)
+		 </isNotEmpty>
+		 <isNotEmpty property="attempTraphCuidList">
+		 	<iterate prepend=" AND P.CUID IN " property="attempTraphCuidList" conjunction="," open="(" close=")">
+		 		#attempTraphCuidList[]#
+		 	</iterate>
+		 </isNotEmpty>
+		 <isEmpty property="key">
+			 <isEmpty property="attempTraphCuidList">
+			 	AND 1=2
+			 </isEmpty>
+		 </isEmpty>
+	</select>
+	<select id="getAttempJumpFiberList" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+	  SELECT OPTICAL_CUID,COUNT(*) AS NUM FROM (
+         SELECT AJF.CUID AS JUMP_CUID, AOW.CUID AS OPTICAL_CUID   
+         FROM ATTEMP_OPTICAL_WAY AOW, ATTEMP_TRAPH_JUMP_FIBER AJF 
+         WHERE 1=1
+         AND AOW.CUID= AJF.RELATED_ATTEMP_TRAPH_CUID 
+         <isNotEmpty property="attempOpticalWayCuidList">
+	       <iterate prepend=" AND AOW.CUID IN " property="attempOpticalWayCuidList" conjunction="," open="(" close=")">
+		 		#attempOpticalWayCuidList[]#
+		 	</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalWayCuidList">
+		   AND 1 = 2
+		</isEmpty>
+         UNION 
+         SELECT JF.CUID AS JUMP_CUID,AOW.CUID AS OPTICAL_CUID 
+         FROM  ATTEMP_OPTICAL_WAY AOW ,JUMP_FIBER JF
+         WHERE 1=1        
+         AND (AOW.NE_PORT_CUID_A = JF.ORIG_POINT_CUID OR AOW.NE_PORT_CUID_A = JF.DEST_POINT_CUID)
+         <isNotEmpty property="attempOpticalWayCuidList">
+	       <iterate prepend=" AND AOW.CUID IN " property="attempOpticalWayCuidList" conjunction="," open="(" close=")">
+		 		#attempOpticalWayCuidList[]#
+		 	</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalWayCuidList">
+		   AND 1 = 2
+		</isEmpty>
+         UNION 
+         SELECT JF.CUID AS JUMP_CUID,AOW.CUID AS OPTICAL_CUID 
+         FROM  ATTEMP_OPTICAL_WAY AOW ,JUMP_FIBER JF
+         WHERE  1=1  
+         AND (AOW.NE_PORT_CUID_Z = jf.ORIG_POINT_CUID OR AOW.NE_PORT_CUID_Z = jf.DEST_POINT_CUID)
+         <isNotEmpty property="attempOpticalWayCuidList">
+	       <iterate prepend=" AND AOW.CUID IN " property="attempOpticalWayCuidList" conjunction="," open="(" close=")">
+		 		#attempOpticalWayCuidList[]#
+		 	</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalWayCuidList">
+		   AND 1 = 2
+		</isEmpty>
+      ) A 
+      GROUP BY OPTICAL_CUID
+	</select>
+		<!-- 更新odf端子的状态 -->
+	<update id="updateodfportStatus" parameterClass="java.util.HashMap">
+		UPDATE ODFPORT
+		   SET SERVICE_STATE = #state#,
+		   IS_CONNECTED = #isConnected#
+		   <isNotEmpty property="isFiber">
+		   ,IS_CONNECTED_TO_FIBER =#isFiber# 
+		   </isNotEmpty>
+		   WHERE 1=1
+		<isNotEmpty property="portList">
+			<iterate prepend=" AND CUID  IN " property="portList"
+				conjunction="," open="(" close=")">
+				#portList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="portList">AND 1 = 2</isEmpty>
+	</update>
+	
+	<select id="selectAttempJumpFiberByOpCuid" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT ORIG_POINT_CUID,DEST_POINT_CUID,LABEL_CN,CUID,JUMP_PAIR_STATE FROM ATTEMP_TRAPH_JUMP_FIBER
+		WHERE 1=1 
+		<isNotEmpty property="usePortList">
+		   AND RELATED_ATTEMP_TRAPH_CUID IN
+			<iterate property="usePortList" open="(" conjunction="," close=")">
+				#usePortList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="usePortList">
+		   AND 1=2
+		</isEmpty>
+	</select>
+	<select id="selectJumpFiberByOpCuid" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT V.ORIG_POINT_CUID 
+		  FROM JUMP_FIBER V
+		<isNotEmpty property="portCuid">
+		   START WITH V.DEST_POINT_CUID = #portCuid#
+		   CONNECT BY PRIOR V.ORIG_POINT_CUID = V.DEST_POINT_CUID
+		</isNotEmpty>
+		<isEmpty property="portCuid">
+		   where 1=2
+		</isEmpty>
+		UNION ALL
+		SELECT V.DEST_POINT_CUID as ORIG_POINT_CUID 
+		  FROM JUMP_FIBER V
+		  <isNotEmpty property="portCuid">
+		   START WITH V.ORIG_POINT_CUID = #portCuid#
+		   CONNECT BY PRIOR V.ORIG_POINT_CUID = V.DEST_POINT_CUID
+		</isNotEmpty>
+		<isEmpty property="portCuid">
+		   where 1=2
+		</isEmpty>
+	</select>
+	
+	<select id="selectJumpFiberByOpCuid2" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT DISTINCT ORIG_POINT_CUID FROM (
+		SELECT V.ORIG_POINT_CUID 
+		  FROM JUMP_FIBER V
+		 where 1=1
+		<isNotEmpty property="portList">
+			<iterate prepend=" AND V.DEST_POINT_CUID  IN " property="portList"
+				conjunction="," open="(" close=")">
+				#portList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="portList">AND 1 = 2</isEmpty>
+		UNION ALL
+		SELECT V.DEST_POINT_CUID 
+		  FROM JUMP_FIBER V
+		 where 1=1
+		<isNotEmpty property="portList">
+			<iterate prepend=" AND V.ORIG_POINT_CUID  IN " property="portList"
+				conjunction="," open="(" close=")">
+				#portList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="portList">AND 1 = 2</isEmpty>
+		)
+	</select>
+	
+	
+	
+	<update id="updateptpConnStatus" parameterClass="java.util.HashMap">
+		UPDATE PTP
+		   SET IS_CONN_STATE = #isConn#
+		   WHERE 1=1
+		<isNotEmpty property="portList">
+			<iterate prepend=" AND CUID  IN " property="portList"
+				conjunction="," open="(" close=")">
+				#portList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="portList">AND 1 = 2</isEmpty>
+	</update>
+	
+	<select id="findEOpticalWay" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+			SELECT AN.CUID,
+			       AN.LABEL_CN,
+	           AN.PATHROUTE AS ATTEMP_PATHROUTE,
+	           (SELECT PH.CONTENT FROM PATHINFO PH WHERE PH.RELATED_SERVICE_CUID = AN.CUID) AS PATHROUTE,
+	           IS_WHOLE_ROUTE,
+	           IS_WHOLE_ROUTE AS IS_WHOLE,
+	           (SELECT V.NAME
+	              FROM T_SYS_ENUM_VALUE V, T_SYS_ENUM_TYPE T
+	             WHERE V.RELATED_ENUM_TYPE_CUID = T.CUID
+	               AND T.CODE = 'OPTICAL_NUM'
+	               AND V.VALUE = AN.OPTICAL_NUM||'') AS OPTICAL_NUM_NAME,
+	             AN.OPTICAL_NUM,
+	           (SELECT S.LABEL_CN
+	              FROM SITE S
+	             WHERE S.CUID = AN.SITE_CUID_A
+	            UNION ALL
+	            SELECT R.LABEL_CN
+	              FROM ROOM R
+	             WHERE R.CUID = AN.SITE_CUID_A
+	            UNION ALL
+	            SELECT T.LABEL_CN
+	              FROM TRANS_ELEMENT T
+	             WHERE T.CUID = AN.SITE_CUID_A
+	            UNION ALL
+	            SELECT A.LABEL_CN
+	              FROM ACCESSPOINT A
+	             WHERE A.CUID = AN.SITE_CUID_A
+	            UNION ALL
+	            SELECT F.LABEL_CN FROM FIBER_CAB F WHERE F.CUID = AN.SITE_CUID_A
+	            UNION ALL
+	            SELECT F.LABEL_CN FROM FIBER_JOINT_BOX F WHERE F.CUID = AN.SITE_CUID_A) AS SITE_CUID_A,
+	           (SELECT S.LABEL_CN
+	              FROM SITE S
+	             WHERE S.CUID = AN.SITE_CUID_Z
+	            UNION ALL
+	            SELECT R.LABEL_CN
+	              FROM ROOM R
+	             WHERE R.CUID = AN.SITE_CUID_Z
+	            UNION ALL
+	            SELECT T.LABEL_CN
+	              FROM TRANS_ELEMENT T
+	             WHERE T.CUID = AN.SITE_CUID_Z
+	            UNION ALL
+	            SELECT A.LABEL_CN
+	              FROM ACCESSPOINT A
+	             WHERE A.CUID = AN.SITE_CUID_Z
+	            UNION ALL
+	            SELECT F.LABEL_CN FROM FIBER_CAB F WHERE F.CUID = AN.SITE_CUID_Z
+	            UNION ALL
+	            SELECT F.LABEL_CN FROM FIBER_JOINT_BOX F WHERE F.CUID = AN.SITE_CUID_Z) AS SITE_CUID_Z,
+	           (SELECT P.LABEL_CN FROM PTP P WHERE P.CUID = AN.NE_PORT_CUID_A) AS NE_PORT_CUID_A,
+	           (SELECT P.LABEL_CN FROM PTP P WHERE P.CUID = AN.NE_PORT_CUID_Z) AS NE_PORT_CUID_Z,
+	             AN.NE_PORT_CUID_A AS  PORT_A_CUID,
+	            AN.NE_PORT_CUID_Z  AS PORT_Z_CUID,
+	           ZJPOINTS,
+	           ZJPOINTS_CUID,
+	           AN.RELATED_SERVICE_CUID
+	      FROM OPTICAL_WAY AN
+	      WHERE 1=1
+		  <isNotEmpty property="cuidList">
+			<iterate prepend=" AND AN.CUID  IN " property="cuidList"
+				conjunction="," open="(" close=")">
+				#cuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="cuidList">AND 1 = 2</isEmpty>				
+	</select>
+	
+	<delete id="deleteOdfPortToTraph" parameterClass="java.util.HashMap">
+		DELETE
+		  FROM DFPORT_TO_TRAPH
+		 WHERE 1=1
+		<isNotEmpty property="attempOpticalCuidList">
+		   AND RELATED_TRAPH_CUID IN
+			<iterate property="attempOpticalCuidList" open="(" conjunction="," close=")">
+				#attempOpticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isEmpty property="attempOpticalCuidList">
+		   AND 1=2
+		</isEmpty>
+	</delete>
+	
+	<select id="findOptWayInfo" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+			SELECT 
+			     STATE,
+			     RELATED_SERVICE_CUID AS CUID
+			FROM T_TASK_TO_SERVICE
+	      WHERE 1=1
+		  <isNotEmpty property="opticalCuidList">
+			<iterate prepend=" AND RELATED_SERVICE_CUID  IN " property="opticalCuidList"
+				conjunction="," open="(" close=")">
+				#opticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isNotEmpty property="taskId">
+		     AND RELATED_TASK_CUID = #taskId#
+		</isNotEmpty>
+		<isEmpty property="opticalCuidList">
+		     <isEmpty property="taskId">
+		         AND 1 = 2
+		      </isEmpty>
+		</isEmpty>				
+	</select>
+	
+	<update id="updateOptState" parameterClass="java.util.HashMap">
+		UPDATE T_TASK_TO_SERVICE
+		   SET STATE = #state#
+		   WHERE 1=1
+		<isNotEmpty property="opticalCuidList">
+			<iterate prepend=" AND RELATED_SERVICE_CUID  IN " property="opticalCuidList"
+				conjunction="," open="(" close=")">
+				#opticalCuidList[]#
+			</iterate>
+		</isNotEmpty>
+		<isNotEmpty property="taskId">
+		     AND RELATED_TASK_CUID = #taskId#
+		</isNotEmpty>
+		<isEmpty property="opticalCuidList">
+		     <isEmpty property="taskId">
+		         AND 1 = 2
+		      </isEmpty>
+		</isEmpty>
+	</update>
+	
+	<select id="getSheetToAttOpticalWay" parameterClass="java.util.HashMap" resultClass="java.lang.String">
+		SELECT DISTINCT RELATED_SERVICE_CUID
+		FROM T_TASK_TO_SERVICE
+		WHERE 1=1
+		<isNotEmpty property="sheetCuid">
+        	AND RELATED_SHEET_CUID = #sheetCuid#
+        </isNotEmpty>
+        <isEmpty property="sheetCuid">
+       		AND 1=2
+        </isEmpty>
+	</select>
+	
+	<select id="getIsTextOptRoute"  parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+	    SELECT O.IS_TEXT
+   		FROM ATTEMP_OPTICAL            O,
+      		 ATTEMP_OPTICAL_ROUTE      T,
+       		 ATT_OPTICAL_ROUTE_TO_PATH A
+ 		WHERE T.CUID = A.OPTICAL_ROUTE_CUID
+  	    AND O.CUID = A.PATH_CUID
+  	    <isNotEmpty property="attempOptWayCuid">
+        	AND T.RELATED_SERVICE_CUID = #attempOptWayCuid#
+        </isNotEmpty>
+        <isEmpty property="attempOptWayCuid">
+      		AND 1=2
+       	</isEmpty>
+		UNION ALL
+		SELECT O.IS_TEXT
+ 		FROM OPTICAL              O,
+        ATTEMP_OPTICAL_ROUTE      T,
+        ATT_OPTICAL_ROUTE_TO_PATH A
+		WHERE T.CUID = A.OPTICAL_ROUTE_CUID
+   		AND O.CUID = A.PATH_CUID
+   		<isNotEmpty property="attempOptWayCuid">
+        	AND T.RELATED_SERVICE_CUID = #attempOptWayCuid#
+        </isNotEmpty>
+        <isEmpty property="attempOptWayCuid">
+      		AND 1=2
+       	</isEmpty>
+	</select>
+	<!--<select id="queryForOptWayByPks" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT O.CUID AS OPTID,O.FIBER_STATE,O.LABEL_CN AS OPT_NAME,
+			   W.CUID AS OPT_WAY_ID,W.LABEL_CN AS OPT_WAY_NAME
+		FROM OPTICAL O, OPTICAL_WAY W, OPTICAL_TO_OPTICAL_WAY OW
+		WHERE 1=1
+		   AND O.CUID = OW.OPTICAL_CUID
+		   AND OW.OPTICAL_WAY_CUID = W.CUID  
+		  <isNotEmpty property="cuids">  
+	         <iterate property="cuids" prepend="AND W.CUID IN" open="(" conjunction="," close=")">
+					#cuids[]#
+			 </iterate> 
+	      </isNotEmpty>
+	      <isEmpty property="cuids"> 
+	       AND 1=2
+	      </isEmpty>
+	    UNION 
+	    SELECT O.CUID AS OPTID,O.FIBER_STATE,O.LABEL_CN AS OPT_NAME,
+			   W.CUID AS OPT_WAY_ID,W.LABEL_CN AS OPT_WAY_NAME
+		FROM OPTICAL O, ATTEMP_OPTICAL_WAY W, OPTICAL_TO_OPTICAL_WAY OW
+		WHERE 1=1
+		   AND O.CUID = OW.OPTICAL_CUID
+		   AND OW.OPTICAL_WAY_CUID = W.CUID  
+		  <isNotEmpty property="cuids">  
+	         <iterate property="cuids" prepend="AND W.CUID IN" open="(" conjunction="," close=")">
+					#cuids[]#
+			 </iterate> 
+	      </isNotEmpty>
+	      <isEmpty property="cuids"> 
+	       AND 1=2
+	      </isEmpty>	    
+	</select>
+-->
+
+<select id="queryOpticalByService" parameterClass="java.util.HashMap" resultClass="com.boco.core.ibatis.vo.ResultMap">
+		SELECT O.CUID        AS OPTID,
+		       O.FIBER_STATE,
+		       O.LABEL_CN    AS OPT_NAME,
+		       T.CUID        AS OPT_WAY_ID,
+		       T.LABEL_CN    AS OPT_WAY_NAME
+		  FROM OPTICAL_WAY T, OPTICAL_ROUTE R, OPTICAL_ROUTE_TO_PATH P, OPTICAL O
+		 WHERE T.CUID = R.RELATED_SERVICE_CUID
+		   AND R.CUID = P.OPTICAL_ROUTE_CUID
+		   AND P.PATH_CUID = O.CUID
+		  <isNotEmpty property="cuids">  
+	         <iterate property="cuids" prepend="AND T.CUID IN" open="(" conjunction="," close=")">
+					#cuids[]#
+			 </iterate> 
+	      </isNotEmpty>
+	      <isEmpty property="cuids"> 
+	       AND 1=2
+	      </isEmpty>
+	  UNION ALL
+	  SELECT O.CUID        AS OPTID,
+		       O.FIBER_STATE,
+		       O.LABEL_CN    AS OPT_NAME,
+		       T.CUID        AS OPT_WAY_ID,
+		       T.LABEL_CN    AS OPT_WAY_NAME
+		  FROM ATTEMP_OPTICAL_WAY        T,
+		       ATTEMP_OPTICAL_ROUTE      R,
+		       ATT_OPTICAL_ROUTE_TO_PATH P,
+		       OPTICAL                   O
+		 WHERE T.CUID = R.RELATED_SERVICE_CUID
+		   AND R.CUID = P.OPTICAL_ROUTE_CUID
+		   AND P.PATH_CUID = O.CUID
+		  <isNotEmpty property="cuids">  
+	         <iterate property="cuids" prepend="AND T.CUID IN" open="(" conjunction="," close=")">
+					#cuids[]#
+			 </iterate> 
+	      </isNotEmpty>
+	      <isEmpty property="cuids"> 
+	       AND 1=2
+	      </isEmpty>	    
+</select>
+
+</sqlMap>
